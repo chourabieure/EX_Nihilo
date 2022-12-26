@@ -6,7 +6,7 @@ interface Props {
     children?: ReactNode
 }
 
-export default function TransitionLayout({ children }: Props) {
+const TransitionLayout = ({ children }: Props) => {
     const [displayChildren, setDisplayChildren] = useState(children)
     const [transitionStage, setTransitionStage] = useState('fadeOut')
     useEffect(() => {
@@ -29,8 +29,10 @@ export default function TransitionLayout({ children }: Props) {
         //     className={`${styles.content} ${styles[transitionStage]} flex flex-col items-center pt-10`}>
         //     {displayChildren}
         // </div>
-        <div>
+        <div className=''>
             {children}
         </div>
     )
 }
+
+export default TransitionLayout
