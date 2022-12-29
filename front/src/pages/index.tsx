@@ -1,3 +1,4 @@
+// @ts-nocheck
 import Navbar from "@/components/Navbar"
 import { useEffect, useState } from "react";
 import { TypeAnimation } from 'react-type-animation';
@@ -7,7 +8,6 @@ const Home = () => {
   const sectionStyle = 'h-screen snap-center text-slate-800 flex'
   const shapesStyle = 'absolute opacity-20 w-56 transition-all duration-700 ease-in-out'
 
-  const [mousePos, setMousePos] = useState({});
 
 
   useEffect(() => {
@@ -16,18 +16,16 @@ const Home = () => {
     let i = 0
 
     const handleMouseMove = (event: any) => {
-      setMousePos({ x: event.clientX, y: event.clientY });
       container.style.top = -(event.clientY * 0.01) + 'px'
       container.style.left = -(event.clientX * 0.01) + 'px'
     };
 
     const timer = setInterval(() => {
-      console.log(i);
       // shapes[i].style.opacity = 0.2
       // shapes[i + 1].style.opacity = 0.8
 
       if (i < shapes.length - 1) {
-        shapes[i].style.opacity = 0.2
+        shapes[i]["style"].opacity = 0.2
         shapes[i].style.scale = 1
         shapes[i + 1].style.opacity = 0.8
         shapes[i + 1].style.scale = 1.1
