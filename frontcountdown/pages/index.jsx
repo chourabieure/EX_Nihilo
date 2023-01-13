@@ -49,7 +49,6 @@ export default function Home() {
           alt=""
           className="absolute opacity-10 -z-[1] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px]"
         />
-        {/* <img src={bg.src} alt="" /> */}
         <img src={bg.src} alt="" className=" max-w-lg -z-[1]" />
 
         <article className="rounded-lg h-full w-full  gap-4  flex flex-col justify-center items-center absolute">
