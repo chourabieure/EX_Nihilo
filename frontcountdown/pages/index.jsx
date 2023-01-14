@@ -1,6 +1,7 @@
 import Head from "next/head";
 import { useEffect } from "react";
-import bg from "/public/images/BG.jpeg";
+import Desktop from "/public/images/Desktop.png";
+import Mobile from "/public/images/Mobile.png";
 
 export default function Home() {
   const countDownDate = new Date("Jan 30, 2023 23:00:00").getTime();
@@ -49,16 +50,28 @@ export default function Home() {
           alt=""
           className="absolute opacity-10 -z-[1] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px]"
         />
-        <img src={bg.src} alt="" className=" max-w-lg -z-[1]" />
+        <img
+          src={Desktop.src}
+          alt=""
+          className=" lg:w-[700px] md:w-[600px] sm:w-[500px] sm:block hidden -z-[1]"
+        />
+        <img
+          src={Mobile.src}
+          alt=""
+          className=" sm:hidden block -z-[1] h-3/4"
+        />
 
         <article className="rounded-lg h-full w-full  gap-4  flex flex-col justify-center items-center absolute">
-          <h1 className="text-slate-400 text-4xl font-bold">
-            On lève bientôt le voile ...
+          <h1 className="text-slate- text-[#C6C2ED] sm:text-2xl text-lg font-bold">
+            Site en construction
           </h1>
 
-          <h2 id="counter" className="text-slate-200 text-2xl font-bold">
+          <h3
+            id="counter"
+            className="text-slate-200 sm:text-5xl text-3xl font-bold text-left"
+          >
             -- : -- : -- : --
-          </h2>
+          </h3>
         </article>
       </main>
     </>
