@@ -25,7 +25,7 @@ const Navbar = () => {
 
             <ul className="flex gap-4 items-center">
                 <li className="sm:block hidden text-ex_light_purple font-medium">Contactez-nous</li>
-                {/* Burger */}
+                {/* Burger icon */}
                 <svg className="sm:h-8 h-6 stroke-[2px]  stroke-ex_light_purple fill-none" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="4.84615" cy="4.84615" r="3.34615" />
                     <circle cx="18.0005" cy="4.84615" r="3.34615" />
