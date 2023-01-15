@@ -1,13 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* @font-face {
+  font-family: 'Miju';
+  src: url('/fonts/Miju.otf');
+ } */
 
 html,
 body {
   scroll-behavior: smooth;
   height: 100vh;
   overflow: hidden;
+  font-family: 'Poppins';
 }
+
 body{
-  @apply font-medium bg-background text-slate-50;
+  background: linear-gradient(111.69deg, #0F1014 -2.75%, #3A1772 100%);
 }

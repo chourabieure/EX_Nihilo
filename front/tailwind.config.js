@@ -6,9 +6,15 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        main_blue: '#5448C8',
-        main_yellow: '#F8AE35',
-        background: '#D7D7D7'
+        ex_light_purple: "#C6C2ED",
+        ex_normal_purple: "#8D85DA",
+        ex_medium_purple: "#5448C8",
+        ex_dark_purple: '#3A1772',
+        ex_light_yellow: '#FEC806',
+        ex_dark_yellow: "#F9AF36",
+        ex_red: '#FF6969',
+        ex_gray: '#92848C'
+
       }
     },
   },
