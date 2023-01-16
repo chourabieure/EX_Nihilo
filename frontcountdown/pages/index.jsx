@@ -2,9 +2,10 @@ import Head from "next/head";
 import { useEffect } from "react";
 import Desktop from "/public/images/Desktop.png";
 import Mobile from "/public/images/Mobile.png";
+import Button from "/components/Button";
 
 export default function Home() {
-  const countDownDate = new Date("Jan 30, 2023 23:00:00").getTime();
+  const countDownDate = new Date("Jan 31, 2023 23:59:59").getTime();
 
   useEffect(() => {
     var x = setInterval(function () {
@@ -44,16 +45,33 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="relative h-screen  flex flex-col justify-center items-center   px-10 overflow-hidden ">
-        <img
-          src="images/Lines.svg"
-          alt=""
-          className="absolute opacity-10 -z-[1] left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[1300px]"
-        />
+      <main className="relative h-screen flex flex-col justify-center items-center  px-10 overflow-hidden ">
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[70%] md:w-[80%] max-w-5xl -z-[1] h-full opacity-[5%]">
+          <img
+            src="/svg/single_line.svg"
+            className="w-2 absolute left-0 md:left-1/3 -translate-x-1/2"
+            alt=""
+          />
+          <img
+            src="/svg/single_line.svg"
+            className="w-2 absolute left-full md:left-2/3 -translate-x-1/2"
+            alt=""
+          />
+          <img
+            src="/svg/single_line.svg"
+            className="w-2 absolute md:block hidden left-0 -translate-x-1/2"
+            alt=""
+          />
+          <img
+            src="/svg/single_line.svg"
+            className="w-2 absolute md:block hidden left-full -translate-x-1/2"
+            alt=""
+          />
+        </div>
         <img
           src={Desktop.src}
           alt=""
-          className=" lg:w-[700px] md:w-[600px] sm:w-[500px] sm:block hidden -z-[1]"
+          className=" lg:w-[700px] md:w-[600px] sm:w-[500px] sm:block hidden -z-[1] drop-shadow-xl"
         />
         <img
           src={Mobile.src}
@@ -61,9 +79,10 @@ export default function Home() {
           className=" sm:hidden block -z-[1] h-3/4"
         />
 
-        <article className="rounded-lg h-full w-full  gap-4  flex flex-col justify-center items-center absolute">
-          <h1 className="text-slate- text-[#C6C2ED] sm:text-2xl text-lg font-bold">
-            Site en construction
+        <article className="rounded-lg h-full w-full  gap-8  flex flex-col justify-center items-center absolute">
+          <h1 className=" text-ex_dark_yellow sm:text-3xl text-2xl font-bold whitespace-pre text-center">
+            Changement
+            <br className=" sm:hidden block" /> d'univers dans :
           </h1>
 
           <h3
@@ -72,6 +91,22 @@ export default function Home() {
           >
             -- : -- : -- : --
           </h3>
+          <div className="flex flex-col sm:flex-row pt-8 gap-4">
+            <Button
+              title="Entrons en contact"
+              bg_color="bg-ex_light_yellow"
+              text_color="text-ex_dark_purple"
+              link="https://www.linkedin.com/in/jonathan-charles-42971a96/"
+            />
+            <Button
+              title="En attendant"
+              bg_color="bg-ex_normal_purple"
+              fill_color="fill-white"
+              text_color="text-white"
+              icon={true}
+              link="https://www.linkedin.com/company/exnihilo-smartworkwear/"
+            />
+          </div>
         </article>
       </main>
     </>
