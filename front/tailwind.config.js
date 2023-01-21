@@ -15,8 +15,12 @@ module.exports = {
         ex_red: '#FF6969',
         ex_gray: '#92848C'
 
-      }
+      },
+
     },
+    fontFamily: {
+      'Miju': ['Miju']
+    }
   },
   variants: {
     extend: {},

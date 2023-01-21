@@ -5,10 +5,14 @@ const Button = ({
   text_color = "text-ex_dark_purple",
   font_size = "text-md",
   icon = false,
+  link = "#",
+  target = "_blank",
 }) => {
   return (
-    <div
-      className={`${text_color} ${bg_color} ${font_size} flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold whitespace-nowrap`}
+    <a
+      href={link}
+      target={target}
+      className={`${text_color} ${bg_color} ${font_size} flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
     >
       {title}
       {
@@ -23,7 +27,7 @@ const Button = ({
         )
         // <img src="/static/svg/arrow-right.svg" alt="icon du bouton" className="w-8 fill-ex_dark_purple" />
       }
-    </div>
+    </a>
   );
 };
 
