@@ -1,10 +1,10 @@
 const Navbar = () => {
   return (
     <>
-      <nav className="absolute z-10 left-1/2 -translate-x-1/2 top-16  items-center w-full max-w-5xl justify-between flex gap-4 px-8">
+      <nav className="absolute z-10 left-1/2 -translate-x-1/2 top-8 sm:top-16  items-center w-full max-w-7xl justify-between flex gap-4 px-8">
         {/* Logo */}
         <svg
-          className="sm:h-8 h-6 fill-white"
+          className="h-5 sm:h-6  fill-white"
           viewBox="0 0 522 99"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -29,7 +29,7 @@ const Navbar = () => {
           </li>
           {/* Burger icon */}
           <svg
-            className="sm:h-8 h-6 stroke-[2px]  stroke-white fill-none"
+            className="h-6 sm:h-8  stroke-[2px]  stroke-white fill-none"
             viewBox="0 0 36 36"
             xmlns="http://www.w3.org/2000/svg"
           >

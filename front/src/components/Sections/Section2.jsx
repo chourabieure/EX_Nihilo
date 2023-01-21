@@ -3,13 +3,11 @@ const Section2 = () => {
     "h-screen snap-center text-slate-800 flex text-slate-200";
   return (
     <section
-      className={` ${sectionStyle} relative flex-col gap-8 items-center sm:items-start justify-start  w-full max-w-5xl m-auto px-8 pt-48`}
+      className={` ${sectionStyle} relative flex-col gap-8 items-center sm:items-start justify-start  w-full max-w-5xl m-auto px-8 pt-40`}
     >
       {/* Title */}
       <div className="relative">
-        <h2 className="font-Miju text-5xl leading-8 pl-0 sm:pl-8 lg:pl-0">
-          C'est nous
-        </h2>
+        <h2 className="font-Miju text-5xl  pl-0 sm:pl-8 lg:pl-0">C'est nous</h2>
         <h3 className="font-Miju text-7xl absolute bottom-0 left-1/2  sm:left-0 lg:-left-8 -translate-x-1/2 sm:translate-x-0 whitespace-nowrap opacity-10">
           C'est nous
         </h3>
