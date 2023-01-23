@@ -2,6 +2,8 @@ import Button from "@/components/Button";
 import { useEffect, useState } from "react";
 
 const Section4 = () => {
+  const sectionStyle = "snap-start text-slate-800 flex text-slate-200";
+
   const title_pool = ["Nous conseillons", "Nous designons", "Nous proposons"];
   const [title, setTitle] = useState(title_pool[0]);
   const paragraph_pool = [
@@ -10,8 +12,6 @@ const Section4 = () => {
     "Ex Nihilo vous accompagne à toutes les phases de projet de vêtements d’image & EPI. Mais l’idéal est de nouer un partenariat dès la naissance de votre projet pour construire une solution efficiente qui tienne compte de toutes vos exigences.",
   ];
   const [paragraph, setParagraph] = useState(paragraph_pool[0]);
-
-  const sectionStyle = "snap-start text-slate-800 flex text-slate-200";
 
   var position_shape1 = 0;
 
@@ -39,11 +39,11 @@ const Section4 = () => {
 
   return (
     <section
-      className={` ${sectionStyle} relative flex flex-col md:flex-row w-full max-w-5xl m-auto px-8 `}
+      className={` ${sectionStyle} relative flex gap-16 flex-row w-full max-w-5xl m-auto px-8 `}
     >
       {/*--------------------- LEFT ---------------------*/}
       <div className="left flex-1">
-        <div className="sticky top-0 pt-40 flex flex-col gap-8">
+        <div className="sticky top-1/4 pt-20 flex flex-col gap-8">
           {/* Title */}
           <div className="relative ">
             <h2 className="font-Miju text-5xl pl-0 sm:pl-8 lg:pl-0">{title}</h2>
@@ -67,20 +67,28 @@ const Section4 = () => {
       {/* --------------------- Right ---------------------*/}
       <div
         id="shapes_container"
-        className="flex-1 flex flex-col justify-center items-center snap-y snap-mandatory"
+        className="flex-1 relative flex flex-col justify-center items-center snap-y snap-mandatory "
       >
+        <div className=" svg-pattern h-full w-2 absolute left-0"></div>
+        <div className="svg-pattern h-full w-2 absolute right-0"></div>
+        <div className="svg-pattern h-full w-2 absolute"></div>
+        {/* <img
+          className="w-2 h-full absolute top-0 right-0"
+          src="/static/svg/single_line.svg"
+          alt=""
+        /> */}
         {/* Shape 1 */}
-        <div className="snap-center h-screen flex justify-center items-center">
+        <div className=" snap-center h-screen flex justify-center items-center">
           <img className="max-w-xs" src="/static/svg/ShapeConseil.svg" alt="" />
         </div>
 
         {/* Shape 2 */}
-        <div className="snap-center h-screen flex justify-center items-center">
+        <div className=" snap-center h-screen flex justify-center items-center">
           <img className="max-w-xs" src="/static/svg/ShapeDesign.svg" alt="" />
         </div>
 
         {/* Shape 3 */}
-        <div className="snap-center h-screen flex justify-center items-center">
+        <div className=" snap-center h-screen flex justify-center items-center">
           <img
             className="max-w-xs"
             src="/static/svg/ShapeExpertise.svg"

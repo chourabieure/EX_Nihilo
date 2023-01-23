@@ -1,0 +1,6 @@
+.svg-pattern{
+    background-image: url('/static/svg/single_line.svg');
+    background-repeat: repeat;
+    z-index: -1;
+    opacity: 10%;
+}
