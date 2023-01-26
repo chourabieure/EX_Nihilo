@@ -1,4 +1,5 @@
 import Button from "@/components/Button";
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const sectionStyle =
@@ -34,7 +35,22 @@ const Hero = () => {
       </div>
 
       <section className="px-8">
-        <h1 className="text-3xl sm:text-4xl text-center text-white font-medium leading-9 sm:leading-[50px] pb-8">
+        <motion.div
+          initial={{
+            opacity: 0,
+            visibility: "hidden",
+          }}
+          whileInView={{
+            opacity: 1,
+            visibility: "visible",
+          }}
+          transition={{
+            duration: 1,
+            ease: "linear",
+          }}
+          viewport={{ once: true }}
+          className="text-3xl transition-all  sm:text-4xl text-center text-white font-medium leading-9 sm:leading-[50px] pb-8"
+        >
           Parce que nos collaborateurs
           <br />
           sont <span className={`${wordPurple}`}>précieux</span>, vous cherchez
@@ -42,7 +58,7 @@ const Hero = () => {
           des vêtements pros
           <br />
           <span className={`${wordPurple}`}>extraordinaires</span>.
-        </h1>
+        </motion.div>
 
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-4 justify-center m-auto sm:m-0 w-[80%] sm:w-full">
           <Button
@@ -72,6 +88,7 @@ const Hero = () => {
         />
       </svg>
 
+      {/* BG SHAPE */}
       <svg
         className="w-[600px] sm:w-[900px] -z-[1] absolute right-0 translate-x-1/2 bottom-0 translate-y-1/2 opacity-10 shape1Animate"
         viewBox="0 0 501 480"

@@ -14,16 +14,17 @@ const Home = () => {
     "h-screen snap-center text-slate-800 flex text-slate-200";
 
   // shapesContainer
-
+  // snap-y snap-mandatory
   return (
     <div
       id="scroll_snap_container"
-      className="relative h-screen overflow-y-scroll  overflow-x-hidden snap-y snap-mandatory "
+      className="relative h-screen overflow-y-scroll  overflow-x-hidden "
     >
       {/* Lines */}
 
       {/* Hero Section */}
       <Hero />
+
       <Section2 />
       <Section3 />
       <Section4 />

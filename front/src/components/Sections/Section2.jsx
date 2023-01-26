@@ -1,3 +1,5 @@
+import { motion } from "framer-motion";
+
 const Section2 = () => {
   const sectionStyle =
     "h-screen snap-center text-slate-800 flex text-slate-200";
@@ -15,7 +17,22 @@ const Section2 = () => {
       {/* Divider */}
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
       {/* Text */}
-      <p className="text-justify leading-6 md:leading-7">
+      <motion.p
+        initial={{
+          opacity: 0,
+          visibility: "hidden",
+        }}
+        whileInView={{
+          opacity: 1,
+          visibility: "visible",
+        }}
+        transition={{
+          duration: 1,
+          ease: "linear",
+        }}
+        viewport={{ once: true }}
+        className="text-justify leading-6 md:leading-7"
+      >
         Nous sommes le partenaire de votre ambition. Nous sommes{" "}
         <span className="font-Miju ">Ex Nihilo</span> ! Une agence de{" "}
         <span className="text-ex_red">Conseil</span>
@@ -29,10 +46,23 @@ const Section2 = () => {
         de faire de vos vêtements pros un outil de valorisation et de cohésion.
         Notre approche systémique des vêtements d’image et EPI vous assure d’une
         réponse sur mesure aux exigences particulières de vos projets.
-      </p>
+      </motion.p>
       {/* Image */}
       <div className=" w-full h-28 flex-grow hidden min-[479px]:block">
-        <img
+        <motion.img
+          initial={{
+            opacity: 0,
+            visibility: "hidden",
+          }}
+          whileInView={{
+            opacity: 1,
+            visibility: "visible",
+          }}
+          transition={{
+            duration: 1,
+            ease: "linear",
+          }}
+          viewport={{ once: true }}
           className=" h-full w-full object-cover object-top rounded-t-xl  "
           src="/static/images/Image1.jpg"
           alt=""

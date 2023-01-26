@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 const Section3 = () => {
   const sectionStyle =
     "h-screen snap-center text-slate-800 flex text-slate-200";
@@ -17,7 +18,22 @@ const Section3 = () => {
       </div>
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
 
-      <p className="text-justify leading-6 md:leading-7">
+      <motion.p
+        initial={{
+          opacity: 0,
+          visibility: "hidden",
+        }}
+        whileInView={{
+          opacity: 1,
+          visibility: "visible",
+        }}
+        transition={{
+          duration: 1,
+          ease: "linear",
+        }}
+        viewport={{ once: true }}
+        className="text-justify leading-6 md:leading-7"
+      >
         Ouvrons ensemble une page blanche de notre carnet. C’est notre signature
         et notre exigence : ex nihilo, locution latine signifie « en partant de
         rien ». Adeptes du design thinking, C'est avec vos équipes que nous
@@ -26,20 +42,50 @@ const Section3 = () => {
         domaines d'interventions : le conseil, le design, l'expertise. Trois
         boutons/titres pour ouvrir les paragraphes qui seront sous forme de
         liste
-      </p>
+      </motion.p>
 
-      <div className="mouse-icon absolute bottom-16 sm:block hidden">
+      <motion.div
+        initial={{
+          opacity: 0,
+          visibility: "hidden",
+        }}
+        whileInView={{
+          opacity: 1,
+          visibility: "visible",
+        }}
+        transition={{
+          duration: 1,
+          ease: "linear",
+        }}
+        viewport={{ once: true }}
+        className="mouse-icon absolute bottom-16 sm:block hidden"
+      >
         <div className="mouse"></div>
         <span className="arrow arrow-01"></span>
         <span className="arrow arrow-02"></span>
         <span className="arrow arrow-03"></span>
-      </div>
+      </motion.div>
 
-      <div className="hand-icon  absolute bottom-8 sm:hidden block">
+      <motion.div
+        initial={{
+          opacity: 0,
+          visibility: "hidden",
+        }}
+        whileInView={{
+          opacity: 1,
+          visibility: "visible",
+        }}
+        transition={{
+          duration: 1,
+          ease: "linear",
+        }}
+        viewport={{ once: true }}
+        className="hand-icon  absolute bottom-8 sm:hidden block"
+      >
         <div className="hand">
           <div className="circle"></div>
         </div>
-      </div>
+      </motion.div>
       <svg
         className="w-[600px] sm:w-[900px] -z-[1] absolute left-0 -translate-x-1/2 bottom-0 translate-y-1/2 opacity-10 shape1Animate"
         viewBox="0 0 501 480"
@@ -51,7 +97,7 @@ const Section3 = () => {
           fill="#5448C8"
         />
       </svg>
-    </section> 
+    </section>
   );
 };
 
