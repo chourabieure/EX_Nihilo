@@ -49,7 +49,7 @@ const Hero = () => {
             ease: "linear",
           }}
           viewport={{ once: true }}
-          className="text-3xl transition-all  sm:text-4xl text-center text-white font-medium leading-9 sm:leading-[50px] pb-8"
+          className="text-3xl transition-all  sm:text-4xl text-center text-ex_dark_purple font-medium leading-9 sm:leading-[50px] pb-8"
         >
           Parce que nos collaborateurs
           <br />

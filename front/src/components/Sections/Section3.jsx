@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import Title from "../Title";
 const Section3 = () => {
   const sectionStyle =
     "h-screen snap-center text-slate-800 flex text-slate-200";
@@ -6,16 +7,10 @@ const Section3 = () => {
     <section
       className={` ${sectionStyle} relative flex-col gap-8 items-center justify-start sm:justify-center w-full max-w-5xl m-auto px-8 pt-36 sm:pt-0 `}
     >
-      <div className="relative">
-        <h2 className="font-Miju text-center text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-8 whitespace-nowrap">
-          Et si on <br className="block sm:hidden" />
-          commençait ?
-        </h2>
-        <h3 className="font-Miju text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-10">
-          Et si on <br className="block sm:hidden" />
-          commençait ?
-        </h3>
-      </div>
+      <Title
+        title={`Et si on <br class="block sm:hidden" /> commençait ?"`}
+        center="true"
+      />
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
 
       <motion.p
@@ -32,7 +27,7 @@ const Section3 = () => {
           ease: "linear",
         }}
         viewport={{ once: true }}
-        className="text-justify leading-6 md:leading-7"
+        className="text-justify leading-6 md:leading-7 text-ex_dark_purple"
       >
         Ouvrons ensemble une page blanche de notre carnet. C’est notre signature
         et notre exigence : ex nihilo, locution latine signifie « en partant de
@@ -60,10 +55,10 @@ const Section3 = () => {
         viewport={{ once: true }}
         className="mouse-icon absolute bottom-16 sm:block hidden"
       >
-        <div className="mouse"></div>
-        <span className="arrow arrow-01"></span>
-        <span className="arrow arrow-02"></span>
-        <span className="arrow arrow-03"></span>
+        <div className="mouse bg-ex_medium_purple after:bg-ex_light_purple"></div>
+        <span className="arrow arrow-01 border-b-2 border-r-2 border-ex_light_purple"></span>
+        <span className="arrow arrow-02 border-b-2 border-r-2 border-ex_light_purple"></span>
+        <span className="arrow arrow-03 border-b-2 border-r-2 border-ex_light_purple"></span>
       </motion.div>
 
       <motion.div

@@ -25,7 +25,7 @@ const TransitionLayout = ({ children }) => {
     //     className={`${styles.content} ${styles[transitionStage]} flex flex-col items-center pt-10`}>
     //     {displayChildren}
     // </div>
-    <main className="">{children}</main>
+    <main className="relative">{children}</main>
   );
 };
 

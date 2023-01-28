@@ -2,9 +2,23 @@
     background-image: url('/static/svg/single_line.svg');
     background-repeat: repeat-y;
     z-index: -1;
-    opacity: 10%;
 }
+/* 
+.navbar{
+	-webkit-backdrop-filter: saturate(150%) blur(5px);
+    backdrop-filter: saturate(150%) blur(5px);
+    backface-visibility: hidden;
+} */
 
+.team::-webkit-scrollbar {
+	display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .team {
+	-ms-overflow-style: none;  /* IE and Edge */
+	scrollbar-width: none;  /* Firefox */
+  }
 :root {
 	--marquee-width: 100vw;
 	--marquee-height: 20vh;

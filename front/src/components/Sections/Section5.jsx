@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Title from "../Title";
 
 const Section5 = () => {
   const sectionStyle =
@@ -30,16 +31,10 @@ const Section5 = () => {
     <section
       className={` ${sectionStyle} relative flex-col gap-8 items-center justify-start  w-full max-w-5xl m-auto px-8 pt-36 `}
     >
-      <div className="relative">
-        <h2 className="font-Miju text-center text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-8 whitespace-nowrap">
-          Ils nous ont <br className="block sm:hidden" />
-          fait confiance
-        </h2>
-        <h3 className="font-Miju text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-10">
-          Ils nous ont <br className="block sm:hidden" />
-          fait confiance
-        </h3>
-      </div>
+      <Title
+        title={'Ils nous ont <br class="block sm:hidden" />fait confiance'}
+        center={true}
+      />
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
 
       {[...Array(3)].map((elem_container, index_container) => {

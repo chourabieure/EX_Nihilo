@@ -1,6 +1,7 @@
 import Button from "@/components/Button";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
+import Title from "../Title";
 
 const Section4 = () => {
   const info = [
@@ -78,18 +79,12 @@ const Section4 = () => {
       >
         <div className="flex sticky top-0 pt-36  flex-col gap-8 ">
           {/* Title */}
-          <div className="relative ">
-            <h2 className="font-Miju text-4xl lg:text-5xl pl-0 sm:pl-8 lg:pl-0">
-              {info[position].title}
-            </h2>
-            <h3 className="font-Miju text-6xl lg:text-7xl absolute bottom-0 left-1/2  sm:left-0 lg:-left-8 -translate-x-1/2 sm:translate-x-0 whitespace-nowrap opacity-10">
-              {info[position].title}
-            </h3>
-          </div>
+          <Title title={info[position].title} />
+
           {/* Divider */}
           <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
           {/* Paragraph */}
-          <p className="text-justify leading-6 md:leading-7 ">
+          <p className="text-justify leading-6 md:leading-7 text-ex_dark_purple">
             {info[position].paragraph}
           </p>
           {/* "Voir Plus" */}
@@ -106,9 +101,9 @@ const Section4 = () => {
         id="shapes_container"
         className="flex-1 relative hidden md:flex flex-col justify-center items-center snap-y snap-mandatory "
       >
-        <div className=" svg-pattern h-full w-2 absolute left-0"></div>
-        <div className="svg-pattern h-full w-2 absolute right-0"></div>
-        <div className="svg-pattern h-full w-2 absolute"></div>
+        <div className="svg-pattern h-full w-2 absolute left-0 opacity-10"></div>
+        <div className="svg-pattern h-full w-2 absolute right-0 opacity-10"></div>
+        <div className="svg-pattern h-full w-2 absolute opacity-10"></div>
         {/* Shape 1 */}
         <motion.div
           initial={{
