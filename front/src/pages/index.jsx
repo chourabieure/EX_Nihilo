@@ -8,6 +8,8 @@ import Section2 from "@/components/Sections/Section2";
 import Section3 from "@/components/Sections/Section3";
 import Section4 from "@/components/Sections/Section4";
 import Section5 from "@/components/Sections/Section5";
+import Faq from "@/components/Sections/Faq";
+import Footer from "@/components/Sections/Footer";
 
 const Home = () => {
   const sectionStyle =
@@ -29,6 +31,8 @@ const Home = () => {
       <Section3 />
       <Section4 />
       <Section5 />
+      <Faq />
+      <Footer />
 
       {/* <section className={` ${sectionStyle} items-center justify-center`}>
         Section 2

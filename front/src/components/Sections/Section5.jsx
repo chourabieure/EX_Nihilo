@@ -44,17 +44,17 @@ const Section5 = () => {
 
       {[...Array(3)].map((elem_container, index_container) => {
         return (
-          <div className="marquee">
+          <div key={index_container} className="marquee">
             <ul className={`marquee-content marquee${index_container + 1}`}>
               {[...Array(16)].map((elem, index) => {
                 return (
                   <li
-                    className="mx-4 h-22 p-2 bg-ex_normal_purple rounded-lg"
+                    className="mx-4 h-24 p-2 bg-ex_normal_purple rounded-lg"
                     key={index}
                   >
                     <img
                       className="h-full"
-                      src={`/static/images/companies/company_${16 - index}.png`}
+                      src={`/static/images/companies/company_${index + 1}.png`}
                     />
                   </li>
                 );

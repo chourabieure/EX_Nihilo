@@ -27,15 +27,17 @@ const Navbar = () => {
             Nos valeurs
           </li>
           <li className="sm:block hidden text-white font-semibold text-md">
-            A pr
+            A propos
+          </li>
+          <li className="sm:block hidden text-white font-semibold text-md">
+            Contactez-nous
           </li>
         </ul>
 
-        <ul className="flex gap-8 items-center">
+        {/* <ul className="flex gap-8 items-center">
           <li className="sm:block hidden text-white font-medium text-lg">
             Contactez-nous
           </li>
-          {/* Burger icon */}
           <svg
             className="h-6 sm:h-8  stroke-[2px]  stroke-white fill-none"
             viewBox="0 0 36 36"
@@ -51,7 +53,7 @@ const Navbar = () => {
             <path d="M21.3466 31.1538C21.3466 33.0018 19.8485 34.4999 18.0005 34.4999C16.1524 34.4999 14.6543 33.0018 14.6543 31.1538C14.6543 29.3057 16.1524 27.8076 18.0005 27.8076C19.8485 27.8076 21.3466 29.3057 21.3466 31.1538Z" />
             <circle cx="31.1538" cy="31.1538" r="3.34615" />
           </svg>
-        </ul>
+        </ul> */}
       </nav>
     </>
   );

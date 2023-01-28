@@ -183,9 +183,10 @@ const Section4 = () => {
         </svg>
       </div>
       <div className="flex flex-col md:hidden justify-center items-center snap-y snap-mandatory ">
-        {info.map((elem) => {
+        {info.map((elem, index) => {
           return (
             <motion.div
+              key={index}
               initial={{
                 opacity: 0,
                 visibility: "hidden",
