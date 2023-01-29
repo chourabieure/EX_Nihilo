@@ -1,7 +1,6 @@
 .svg-pattern{
     background-image: url('/static/svg/single_line.svg');
     background-repeat: repeat-y;
-    z-index: -1;
 }
 
 .team::-webkit-scrollbar {

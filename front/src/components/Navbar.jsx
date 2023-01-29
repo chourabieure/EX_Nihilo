@@ -3,6 +3,7 @@ import { useEffect } from "react";
 import { useState } from "react";
 import Button from "./UI/Button";
 import { useTheme } from "next-themes";
+import { useRouter } from "next/router";
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const navbarItems = [
@@ -16,11 +17,11 @@ const Navbar = () => {
       name: "Offre",
       route: "#que_faisons_nous",
     },
-    {
-      id: 3,
-      name: "Références",
-      route: "#nos_valeurs",
-    },
+    // {
+    //   id: 3,
+    //   name: "Références",
+    //   route: "#nos_valeurs",
+    // },
     {
       id: 4,
       name: "Équipe",
@@ -34,7 +35,7 @@ const Navbar = () => {
   ];
 
   const [isActive, setIsActive] = useState(false);
-
+  const router = useRouter();
   useEffect(() => {}, []);
 
   const scrollIntoView = (route) => {
@@ -47,7 +48,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <nav className="fixed navbar z-10 top-0 w-full py-4 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md">
+      <nav className="fixed navbar z-20 top-0 w-full py-4 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md">
         {/* Logo */}
         <div className="m-auto max-w-7xl justify-between items-center flex px-8 gap-4">
           <Link href="/">
@@ -87,7 +88,7 @@ const Navbar = () => {
 
           <ul className="hidden min-[1000px]:flex gap-4 items-center ">
             <li>
-              <Button title="Contactez-dfds" link="/contact" target="_self" />
+              <Button title="Contactez-nous" link="/contact" target="_self" />
             </li>
             <li
               className="bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg"
@@ -114,7 +115,7 @@ const Navbar = () => {
           </ul>
           <svg
             onClick={() => setIsActive(!isActive)}
-            className="block  min-[1000px]:hidden h-6  stroke-[3px]  stroke-ex_dark_purple fill-none"
+            className="block  min-[1000px]:hidden h-6  stroke-[3px]  stroke-ex_dark_purple dark:stroke-ex_light_purple fill-none"
             viewBox="0 0 36 36"
             xmlns="http://www.w3.org/2000/svg"
           >
@@ -134,7 +135,7 @@ const Navbar = () => {
           >
             {theme === "dark" ? (
               <svg
-                className="w-8 p-1 fill-slate-900"
+                className="w-8 p-1 fill-slate-900 "
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
               >
@@ -151,31 +152,47 @@ const Navbar = () => {
             )}
           </div>
         </div>
+        {/* Burger menu */}
         <div
           className={`${
             isActive ? "flex" : "hidden "
           } px-4 h-screen w-screen top-0 left-1/2`}
         >
-          <ul className="flex w-full flex-col gap-4 pt-8">
-            {navbarItems.map((elem) => {
-              return (
+          {router.pathname == "/contact" ? (
+            <ul className={`flex w-full flex-col gap-4 pt-8`}>
+              <Link href="/">
                 <li
                   onClick={() => {
                     setIsActive(!isActive);
-                    scrollIntoView(elem.route);
                   }}
-                  key={elem.id}
-                  className=" cursor-pointer p-4  text-ex_dark_purple  font-medium text-2xl hover:text-ex_dark_yellow transition-all"
+                  className=" cursor-pointer p-4  text-ex_dark_purple dark:text-ex_light_purple font-medium text-2xl hover:text-ex_dark_yellow transition-all"
                 >
-                  {elem.name}
+                  Accueil
                 </li>
-              );
-            })}
+              </Link>
+            </ul>
+          ) : (
+            <ul className={`flex w-full flex-col gap-4 pt-8`}>
+              {navbarItems.map((elem) => {
+                return (
+                  <li
+                    onClick={() => {
+                      setIsActive(!isActive);
+                      scrollIntoView(elem.route);
+                    }}
+                    key={elem.id}
+                    className=" cursor-pointer p-4  text-ex_dark_purple dark:text-ex_light_purple font-medium text-2xl hover:text-ex_dark_yellow transition-all"
+                  >
+                    {elem.name}
+                  </li>
+                );
+              })}
 
-            <li className="w-full pt-4" onClick={() => setIsActive(false)}>
-              <Button title="Contactez-nous" link="/contact" target="_self" />
-            </li>
-          </ul>
+              <li className="w-full pt-4" onClick={() => setIsActive(false)}>
+                <Button title="Contactez-nous" link="/contact" target="_self" />
+              </li>
+            </ul>
+          )}
         </div>
       </nav>
     </>

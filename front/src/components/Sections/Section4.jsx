@@ -95,11 +95,11 @@ const Section4 = () => {
       {/* --------------------- Right ---------------------*/}
       <div
         id="shapes_container"
-        className="flex-1 relative hidden md:flex flex-col justify-center items-center snap-y snap-mandatory "
+        className="flex-1  relative hidden md:flex flex-col justify-center items-center snap-y snap-mandatory "
       >
-        <div className="svg-pattern h-full w-2 absolute left-0 opacity-20"></div>
-        <div className="svg-pattern h-full w-2 absolute right-0 opacity-20"></div>
-        <div className="svg-pattern h-full w-2 absolute opacity-20"></div>
+        <div className="svg-pattern h-full z-[0] w-2 absolute left-0 opacity-20"></div>
+        <div className="svg-pattern h-full z-[0] w-2 absolute right-0 opacity-20"></div>
+        <div className="svg-pattern h-full z-[0] w-2 absolute opacity-20"></div>
 
         {shapes.map((item, index) => {
           return (

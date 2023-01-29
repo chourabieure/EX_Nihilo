@@ -81,7 +81,7 @@ const Section3 = () => {
         </div>
 
         <svg
-          className="w-[600px] sm:w-[900px] -z-[1] absolute fill-ex_normal_purple left-0 -translate-x-1/2 bottom-0 translate-y-1/2 opacity-20 shape1Animate"
+          className="w-[600px] sm:w-[900px] z-[0] absolute fill-ex_normal_purple left-0 -translate-x-1/2 bottom-0 translate-y-1/2 opacity-20 shape1Animate"
           viewBox="0 0 501 480"
           xmlns="http://www.w3.org/2000/svg"
         >

@@ -1,15 +1,30 @@
+import { motion } from "framer-motion";
+
 const Title = ({ title, center = false }) => {
   return (
-    <div className="pt-28 md:pt-40">
+    <motion.div
+      initial={{
+        opacity: 0,
+        scale: 0.95,
+      }}
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+      }}
+      transition={{
+        duration: 0.5,
+      }}
+      className="pt-28 md:pt-40"
+    >
       {center ? (
         <div className="relative text-ex_dark_purple dark:text-ex_light_purple">
           <h2
             dangerouslySetInnerHTML={{ __html: title }}
-            className="font-Miju text-center text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-8 whitespace-nowrap"
+            className="font-Miju text-center text-5xl leading-8 whitespace-nowrap"
           ></h2>
           <h3
             dangerouslySetInnerHTML={{ __html: title }}
-            className="font-Miju text-center text-5xl sm:text-6xl md:text-7xl lg:text-8xl absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-10"
+            className="font-Miju text-center text-6xl absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-10"
           ></h3>
         </div>
       ) : (
@@ -24,7 +39,7 @@ const Title = ({ title, center = false }) => {
           ></h3>
         </div>
       )}
-    </div>
+    </motion.div>
   );
 };
 export default Title;

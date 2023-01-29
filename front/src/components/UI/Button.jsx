@@ -10,9 +10,19 @@ const Button = ({
   link = "#",
   target = "_blank",
 }) => {
+  const scrollIntoView = (route) => {
+    let e = document.querySelector(route);
+    e.scrollIntoView({
+      block: "start",
+      behavior: "smooth",
+      inline: "start",
+    });
+  };
   return (
-    <Link href={link} target={target}>
-      <button
+    <Link href={link} passHref>
+      <a
+        target={target}
+        rel="noopener noreferrer"
         className={`${text_color} ${bg_color} ${font_size} flex items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
       >
         {title}
@@ -28,7 +38,7 @@ const Button = ({
           )
           // <img src="/static/svg/arrow-right.svg" alt="icon du bouton" className="w-8 fill-ex_dark_purple" />
         }
-      </button>
+      </a>
     </Link>
   );
 };

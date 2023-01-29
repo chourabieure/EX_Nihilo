@@ -38,9 +38,10 @@ const Contact = () => {
     });
   };
   const inputStyle =
-    "ml-8 font-Poppins text-lg sm:text-2xl font-bold border-b-[0.2rem] border-ex_dark_purple outline-none focus:ring-0 text-ex_normal_purple flex-1 focus:bg-none";
+    "ml-8 font-Poppins bg-transparent text-lg sm:text-2xl font-bold border-b-[0.2rem] border-ex_dark_purple dark:border-ex_light_purple outline-none focus:ring-0 text-ex_normal_purple flex-1 focus:bg-none";
 
-  const labelStyle = "text-3xl md:text-4xl font-Miju text-ex_dark_purple";
+  const labelStyle =
+    "text-3xl md:text-4xl font-Miju text-ex_dark_purple dark:text-ex_light_purple ";
   return (
     <>
       {/* <Menu /> */}

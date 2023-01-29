@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import Title from "@/components/UI/Title";
+import { motion } from "framer-motion";
 
 const Section5 = () => {
   const sectionStyle =
@@ -15,7 +16,21 @@ const Section5 = () => {
       />
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
 
-      <ul className="grid grid-cols-4 md:grid-cols-6 gap-4 md:gap-8 justify-center">
+      <motion.ul
+        initial={{
+          opacity: 0,
+          scale: 0.9,
+        }}
+        whileInView={{
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 0.5,
+        }}
+        // viewport={{ once: true }}
+        className="grid grid-cols-4 md:grid-cols-6 gap-4 md:gap-8 justify-center"
+      >
         {[...Array(16)].map((elem, index) => {
           return (
             <li
@@ -31,7 +46,7 @@ const Section5 = () => {
             </li>
           );
         })}
-      </ul>
+      </motion.ul>
 
       {/* {[...Array(3)].map((elem_container, index_container) => {
         return (

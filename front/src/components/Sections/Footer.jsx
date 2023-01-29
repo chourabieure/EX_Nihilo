@@ -1,7 +1,3 @@
-import { motion } from "framer-motion";
-import Link from "next/link";
-import Accordion from "../UI/Accordion";
-
 const Footer = () => {
   return (
     <section

@@ -5,7 +5,14 @@ import Magicword from "../UI/Magicword";
 const Hero = () => {
   const sectionStyle =
     "h-screen snap-center text-slate-800 flex text-slate-200";
-
+  const scrollIntoView = (route) => {
+    let e = document.querySelector(route);
+    e.scrollIntoView({
+      block: "start",
+      behavior: "smooth",
+      inline: "start",
+    });
+  };
   return (
     <section
       id="1"
@@ -40,23 +47,22 @@ const Hero = () => {
       </div>
 
       {/* Center Text */}
-      <section className="px-8">
-        <motion.div
-          initial={{
-            opacity: 0,
-            visibility: "hidden",
-          }}
-          whileInView={{
-            opacity: 1,
-            visibility: "visible",
-          }}
-          transition={{
-            duration: 1,
-            ease: "linear",
-          }}
-          viewport={{ once: true }}
-          className="text-3xl transition-all  sm:text-5xl text-center text-ex_dark_purple dark:text-ex_light_purple font-medium leading-9 sm:leading-[50px] pb-8"
-        >
+      <motion.section
+        initial={{
+          // opacity: 0,
+          scale: 0.9,
+        }}
+        whileInView={{
+          // opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 1,
+        }}
+        viewport={{ once: true }}
+        className="px-8 z-10"
+      >
+        <div className="text-3xl transition-all  sm:text-5xl text-center text-ex_dark_purple dark:text-ex_light_purple font-medium leading-9 sm:leading-[50px] pb-8">
           Parce que nos collaborateurs
           <br />
           sont <Magicword word={"précieux"} />
@@ -65,7 +71,7 @@ const Hero = () => {
           des vêtements pros
           <br />
           <Magicword word={"extraordinaires"} />
-        </motion.div>
+        </div>
 
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-4 justify-center m-auto sm:m-0 w-[80%] sm:w-full">
           <Button
@@ -76,20 +82,12 @@ const Hero = () => {
             text_color="text-ex_dark_purple"
             font_size="text-lg"
           />
-          <Button
-            title="Nos domaines"
-            bg_color="bg-ex_normal_purple"
-            fill_color="fill-white"
-            text_color="text-white"
-            font_size="text-lg"
-            icon={true}
-          />
         </div>
-      </section>
+      </motion.section>
 
       {/* Scroll icon */}
       <svg
-        className="h-20 "
+        className="h-20 z-10"
         viewBox="0 0 31 90"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
@@ -107,7 +105,7 @@ const Hero = () => {
 
       {/* BG SHAPE */}
       <svg
-        className="w-[600px] sm:w-[900px] fill-ex_normal_purple -z-[1] absolute right-0 translate-x-1/2 bottom-0 translate-y-1/2 opacity-50"
+        className="w-[600px] sm:w-[900px] fill-ex_normal_purple z-[0] absolute right-0 translate-x-1/2 bottom-0 translate-y-1/2 opacity-50"
         viewBox="0 0 501 480"
         xmlns="http://www.w3.org/2000/svg"
       >

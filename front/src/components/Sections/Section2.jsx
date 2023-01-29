@@ -25,7 +25,7 @@ const Section2 = () => {
             ease: "linear",
           }}
           viewport={{ once: true }}
-          className="text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple"
+          className="z-10 text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple"
         >
           Nous sommes le partenaire de votre ambition. Nous sommes{" "}
           <span className="font-Miju ">Ex Nihilo</span> ! Une agence de{" "}
@@ -43,7 +43,7 @@ const Section2 = () => {
           vos projets.
         </motion.p>
         {/* Image */}
-        <div className=" w-full h-28 flex-grow hidden min-[479px]:block">
+        <div className="z-10 w-full h-28 flex-grow hidden min-[479px]:block">
           <motion.img
             initial={{
               opacity: 0,
@@ -66,7 +66,7 @@ const Section2 = () => {
 
         <img
           src="/static/svg/single-line-section2.svg"
-          className="w-2 absolute -z-10 top-1/4 left-1/2 -translate-x-1/2 opacity-20 hidden min-[479px]:block"
+          className="w-2 absolute z-[0] top-1/4 left-1/2 -translate-x-1/2 opacity-20 hidden min-[479px]:block"
           alt=""
         />
       </div>

@@ -88,18 +88,35 @@ const Team = () => {
   return (
     <section
       id="equipe"
-      className={` ${sectionStyle} min-h-screen relative flex-col gap-4 sm:gap-8 items-start justify-start w-full`}
+      className={` ${sectionStyle} min-h-screen relative flex-col gap-4 sm:gap-8 items-center justify-start w-full`}
     >
       {/* Title */}
       <div className="max-w-5xl px-8 m-auto my-0 flex w-full justify-center">
         <Title title={"C'est encore <br class='block sm:hidden'/>nous"} />
       </div>{" "}
-      <div className="flex flex-col sm:flex-col-reverse gap-4 pb-40">
+      <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
+      <div className="relative flex flex-col sm:flex-col-reverse gap-4 pb-60">
         <div className=" w-full max-w-5xl m-auto px-8 ">
           <div className="scrollbar relative bg-ex_light_purple h-[0.1rem] rounded-lg">
             <div className="scrollElem absolute h-2  bg-ex_medium_purple left-0 top-1/2 -translate-y-1/2 rounded-lg"></div>
           </div>
         </div>
+        {/* Arrow */}
+        <svg
+          className="hidden lg:block w-20 right-8 z-10 top-1/3 -translate-y-1/2 fill-ex_light_purple absolute"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z" />
+        </svg>
+        {/* Arrow */}
+        <svg
+          className="hidden lg:block w-20 left-8 z-10 top-1/3 -translate-y-1/2 transform rotate-180 fill-ex_light_purple absolute"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z" />
+        </svg>
         <div className="team py-0 sm:pb-8 sm:pt-8 flex m-auto my-0 w-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth">
           {/* Section */}
 
@@ -130,10 +147,10 @@ const Team = () => {
           })}
           <div className="member w-screen shrink-0 snap-center">
             <div className="w-full gap-8 flex flex-col h-full max-w-5xl m-auto justify-center items-center px-8 sm:px-20">
-              <h4 className="text-3xl font-bold text-ex_dark_purple">
+              <h4 className="text-3xl font-bold text-ex_dark_purple dark:text-ex_light_purple">
                 Et tout les autres ...
               </h4>
-              <p className="text-ex_dark_purple font-medium">
+              <p className="text-ex_dark_purple dark:text-ex_light_purple font-medium">
                 Nous avons à cœur de nous entourer de compétences
                 complémentaires au gré des besoins spécifiques que révèlent les
                 dossiers de nos clients. C’est donc ici l’occasion de saluer et

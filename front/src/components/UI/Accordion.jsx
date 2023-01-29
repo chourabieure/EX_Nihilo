@@ -50,7 +50,7 @@ const Accordion = () => {
   const [isActive, setIsActive] = useState(0);
 
   return (
-    <div className="flex-1 flex justify-end w-full pb-40">
+    <div className="flex-1 flex justify-end w-full">
       <div className=" w-full sm:w-3/4 ">
         {accordionContent.map((item) => {
           return (
