@@ -41,7 +41,7 @@ const Navbar = () => {
   const scrollIntoView = (route) => {
     let e = document.querySelector(route);
     e.scrollIntoView({
-      block: "start", 
+      block: "start",
       behavior: "smooth",
       inline: "start",
     });
@@ -72,22 +72,35 @@ const Navbar = () => {
               <path d="M449.433 62.0754C449.433 52.38 453.21 43.269 460.06 36.4187C466.91 29.5685 476.021 25.792 485.717 25.792C495.412 25.792 504.515 29.5685 511.373 36.4187C518.223 43.269 522 52.38 522 62.0754C522 71.7707 518.223 80.8733 511.373 87.732C504.523 94.5822 495.412 98.3587 485.717 98.3587C476.021 98.3587 466.91 94.5822 460.06 87.732C453.21 80.8733 449.433 71.7707 449.433 62.0754ZM464.505 47.3927C468.375 53.1083 474.235 59.9923 481.017 66.7748C487.8 73.5573 494.684 79.4253 500.399 83.2865C505.835 86.9614 509.773 88.4602 510.933 87.3001C512.093 86.1401 510.594 82.1943 506.919 76.7581C503.05 71.0425 497.19 64.1584 490.408 57.3759C475.318 42.2867 462.761 34.5813 460.492 36.8506C459.315 38.0276 460.831 41.948 464.505 47.3842L464.505 47.3927Z" />
             </svg>
           </Link>
-          <ul className="flex items-center gap-4 flex-grow">
-            {navbarItems.map((elem) => {
-              return (
+          {router.pathname == "/contact" ? (
+            <ul className="flex items-center gap-4 flex-grow">
+              <Link href="/">
                 <li
-                  key={elem.id}
-                  onClick={() => scrollIntoView(elem.route)}
+                  onClick={() => setIsActive(false)}
                   className=" cursor-pointer hidden min-[1000px]:block p-4  text-ex_dark_purple dark:text-ex_light_purple  font-medium text-sm hover:text-ex_dark_yellow transition-all"
                 >
-                  {elem.name}
+                  Accueil
                 </li>
-              );
-            })}
-          </ul>
+              </Link>
+            </ul>
+          ) : (
+            <ul className="flex items-center gap-4 flex-grow">
+              {navbarItems.map((elem) => {
+                return (
+                  <li
+                    key={elem.id}
+                    onClick={() => scrollIntoView(elem.route)}
+                    className=" cursor-pointer hidden min-[1000px]:block p-4  text-ex_dark_purple dark:text-ex_light_purple  font-medium text-sm hover:text-ex_dark_yellow transition-all"
+                  >
+                    {elem.name}
+                  </li>
+                );
+              })}
+            </ul>
+          )}
 
           <ul className="hidden min-[1000px]:flex gap-4 items-center ">
-            <li>
+            <li className={`${router.pathname == "/contact" ? "hidden" : ""}`}>
               <Button title="Contactez-nous" link="/contact" target="_self" />
             </li>
             <li
