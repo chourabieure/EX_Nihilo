@@ -89,19 +89,19 @@ const Footer = () => {
             fill="#92848C"
           />
         </svg>
-        <div className=" flex gap-8 text-ex_light_purple font-semibold">
+        <div className=" flex gap-8 text-ex_dark_purple font-semibold">
           <Link href="#">Nos Valeurs</Link>
           <Link href="#">Nous contacter</Link>
         </div>
       </div>
       <div className="w-full h-[0.1rem] bg-ex_normal_purple opacity-20" />
       <div className="w-full py-8 flex items-center justify-between">
-        <p className="">
+        <p className="text-ex_dark_purple">
           Copyright © 2023 ExNihilo Smart Workwear. All rights reserved.
         </p>
         <div>
           <svg
-            className="fill-ex_light_purple h-10"
+            className="fill-ex_dark_purple h-10"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

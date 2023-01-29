@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { useState } from "react";
 import Button from "./Button";
 
 const Navbar = () => {
@@ -29,14 +30,16 @@ const Navbar = () => {
       route: "#",
     },
   ];
+
+  const [isActive, setIsActive] = useState(false);
   return (
     <>
       <nav className="fixed navbar z-10 top-0 w-full py-4 bg-white/80 backdrop-blur-md">
         {/* Logo */}
-        <div className="m-auto max-w-7xl justify-between flex gap-4 px-8">
-          <ul className="flex items-center gap-8">
+        <div className="m-auto max-w-7xl justify-between items-center flex px-8">
+          <ul className="flex items-center gap-4">
             <svg
-              className="h-5 sm:h-6 mb-2 fill-ex_dark_purple"
+              className="h-5 sm:h-6 pr-4 mb-0 sm:mb-2 fill-ex_dark_purple"
               viewBox="0 0 522 99"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -58,16 +61,58 @@ const Navbar = () => {
               return (
                 <li
                   key={elem.id}
-                  className="sm:block hidden text-black  font-semibold text-md"
+                  className="hidden min-[1000px]:block [&>a]:p-4  text-ex_dark_purple  font-medium text-sm hover:text-ex_dark_yellow transition-all"
                 >
-                  <Link href="#">{elem.name}</Link>
+                  <Link href="#" className="">
+                    {elem.name}
+                  </Link>
                 </li>
               );
             })}
           </ul>
 
-          <ul>
-            <Button title="Contactez-nous" />
+          <ul className="hidden min-[1000px]:block">
+            <li>
+              <Button title="Contactez-nous" />
+            </li>
+          </ul>
+          <svg
+            onClick={() => setIsActive(!isActive)}
+            className="block  min-[1000px]:hidden h-6  stroke-[3px]  stroke-ex_dark_purple fill-none"
+            viewBox="0 0 36 36"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <circle cx="4.84615" cy="4.84615" r="3.34615" />
+            <circle cx="18.0005" cy="4.84615" r="3.34615" />
+            <path d="M34.4999 4.84615C34.4999 6.69418 33.0018 8.19231 31.1538 8.19231C29.3057 8.19231 27.8076 6.69418 27.8076 4.84615C27.8076 2.99812 29.3057 1.5 31.1538 1.5C33.0018 1.5 34.4999 2.99812 34.4999 4.84615Z" />
+            <path d="M34.4999 18C34.4999 19.848 33.0018 21.3461 31.1538 21.3461C29.3057 21.3461 27.8076 19.848 27.8076 18C27.8076 16.1519 29.3057 14.6538 31.1538 14.6538C33.0018 14.6538 34.4999 16.1519 34.4999 18Z" />
+            <circle cx="18.0005" cy="18" r="3.34615" />
+            <circle cx="4.84615" cy="18" r="3.34615" />
+            <path d="M8.19231 31.1538C8.19231 33.0018 6.69418 34.4999 4.84615 34.4999C2.99812 34.4999 1.5 33.0018 1.5 31.1538C1.5 29.3057 2.99812 27.8076 4.84615 27.8076C6.69418 27.8076 8.19231 29.3057 8.19231 31.1538Z" />
+            <path d="M21.3466 31.1538C21.3466 33.0018 19.8485 34.4999 18.0005 34.4999C16.1524 34.4999 14.6543 33.0018 14.6543 31.1538C14.6543 29.3057 16.1524 27.8076 18.0005 27.8076C19.8485 27.8076 21.3466 29.3057 21.3466 31.1538Z" />
+            <circle cx="31.1538" cy="31.1538" r="3.34615" />
+          </svg>
+        </div>
+        <div
+          className={`${
+            isActive ? "flex " : "hidden "
+          } px-4 h-screen w-screen top-0 left-1/2`}
+        >
+          <ul className="flex w-full flex-col gap-4 pt-8">
+            {navbarItems.map((elem) => {
+              return (
+                <li
+                  onClick={() => setIsActive(!isActive)}
+                  key={elem.id}
+                  className=" [&>a]:p-4  text-ex_dark_purple  font-medium text-2xl hover:text-ex_dark_yellow transition-all"
+                >
+                  <Link href="#">{elem.name}</Link>
+                </li>
+              );
+            })}
+            <li className="w-full pt-4">
+              <Button title="Contactez-nous" />
+            </li>
           </ul>
         </div>
       </nav>

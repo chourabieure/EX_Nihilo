@@ -3,12 +3,6 @@
     background-repeat: repeat-y;
     z-index: -1;
 }
-/* 
-.navbar{
-	-webkit-backdrop-filter: saturate(150%) blur(5px);
-    backdrop-filter: saturate(150%) blur(5px);
-    backface-visibility: hidden;
-} */
 
 .team::-webkit-scrollbar {
 	display: none;
@@ -41,7 +35,7 @@
 	display: flex;
 	animation: scrolling var(--marquee-animation-duration) linear infinite;
 	will-change: transform;
-	/* animation-play-state: paused !important; */
+	animation-play-state: paused !important;
   }
 
   .marquee2 {
@@ -94,7 +88,7 @@
   }
 
 
-  .accordion_close {
+.accordion-close {
     font-size: 0;
     margin: 0;
     opacity: 0;
@@ -107,10 +101,10 @@
 }
 
 /* reveal */
-.accordion_open  {
+.accordion-show  {
     /* unshrink, then fade in */
     transition: font-size .25s,
                 margin .25s,
                 padding .25s,
-                opacity .5s .25s;
+                opacity .5s .25s 
 }

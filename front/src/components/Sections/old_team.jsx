@@ -1,9 +1,13 @@
 import { motion } from "framer-motion";
+import { off } from "process";
+import { useState } from "react";
 import { useEffect } from "react";
-import Title from "@/components/Title";
+import Accordion from "../Accordion";
+import Title from "../Title";
 
 const Team = () => {
-  const sectionStyle = "snap-start text-slate-800 flex text-slate-200";
+  const sectionStyle = "snap-center text-slate-800 flex text-slate-200";
+
   const teamMembers = [
     {
       id: 1,
@@ -60,9 +64,10 @@ const Team = () => {
     main.addEventListener("scroll", (event) => {
       scrollElem.style.left =
         (scrollbar.offsetWidth * main.scrollLeft) /
-          (main.offsetWidth * teamLength) +
+          (main.offsetWidth * (teamMembers.length + 1)) +
         "px";
     });
+
     main.addEventListener("mouseenter", () => {
       clearInterval(scrollInterval);
     });
@@ -80,67 +85,68 @@ const Team = () => {
           offset = 0;
           main.scrollLeft = "0px";
         }
-        // main.scrollLeft = main.scrollLeft + 20 + "px";
-      }, 2000);
+        main.scrollLeft = main.scrollLeft + 20 + "px";
+      }, 1000);
     }
   }, []);
 
   return (
     <section
-      className={` ${sectionStyle} min-h-screen relative flex-col gap-4 sm:gap-8 items-start justify-start w-full`}
+      className={` ${sectionStyle} min-h-screen relative flex-col gap-4 sm:gap-8 items-start justify-start  w-full pt-40`}
     >
       {/* Title */}
-      <div className="max-w-5xl px-8 m-auto my-0 flex w-full justify-center">
-        <Title title={"C'est encore <br class='block sm:hidden'/>nous"} />
-      </div>{" "}
-      <div className="flex flex-col sm:flex-col-reverse gap-4 pb-40">
-        <div className=" w-full max-w-5xl m-auto px-8 ">
-          <div className="scrollbar relative bg-ex_light_purple h-[0.1rem] rounded-lg">
-            <div className="scrollElem absolute h-2  bg-ex_medium_purple left-0 top-1/2 -translate-y-1/2 rounded-lg"></div>
-          </div>
-        </div>
-        <div className="team py-0 sm:pb-8 sm:pt-8 flex m-auto my-0 w-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth">
-          {/* Section */}
+      <div className="max-w-5xl px-8 m-auto my-0 flex w-full">
+        <Title title={"C'est encore nous"} />
+      </div>
 
-          {teamMembers.map((person) => {
-            return (
-              <div
-                key={person.id}
-                className="member w-screen shrink-0 snap-center"
-              >
-                <div className="w-full gap-8 flex flex-col-reverse sm:flex-row max-w-5xl m-auto justify-between items-center px-8 sm:px-20">
-                  {/* Left */}
-                  <div className="flex flex-col-reverse md:flex-col  text-ex_dark_purple">
-                    <p className="max-w-lg">" {person.description} "</p>
-                    <div className="pt-0 pb-8 sm:pb-0 sm:pt-8">
-                      <h4 className="font-bold">{person.name}</h4>
-                      <h5 className="text-ex_normal_purple font-normal">
-                        {person.job}
-                      </h5>
-                    </div>
-                  </div>
-                  {/* Right */}
-                  <div className="w-[300px] max-w-[300px] h-[200px] sm:h-[300px] bg-purple-500 rounded-lg relative">
-                    <div className="h-[150px] w-[150px] bg-red-200 rounded-lg absolute top-8 right-1/2  translate-x-1/2 sm:translate-x-0 sm:-right-8"></div>
-                  </div>
+      {/* Divider */}
+
+      <div className="team py-0 sm:pb-8 sm:pt-8 flex m-auto my-0 w-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth">
+        {/* Section */}
+
+        {teamMembers.map((person) => {
+          return (
+            <div
+              key={person.id}
+              className="member w-screen shrink-0 snap-center"
+            >
+              <div className="w-full gap-8 flex flex-col-reverse sm:flex-row max-w-5xl m-auto justify-between items-center px-8 sm:px-20">
+                {/* Left */}
+                <div className="flex flex-col  text-ex_dark_purple">
+                  <p className="max-w-lg">" {person.description} "</p>
+                  <div className="pt-8" />
+                  <h4 className="font-bold">{person.name}</h4>
+                  <h5 className="text-ex_light_purple font-normal">
+                    {person.job}
+                  </h5>
+                </div>
+                {/* Right */}
+                <div className="w-[300px] max-w-[300px] h-[200px] sm:h-[300px] bg-purple-500 rounded-lg relative">
+                  <div className="h-[150px] w-[150px] bg-red-200 rounded-lg absolute top-8 right-1/2  translate-x-1/2 sm:translate-x-0 sm:-right-8"></div>
                 </div>
               </div>
-            );
-          })}
-          <div className="member w-screen shrink-0 snap-center">
-            <div className="w-full gap-8 flex flex-col h-full max-w-5xl m-auto justify-center items-center px-8 sm:px-20">
-              <h4 className="text-3xl font-bold text-ex_dark_purple">
-                Et tout les autres ...
-              </h4>
-              <p className="text-ex_dark_purple font-medium">
-                Nous avons à cœur de nous entourer de compétences
-                complémentaires au gré des besoins spécifiques que révèlent les
-                dossiers de nos clients. C’est donc ici l’occasion de saluer et
-                de remercier tous nos partenaires d’un jour ou de toujours qui
-                viennent enrichir notre équipe.
-              </p>
             </div>
+          );
+        })}
+        <div className="member w-screen shrink-0 snap-center">
+          <div className="w-full gap-8 flex flex-col h-full max-w-5xl m-auto justify-center items-center px-8 sm:px-20">
+            <h4 className="text-3xl font-bold text-ex_dark_purple">
+              Et tout les autres ...
+            </h4>
+            <p className="text-ex_dark_purple font-medium">
+              Nous avons à cœur de nous entourer de compétences complémentaires
+              au gré des besoins spécifiques que révèlent les dossiers de nos
+              clients. C’est donc ici l’occasion de saluer et de remercier tous
+              nos partenaires d’un jour ou de toujours qui viennent enrichir
+              notre équipe.
+            </p>
           </div>
+        </div>
+      </div>
+
+      <div className="pb-16 sm:pb-0 my-8 w-full max-w-5xl m-auto px-8 ">
+        <div className="scrollbar relative bg-ex_light_purple h-[0.1rem] rounded-lg">
+          <div className="scrollElem absolute h-2  bg-ex_medium_purple left-0 top-1/2 -translate-y-1/2 rounded-lg"></div>
         </div>
       </div>
     </section>

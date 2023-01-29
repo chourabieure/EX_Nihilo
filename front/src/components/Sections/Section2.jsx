@@ -1,16 +1,16 @@
 import { motion } from "framer-motion";
-import Title from "../Title";
+import Title from "@/components/Title";
 
 const Section2 = () => {
   const sectionStyle =
-    "h-screen snap-center text-slate-800 flex text-slate-200";
+    "min-h-screen snap-center text-slate-800 flex text-slate-200";
   return (
     <section
-      className={` ${sectionStyle} relative flex-col gap-8 items-center sm:items-start justify-start  w-full max-w-5xl m-auto px-8 pt-40`}
+      className={` ${sectionStyle} relative flex-col gap-8 items-center sm:items-start justify-start  w-full max-w-5xl m-auto px-8`}
     >
       {/* Title */}
-      <Title title={"C'est Nous"} />
-      <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
+      <Title title={"Qui sommes <br class='block sm:hidden'/> nous ?"} />
+      <div className="h-[0.5rem] rounded-lg bg-ex_normal_purple opacity-50 w-32 sm:block hidden" />
       {/* Text */}
       <motion.p
         initial={{
@@ -66,7 +66,7 @@ const Section2 = () => {
 
       <img
         src="/static/svg/single-line-section2.svg"
-        className="w-2 absolute -z-10 top-1/4 left-1/2 -translate-x-1/2 opacity-10 hidden min-[479px]:block"
+        className="w-2 absolute -z-10 top-1/4 left-1/2 -translate-x-1/2 opacity-20 hidden min-[479px]:block"
         alt=""
       />
     </section>

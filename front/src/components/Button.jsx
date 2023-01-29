@@ -3,7 +3,7 @@ const Button = ({
   bg_color = "bg-ex_light_purple",
   fill_color = "fill-ex_dark_purple",
   text_color = "text-ex_dark_purple",
-  font_size = "text-md",
+  font_size = "text-sm",
   icon = false,
   link = "#",
   target = "_blank",
@@ -12,13 +12,13 @@ const Button = ({
     <a
       href={link}
       target={target}
-      className={`${text_color} ${bg_color} ${font_size} flex items-center justify-center gap-2 px-8 py-4 rounded-full font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
+      className={`${text_color} ${bg_color} ${font_size} flex items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
     >
       {title}
       {
         icon && (
           <svg
-            className={`w-8 ${fill_color}`}
+            className={`h-4 ${fill_color}`}
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >
