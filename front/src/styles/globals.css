@@ -19,9 +19,9 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: 'Poppins';
-  @apply bg-slate-100
+  @apply bg-slate-100 transition-all duration-300
 }
 
 .dark body{
-  @apply bg-slate-900
+  @apply bg-slate-900 transition-all duration-300
 }
