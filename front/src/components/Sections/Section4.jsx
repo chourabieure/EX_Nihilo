@@ -131,7 +131,7 @@ const Section4 = () => {
           );
         })}
       </div>
-      <div className="relative flex flex-col md:hidden justify-center items-center snap-y snap-mandatory ">
+      <div className="relative flex flex-col  md:hidden justify-center items-center snap-y snap-mandatory ">
         {info.map((elem, index) => {
           return (
             <motion.div
@@ -155,7 +155,7 @@ const Section4 = () => {
               {/* Divider */}
               <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
               {/* Paragraph */}
-              <p className="text-justify leading-6 md:leading-7 text-ex_dark_purple">
+              <p className="text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple">
                 {elem.paragraph}
               </p>
               {/* "Voir Plus" */}

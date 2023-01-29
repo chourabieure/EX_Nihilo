@@ -28,19 +28,23 @@ const Section2 = () => {
           className="z-10 text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple"
         >
           Nous sommes le partenaire de votre ambition. Nous sommes{" "}
-          <span className="font-Miju ">Ex Nihilo</span> ! Une agence de{" "}
-          <span className="text-ex_red">Conseil</span>
-          {", "}
-          <span className="text-ex_red">Design</span>
-          {" et "}
-          <span className="text-ex_red">d'Expertise</span>. Nous intervenons à
-          tout moment dans votre projet. Bien sûr, si c'est au début, c'est
-          encore mieux ! Nous appréhendons ainsi toutes vos valeurs, votre
-          organisation et vos enjeux. Nous vous apportons une expertise textile
-          et design afin de faire de vos vêtements pros un outil de valorisation
-          et de cohésion. Notre approche systémique des vêtements d’image et EPI
-          vous assure d’une réponse sur mesure aux exigences particulières de
-          vos projets.
+          <span className="font-Miju">Ex Nihilo</span> ! Une agence de{" "}
+          <span className="text-ex_red">Conseil</span>,{" "}
+          <span className="text-ex_red">Design</span> et d'{" "}
+          <span className="text-ex_red">Expertise</span> spécialiste des
+          vêtements professionnels.
+          <br />
+          Nous intervenons à tout moment dans votre projet. Bien sûr, si c'est
+          au début, c'est encore mieux !
+          <br />
+          <br />
+          Nous appréhendons ainsi toutes vos valeurs, votre organisation et vos
+          enjeux. Nous vous apportons une expertise textile et design afin de
+          faire de vos vêtements pros un outil de valorisation et de cohésion.
+          <br />
+          <br />
+          Notre approche systémique des vêtements d’image et EPI vous assure
+          d’une réponse sur mesure aux exigences particulières de vos projets.
         </motion.p>
         {/* Image */}
         <div className="z-10 w-full h-28 flex-grow hidden min-[479px]:block">

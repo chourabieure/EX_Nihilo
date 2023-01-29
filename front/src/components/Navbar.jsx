@@ -41,7 +41,7 @@ const Navbar = () => {
   const scrollIntoView = (route) => {
     let e = document.querySelector(route);
     e.scrollIntoView({
-      block: "start",
+      block: "start", 
       behavior: "smooth",
       inline: "start",
     });
