@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { useEffect } from "react";
-import Title from "@/components/Title";
+import Title from "@/components/UI/Title";
 
 const Team = () => {
   const sectionStyle = "snap-start text-slate-800 flex text-slate-200";
@@ -73,13 +73,13 @@ const Team = () => {
     function scroll() {
       clearInterval(scrollInterval);
       scrollInterval = setInterval(() => {
-        offset++;
-        if (offset < teamLength) {
-          main.scrollBy(1, 0);
-        } else {
-          offset = 0;
-          main.scrollLeft = "0px";
-        }
+        // offset++;
+        // if (offset < teamLength) {
+        //   main.scrollBy(1, 0);
+        // } else {
+        //   offset = 0;
+        //   main.scrollLeft = "0px";
+        // }
         // main.scrollLeft = main.scrollLeft + 20 + "px";
       }, 2000);
     }
@@ -87,6 +87,7 @@ const Team = () => {
 
   return (
     <section
+      id="equipe"
       className={` ${sectionStyle} min-h-screen relative flex-col gap-4 sm:gap-8 items-start justify-start w-full`}
     >
       {/* Title */}
@@ -110,7 +111,7 @@ const Team = () => {
               >
                 <div className="w-full gap-8 flex flex-col-reverse sm:flex-row max-w-5xl m-auto justify-between items-center px-8 sm:px-20">
                   {/* Left */}
-                  <div className="flex flex-col-reverse md:flex-col  text-ex_dark_purple">
+                  <div className="flex flex-col-reverse md:flex-col  text-ex_dark_purple dark:text-ex_light_purple">
                     <p className="max-w-lg">" {person.description} "</p>
                     <div className="pt-0 pb-8 sm:pb-0 sm:pt-8">
                       <h4 className="font-bold">{person.name}</h4>

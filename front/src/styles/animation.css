@@ -139,9 +139,14 @@ animation: scrollAnim 1.1s infinite;
 
 
 :root {  
-  --color1: #8D85DA;
-  --color2: #8D85DA;
-  --color3: #C6C2ED;
+  --ex_light_purple:#C6C2ED;
+  --ex_normal_purple:  #8D85DA ;
+  --ex_medium_purple:  #5448C8 ;
+  --ex_dark_purple:  #3A1772 ;
+  --ex_light_yellow:  #FEC806 ;
+  --ex_dark_yellow:  #F9AF36 ;
+  --ex_red:  #FF6969 ;
+  --ex_gray:  #92848C ;
 }
 @keyframes background-pan {
   from {
@@ -196,31 +201,36 @@ animation: scrollAnim 1.1s infinite;
   opacity: 0.5;
 }
 
-/*  ex_light_purple: "#C6C2ED",
-        ex_normal_purple: "#8D85DA",
-        ex_medium_purple: "#5448C8",
-        ex_dark_purple: '#3A1772',
-        ex_light_yellow: '#FEC806',
-        ex_dark_yellow: "#F9AF36",
-        ex_red: '#FF6969',
-        ex_gray: '#92848C'
- */
 
 .magic-star > svg > path {
-  fill: #FF6969;
+  fill: var(--ex_red);
 }
 
 .magic-text {
   animation: background-pan 3s linear infinite;
     background: linear-gradient(
       to right,
-      var(--color1),
-      var(--color2),
-      var(--color3),
-      var(--color2)
+      var(--ex_dark_purple),
+      var(--ex_dark_purple),
+      var(--ex_normal_purple),
+      var(--ex_dark_purple)
     );
     background-size: 200%;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     white-space: nowrap;
+}
+.dark .magic-text{
+  animation: background-pan 3s linear infinite;
+  background: linear-gradient(
+    to right,
+    var(--ex_light_purple),
+      var(--ex_light_purple),
+      var(--ex_normal_purple),
+      var(--ex_light_purple)
+  );
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  white-space: nowrap;
 }

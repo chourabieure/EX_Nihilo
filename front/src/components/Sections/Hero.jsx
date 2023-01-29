@@ -1,6 +1,6 @@
-import Button from "@/components/Button";
+import Button from "@/components/UI/Button";
 import { motion } from "framer-motion";
-import Magicword from "../Magicword";
+import Magicword from "../UI/Magicword";
 
 const Hero = () => {
   const sectionStyle =
@@ -8,6 +8,7 @@ const Hero = () => {
 
   return (
     <section
+      id="1"
       className={`${sectionStyle} relative justify-between items-center flex-col py-8 pt-16 text-ex_dark_purple`}
     >
       {/* Spacer */}
@@ -54,7 +55,7 @@ const Hero = () => {
             ease: "linear",
           }}
           viewport={{ once: true }}
-          className="text-3xl transition-all  sm:text-5xl text-center text-ex_dark_purple font-medium leading-9 sm:leading-[50px] pb-8"
+          className="text-3xl transition-all  sm:text-5xl text-center text-ex_dark_purple dark:text-ex_light_purple font-medium leading-9 sm:leading-[50px] pb-8"
         >
           Parce que nos collaborateurs
           <br />
@@ -68,6 +69,8 @@ const Hero = () => {
 
         <div className="flex flex-col sm:flex-row gap-8 sm:gap-4 justify-center m-auto sm:m-0 w-[80%] sm:w-full">
           <Button
+            link="/contact"
+            target="_self"
             title="Entrons en contact"
             bg_color="bg-ex_light_yellow"
             text_color="text-ex_dark_purple"

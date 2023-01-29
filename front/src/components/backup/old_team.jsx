@@ -2,8 +2,8 @@ import { motion } from "framer-motion";
 import { off } from "process";
 import { useState } from "react";
 import { useEffect } from "react";
-import Accordion from "../Accordion";
-import Title from "../Title";
+import Accordion from "../UI/Accordion";
+import Title from "../UI/Title";
 
 const Team = () => {
   const sectionStyle = "snap-center text-slate-800 flex text-slate-200";

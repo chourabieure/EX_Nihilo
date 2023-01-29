@@ -1,13 +1,11 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
-import Accordion from "../Accordion";
+import Accordion from "../UI/Accordion";
 
 const Footer = () => {
-  const sectionStyle = "snap-center text-slate-800 flex text-slate-200";
-
   return (
     <section
-      className={` ${sectionStyle} relative flex-col  items-center justify-start  w-full px-8`}
+      className={`relative flex-col  items-center justify-start  w-full px-8`}
     >
       <div className="flex flex-col items-center justify-center gap-16 py-16">
         <svg
@@ -89,19 +87,19 @@ const Footer = () => {
             fill="#92848C"
           />
         </svg>
-        <div className=" flex gap-8 text-ex_dark_purple font-semibold">
+        {/* <div className=" flex gap-8 text-ex_dark_purple font-semibold">
           <Link href="#">Nos Valeurs</Link>
           <Link href="#">Nous contacter</Link>
-        </div>
+        </div> */}
       </div>
       <div className="w-full h-[0.1rem] bg-ex_normal_purple opacity-20" />
       <div className="w-full py-8 flex items-center justify-between">
-        <p className="text-ex_dark_purple">
+        <p className="text-ex_dark_purple dark:text-ex_light_purple">
           Copyright © 2023 ExNihilo Smart Workwear. All rights reserved.
         </p>
         <div>
           <svg
-            className="fill-ex_dark_purple h-10"
+            className="fill-ex_dark_purple dark:fill-ex_light_purple h-10"
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
           >

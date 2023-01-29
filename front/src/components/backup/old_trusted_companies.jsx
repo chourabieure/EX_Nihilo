@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Title from "@/components/Title";
+import Title from "@/components/UI/Title";
 
 const Section5 = () => {
   const sectionStyle =

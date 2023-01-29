@@ -7,6 +7,10 @@
 /* @font-face {
   font-family: 'Miju';
   src: url('/fonts/Miju.otf');
+ }
+ @font-face {
+  font-family: 'Poppins';
+  src: url('/fonts/Poppins-Medium.ttf');
  } */
 
 html,
@@ -15,8 +19,9 @@ body {
   height: 100vh;
   overflow: hidden;
   font-family: 'Poppins';
+  @apply bg-slate-100
 }
 
-body{
-  /* background: linear-gradient(111.69deg, #0F1014 -2.75%, #3A1772 100%); */
+.dark body{
+  @apply bg-slate-900
 }

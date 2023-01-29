@@ -14,18 +14,19 @@ const TransitionLayout = ({ children }) => {
   }, [children, setDisplayChildren, displayChildren]);
 
   return (
-    // <div
-    //     onTransitionEnd={() => {
-    //         if (transitionStage === 'fadeOut') {
-    //             console.log('fading out')
-    //             setDisplayChildren(children)
-    //             setTransitionStage('fadeIn')
-    //         }
-    //     }}
-    //     className={`${styles.content} ${styles[transitionStage]} flex flex-col items-center pt-10`}>
-    //     {displayChildren}
-    // </div>
-    <main className="relative">{children}</main>
+    // <main
+    //   onTransitionEnd={() => {
+    //     if (transitionStage === "fadeOut") {
+    //       setDisplayChildren(children);
+    //       setTransitionStage("fadeIn");
+    //     }
+    //   }}
+    //   className={`${styles.content} ${styles[transitionStage]} relative`}
+    // >
+    //   {displayChildren}
+    // </main>
+
+    <main>{children}</main>
   );
 };
 

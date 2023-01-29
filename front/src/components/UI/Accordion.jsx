@@ -80,7 +80,7 @@ const Accordion = () => {
               <p
                 className={`${
                   isActive == item.id ? "accordion-show" : " accordion-close"
-                } text-ex_dark_purple overflow-hidden transition-all duration-500 mb-4`}
+                } text-ex_dark_purple dark:text-ex_light_purple overflow-hidden transition-all duration-500 mb-4`}
                 dangerouslySetInnerHTML={{ __html: item.content }}
               ></p>
             </div>

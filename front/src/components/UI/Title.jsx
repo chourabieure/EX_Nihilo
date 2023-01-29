@@ -2,7 +2,7 @@ const Title = ({ title, center = false }) => {
   return (
     <div className="pt-28 md:pt-40">
       {center ? (
-        <div className="relative text-ex_dark_purple">
+        <div className="relative text-ex_dark_purple dark:text-ex_light_purple">
           <h2
             dangerouslySetInnerHTML={{ __html: title }}
             className="font-Miju text-center text-4xl sm:text-4xl md:text-5xl lg:text-6xl leading-8 whitespace-nowrap"
@@ -13,7 +13,7 @@ const Title = ({ title, center = false }) => {
           ></h3>
         </div>
       ) : (
-        <div className="relative text-ex_dark_purple text-center sm:text-left">
+        <div className="relative text-ex_dark_purple dark:text-ex_light_purple text-center sm:text-left">
           <h2
             dangerouslySetInnerHTML={{ __html: title }}
             className="font-Miju text-5xl pl-0 sm:pl-8 lg:pl-0"

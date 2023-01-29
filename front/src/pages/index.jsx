@@ -33,7 +33,7 @@ const Home = () => {
       <Section5 />
       <Team />
       <Faq />
-      <Footer />
+      <div className=" w-full snap-start"></div>
 
       {/* <section className={` ${sectionStyle} items-center justify-center`}>
         Section 2

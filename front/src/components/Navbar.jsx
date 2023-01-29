@@ -1,45 +1,58 @@
 import Link from "next/link";
+import { useEffect } from "react";
 import { useState } from "react";
-import Button from "./Button";
-
+import Button from "./UI/Button";
+import { useTheme } from "next-themes";
 const Navbar = () => {
+  const { theme, setTheme } = useTheme();
   const navbarItems = [
     {
       id: 1,
       name: "Présentation",
-      route: "#",
+      route: "#qui_sommes_nous",
     },
     {
       id: 2,
       name: "Offre",
-      route: "#",
+      route: "#que_faisons_nous",
     },
     {
       id: 3,
       name: "Références",
-      route: "#",
+      route: "#nos_valeurs",
     },
     {
       id: 4,
       name: "Équipe",
-      route: "#",
+      route: "#equipe",
     },
     {
       id: 5,
       name: "FAQ",
-      route: "#",
+      route: "#faq",
     },
   ];
 
   const [isActive, setIsActive] = useState(false);
+
+  useEffect(() => {}, []);
+
+  const scrollIntoView = (route) => {
+    let e = document.querySelector(route);
+    e.scrollIntoView({
+      block: "start",
+      behavior: "smooth",
+      inline: "start",
+    });
+  };
   return (
     <>
-      <nav className="fixed navbar z-10 top-0 w-full py-4 bg-white/80 backdrop-blur-md">
+      <nav className="fixed navbar z-10 top-0 w-full py-4 bg-white/60 dark:bg-slate-900/60 backdrop-blur-md">
         {/* Logo */}
-        <div className="m-auto max-w-7xl justify-between items-center flex px-8">
-          <ul className="flex items-center gap-4">
+        <div className="m-auto max-w-7xl justify-between items-center flex px-8 gap-4">
+          <Link href="/">
             <svg
-              className="h-5 sm:h-6 pr-4 mb-0 sm:mb-2 fill-ex_dark_purple"
+              className=" cursor-pointer h-5 sm:h-6 pr-4 mb-0 sm:mb-2 fill-ex_dark_purple dark:fill-ex_normal_purple"
               viewBox="0 0 522 99"
               xmlns="http://www.w3.org/2000/svg"
             >
@@ -57,23 +70,46 @@ const Navbar = () => {
               <path d="M413.354 86.733L413.354 22.693L409.476 14.3525L413.972 12.261L440.332 -2.08751e-07L440.332 86.7414L445.107 97.0041L408.587 97.0041L413.363 86.7414L413.354 86.733Z" />
               <path d="M449.433 62.0754C449.433 52.38 453.21 43.269 460.06 36.4187C466.91 29.5685 476.021 25.792 485.717 25.792C495.412 25.792 504.515 29.5685 511.373 36.4187C518.223 43.269 522 52.38 522 62.0754C522 71.7707 518.223 80.8733 511.373 87.732C504.523 94.5822 495.412 98.3587 485.717 98.3587C476.021 98.3587 466.91 94.5822 460.06 87.732C453.21 80.8733 449.433 71.7707 449.433 62.0754ZM464.505 47.3927C468.375 53.1083 474.235 59.9923 481.017 66.7748C487.8 73.5573 494.684 79.4253 500.399 83.2865C505.835 86.9614 509.773 88.4602 510.933 87.3001C512.093 86.1401 510.594 82.1943 506.919 76.7581C503.05 71.0425 497.19 64.1584 490.408 57.3759C475.318 42.2867 462.761 34.5813 460.492 36.8506C459.315 38.0276 460.831 41.948 464.505 47.3842L464.505 47.3927Z" />
             </svg>
+          </Link>
+          <ul className="flex items-center gap-4 flex-grow">
             {navbarItems.map((elem) => {
               return (
                 <li
                   key={elem.id}
-                  className="hidden min-[1000px]:block [&>a]:p-4  text-ex_dark_purple  font-medium text-sm hover:text-ex_dark_yellow transition-all"
+                  onClick={() => scrollIntoView(elem.route)}
+                  className=" cursor-pointer hidden min-[1000px]:block p-4  text-ex_dark_purple dark:text-ex_light_purple  font-medium text-sm hover:text-ex_dark_yellow transition-all"
                 >
-                  <Link href="#" className="">
-                    {elem.name}
-                  </Link>
+                  {elem.name}
                 </li>
               );
             })}
           </ul>
 
-          <ul className="hidden min-[1000px]:block">
+          <ul className="hidden min-[1000px]:flex gap-4 items-center ">
             <li>
-              <Button title="Contactez-nous" />
+              <Button title="Contactez-dfds" link="/contact" target="_self" />
+            </li>
+            <li
+              className="bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg"
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            >
+              {theme === "dark" ? (
+                <svg
+                  className="w-8 p-1 fill-slate-900"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+                </svg>
+              ) : (
+                <svg
+                  className="w-8 p-1 fill-slate-100"
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                >
+                  <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+                </svg>
+              )}
             </li>
           </ul>
           <svg
@@ -92,26 +128,52 @@ const Navbar = () => {
             <path d="M21.3466 31.1538C21.3466 33.0018 19.8485 34.4999 18.0005 34.4999C16.1524 34.4999 14.6543 33.0018 14.6543 31.1538C14.6543 29.3057 16.1524 27.8076 18.0005 27.8076C19.8485 27.8076 21.3466 29.3057 21.3466 31.1538Z" />
             <circle cx="31.1538" cy="31.1538" r="3.34615" />
           </svg>
+          <div
+            className="block  min-[1000px]:hidden bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg"
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+          >
+            {theme === "dark" ? (
+              <svg
+                className="w-8 p-1 fill-slate-900"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z" />
+              </svg>
+            ) : (
+              <svg
+                className="w-8 p-1 fill-slate-100"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+              >
+                <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
+              </svg>
+            )}
+          </div>
         </div>
         <div
           className={`${
-            isActive ? "flex " : "hidden "
+            isActive ? "flex" : "hidden "
           } px-4 h-screen w-screen top-0 left-1/2`}
         >
           <ul className="flex w-full flex-col gap-4 pt-8">
             {navbarItems.map((elem) => {
               return (
                 <li
-                  onClick={() => setIsActive(!isActive)}
+                  onClick={() => {
+                    setIsActive(!isActive);
+                    scrollIntoView(elem.route);
+                  }}
                   key={elem.id}
-                  className=" [&>a]:p-4  text-ex_dark_purple  font-medium text-2xl hover:text-ex_dark_yellow transition-all"
+                  className=" cursor-pointer p-4  text-ex_dark_purple  font-medium text-2xl hover:text-ex_dark_yellow transition-all"
                 >
-                  <Link href="#">{elem.name}</Link>
+                  {elem.name}
                 </li>
               );
             })}
-            <li className="w-full pt-4">
-              <Button title="Contactez-nous" />
+
+            <li className="w-full pt-4" onClick={() => setIsActive(false)}>
+              <Button title="Contactez-nous" link="/contact" target="_self" />
             </li>
           </ul>
         </div>

@@ -1,7 +1,7 @@
-import Button from "@/components/Button";
+import Button from "@/components/UI/Button";
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import Title from "@/components/Title";
+import Title from "@/components/UI/Title";
 
 const Section4 = () => {
   const info = [
@@ -23,8 +23,6 @@ const Section4 = () => {
   ];
 
   const shapes = ["ShapeConseil", "ShapeDesign", "ShapeExpertise"];
-
-  const sectionStyle = "snap-start text-slate-800 flex text-slate-200";
 
   const [position, setPosition] = useState(0);
 
@@ -55,7 +53,8 @@ const Section4 = () => {
 
   return (
     <section
-      className={` ${sectionStyle} relative flex gap-16 flex-row w-full max-w-5xl m-auto px-8 `}
+      id="nos_valeurs"
+      className={`snap-start relative flex gap-16 flex-row w-full max-w-5xl m-auto px-8 `}
     >
       {/*--------------------- LEFT ---------------------*/}
       <motion.div
@@ -79,9 +78,9 @@ const Section4 = () => {
           <Title title={info[position].title} />
 
           {/* Divider */}
-          <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
+          <div className="h-[0.2rem] bg-ex_normal_purple dark:bg-ex_light_purple w-32 sm:block hidden" />
           {/* Paragraph */}
-          <p className="text-justify leading-6 md:leading-7 text-ex_dark_purple">
+          <p className="text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple">
             {info[position].paragraph}
           </p>
           {/* "Voir Plus" */}
