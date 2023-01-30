@@ -25,17 +25,17 @@ const Section2 = () => {
             ease: "linear",
           }}
           viewport={{ once: true }}
-          className="z-10 text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple"
+          className="z-10 text-justify leading-[1.40rem] md:leading-6 text-ex_dark_purple dark:text-ex_light_purple"
         >
           Nous sommes le partenaire de votre ambition. Nous sommes{" "}
-          <span className="font-Miju">Ex Nihilo</span> ! Une agence de{" "}
-          <span className="text-ex_red">Conseil</span>,{" "}
+          <span className="font-Miju">Ex Nihilo</span> !
+          <br />
+          <br />
+          Une agence de <span className="text-ex_red">Conseil</span>,{" "}
           <span className="text-ex_red">Design</span> et d'{" "}
           <span className="text-ex_red">Expertise</span> spécialiste des
-          vêtements professionnels.
-          <br />
-          Nous intervenons à tout moment dans votre projet. Bien sûr, si c'est
-          au début, c'est encore mieux !
+          vêtements professionnels. Nous intervenons à tout moment dans votre
+          projet. Bien sûr, si c'est au début, c'est encore mieux !
           <br />
           <br />
           Nous appréhendons ainsi toutes vos valeurs, votre organisation et vos

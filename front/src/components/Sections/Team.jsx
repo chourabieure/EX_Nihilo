@@ -92,11 +92,15 @@ const Team = () => {
     >
       {/* Title */}
       <div className="max-w-5xl px-8 m-auto my-0 flex w-full justify-center">
-        <Title title={"C'est encore <br class='block sm:hidden'/>nous"} />
+        <Title title={"Nous sommes une <br class='block sm:hidden'/>équipe"} />
       </div>{" "}
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
+      <p className="text-ex_dark_purple text-xl font-semibold max-w-5xl text-center py-4 px-8">
+        Ex Nihilo, c’est une équipe pluridisciplinaire qui s’est forgée une
+        solide réputation à travers des projets exigeants et diversifiés.{" "}
+      </p>
       <div className="relative flex flex-col sm:flex-col-reverse gap-4 pb-60">
-        <div className=" w-full max-w-5xl m-auto px-8 ">
+        <div className=" w-full max-w-5xl m-auto px-8  pb-8">
           <div className="scrollbar relative bg-ex_light_purple h-[0.1rem] rounded-lg">
             <div className="scrollElem absolute h-2  bg-ex_medium_purple left-0 top-1/2 -translate-y-1/2 rounded-lg"></div>
           </div>

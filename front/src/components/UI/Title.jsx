@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Title = ({ title, center = false }) => {
+const Title = ({ title, center = false, padding = true }) => {
   return (
     <motion.div
       initial={{
@@ -14,7 +14,7 @@ const Title = ({ title, center = false }) => {
       transition={{
         duration: 0.5,
       }}
-      className="pt-28 md:pt-40"
+      className={`${!padding ? "" : "pt-28 md:pt-40"}`}
     >
       {center ? (
         <div className="relative text-ex_dark_purple dark:text-ex_light_purple">

@@ -198,7 +198,7 @@ animation: scrollAnim 1.1s infinite;
 .magic-star > svg {
   animation: rotate 1000ms linear infinite;
   display: block;
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
 
 

@@ -23,17 +23,24 @@ const Section3 = () => {
             ease: "linear",
           }}
           viewport={{ once: true }}
-          className="text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple"
+          className="text-justify text-lg sm:text-xl leading-[1.4rem] md:leading-6 text-ex_dark_purple dark:text-ex_light_purple"
         >
+          Ouvrons ensemble une page blanche de notre carnet.
+          <br />
+          <br />
           C’est notre signature et notre exigence :{" "}
           <span className="italic text-ex_red">ex nihilo</span>, locution latine
           signifie «en partant de rien».
           <br />
           <br />
           Adeptes du design thinking, c’est avec vos équipes que nous
-          travaillons le mieux. Nous privilégions un travail en co-création pour
-          définir vos vêtements d'image et EPI. Voici nos 3 domaines
-          d'interventions : le conseil, le design, l'expertise.
+          travaillons le mieux.
+          <br />
+          <br /> Nous privilégions un travail en co-création pour définir vos
+          vêtements d'image et EPI.
+          <br />
+          <br /> Voici nos 3 domaines d'interventions : le conseil, le design,
+          l'expertise.
         </motion.p>
 
         <div className="w-full flex justify-center">

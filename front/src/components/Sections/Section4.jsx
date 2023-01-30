@@ -84,11 +84,11 @@ const Section4 = () => {
             {info[position].paragraph}
           </p>
           {/* "Voir Plus" */}
-          <Button
+          {/* <Button
             bg_color="bg-ex_light_yellow"
             title="En savoir plus"
             icon="true"
-          />
+          /> */}
         </div>
       </motion.div>
       {/* Title */}
@@ -131,7 +131,7 @@ const Section4 = () => {
           );
         })}
       </div>
-      <div className="relative flex flex-col  md:hidden justify-center items-center snap-y snap-mandatory ">
+      <div className="relative flex flex-col md:hidden justify-center items-center snap-y snap-mandatory ">
         {info.map((elem, index) => {
           return (
             <motion.div
@@ -148,22 +148,8 @@ const Section4 = () => {
                 duration: 1,
                 ease: "linear",
               }}
-              className="flex h-screen flex-col justify-center gap-8 snap-center"
+              className="flex h-screen flex-col justify-center items-center gap-8 snap-center"
             >
-              {/* Title */}
-              <Title title={elem.title} />
-              {/* Divider */}
-              <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
-              {/* Paragraph */}
-              <p className="text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple">
-                {elem.paragraph}
-              </p>
-              {/* "Voir Plus" */}
-              <Button
-                bg_color="bg-ex_light_yellow"
-                title="En savoir plus"
-                icon="true"
-              />
               <motion.img
                 initial={{
                   opacity: 0,
@@ -171,7 +157,7 @@ const Section4 = () => {
                   visibility: "hidden",
                 }}
                 whileInView={{
-                  opacity: 0.2,
+                  opacity: 1,
                   scale: 1.1,
 
                   visibility: "visible",
@@ -180,14 +166,36 @@ const Section4 = () => {
                   duration: 0.3,
                   ease: "linear",
                 }}
-                className="w-full  absolute -z-[1] opacity-20"
+                className="w-1/2 "
                 src={`/static/svg/${shapes[index]}.svg`}
                 alt=""
               />
+              {/* Title */}
+
+              <Title title={elem.title} padding={false} />
+              {/* Divider */}
+              <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
+              {/* Paragraph */}
+              <p className="text-justify leading-6 md:leading-7 text-ex_dark_purple dark:text-ex_light_purple">
+                {elem.paragraph}
+              </p>
+              {/* "Voir Plus" */}
+              {/* <Button
+                bg_color="bg-ex_light_yellow"
+                title="En savoir plus"
+                icon="true"
+              /> */}
             </motion.div>
           );
         })}
       </div>
+      <svg
+        className="w-[600px] sm:w-[900px] z-[0] absolute fill-ex_normal_purple left-0 -translate-x-1/2 bottom-0 translate-y-1/2 opacity-20 shape1Animate"
+        viewBox="0 0 501 480"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M501 240C501 265.819 475.501 287.292 467.929 310.585C460.069 334.736 467.806 367.001 453.198 387.122C438.411 407.415 405.182 409.989 384.865 424.755C364.753 439.384 352.117 470.249 327.951 478.089C304.637 485.64 276.37 468.348 250.527 468.348C224.685 468.348 196.418 485.647 173.104 478.089C148.938 470.249 136.302 439.384 116.19 424.755C95.8726 409.989 62.6439 407.415 47.8573 387.122C33.1943 367.001 40.9312 334.736 33.0706 310.585C25.5124 287.292 0 265.819 0 240C0 214.181 25.4987 192.708 33.0706 169.415C40.9312 145.264 33.1943 112.999 47.8023 92.8781C62.5889 72.5854 95.8176 70.0111 116.135 55.2447C136.247 40.6155 148.883 9.7509 173.049 1.91117C196.363 -5.64023 224.63 11.6525 250.473 11.6525C276.315 11.6525 304.583 -5.6471 327.896 1.91117C352.062 9.7509 364.698 40.6155 384.81 55.2447C405.127 70.0111 438.356 72.5854 453.143 92.8781C467.806 112.999 460.069 145.264 467.929 169.415C475.501 192.708 501 214.181 501 240Z" />
+      </svg>
     </section>
   );
 };
