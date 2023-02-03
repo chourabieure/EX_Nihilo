@@ -21,7 +21,7 @@ const Home = () => {
   return (
     <div
       id="scroll_snap_container"
-      className="relative h-screen overflow-y-scroll  overflow-x-hidden  snap-y snap-proximity "
+      className="relative h-screen overflow-y-scroll  overflow-x-hidden  snap-y snap-mandatory"
     >
       {/* Lines */}
 

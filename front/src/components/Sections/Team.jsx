@@ -11,6 +11,7 @@ const Team = () => {
       job: "Directeur Artistique – Styliste ",
       description:
         "Créateur d’Ex Nihilo, je poursuis un seul objectif : associer au vêtement d’image, style et ergonomie pour la valorisation de chacun. Toujours à l’affût des tendances et des développements technologiques des matières, j’apporte aux marques une identification forte et l’adhésion à leurs valeurs à travers un style original et pérenne.",
+      srcImg: "/static/images/portrait/Jonathan.png"
     },
     {
       id: 2,
@@ -18,6 +19,7 @@ const Team = () => {
       job: "Responsable du BE",
       description:
         "J’accompagne, conseille et chouchoute les clients d’Ex Nihilo dans leur dossiers vêtements. En étroite collaboration avec le design, j’assure le développement et le suivi des différents projets jusqu’à leur industrialisation et leur suivi qualité. Je coordonne le bureau d’étude et reste, toujours en veille de nouvelles solutions et de nouveautés technologiques.",
+      srcImg: "/static/images/portrait/Carine.png"
     },
     {
       id: 3,
@@ -25,6 +27,7 @@ const Team = () => {
       job: "Modéliste Industrielle",
       description:
         "Riche d’un parcours de modélisme dans le secteur du prêt-à-porter, j’ai suivi toutes les évolutions technologiques de mon métier avec enthousiasme et curiosité. Je suis l’interlocutrice privilégiée lors du développement des modèles et du suivi de l’industrialisation. En étroite collaboration avec le design je mets mon savoir-faire au service de la création des solutions d’habillement professionnel.",
+      srcImg: "/static/images/portrait/Anais.png"
     },
     {
       id: 4,
@@ -32,6 +35,7 @@ const Team = () => {
       job: "Chargée de développement commercial",
       description:
         "Tourné vers la satisfaction client, j’explore les différentes facettes du développement commercial. Je participe à la communication et à la stratégie commerciale afin d’accroitre le portefeuille clients et la visibilité d’Ex Nihilo. Enthousiaste et plein d’énergie, je vous accompagne dans  vos recherches de solutions d’habillement professionnel. ",
+      srcImg: "/static/images/portrait/Julien.png"
     },
     {
       id: 5,
@@ -39,6 +43,7 @@ const Team = () => {
       job: "Prototypiste Industrielle",
       description:
         "De formation technique et riche d’une pratique protéiforme, je réalise la mise au point des modèles afin de donner corps aux créations de notre studio créa. J’assure les ajustements et les choix techniques avec le reste de l’équipe afin de garantir la bonne industrialisation de vos modèles et leur bien aller. Curieuse et créative, j’aime la diversité des projets que vous nous confiez.",
+        srcImg: "/static/images/portrait/Daisy.png"
     },
   ];
 
@@ -60,7 +65,7 @@ const Team = () => {
     main.addEventListener("scroll", (event) => {
       scrollElem.style.left =
         (scrollbar.offsetWidth * main.scrollLeft) /
-          (main.offsetWidth * teamLength) +
+        (main.offsetWidth * teamLength) +
         "px";
     });
     main.addEventListener("mouseenter", () => {
@@ -95,7 +100,7 @@ const Team = () => {
         <Title title={"Nous sommes une <br class='block sm:hidden'/>équipe"} />
       </div>{" "}
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
-      <p className="text-ex_dark_purple text-xl font-semibold max-w-5xl text-center py-4 px-8">
+      <p className="text-ex_dark_purple dark:text-ex_light_purple text-xl font-semibold max-w-5xl text-center py-4 px-8">
         Ex Nihilo, c’est une équipe pluridisciplinaire qui s’est forgée une
         solide réputation à travers des projets exigeants et diversifiés.{" "}
       </p>
@@ -142,8 +147,8 @@ const Team = () => {
                     </div>
                   </div>
                   {/* Right */}
-                  <div className="w-[300px] max-w-[300px] h-[200px] sm:h-[300px] bg-purple-500 rounded-lg relative">
-                    <div className="h-[150px] w-[150px] bg-red-200 rounded-lg absolute top-8 right-1/2  translate-x-1/2 sm:translate-x-0 sm:-right-8"></div>
+                  <div className="w-[300px] max-w-[300px] h-[200px] sm:h-[300px] bg-ex_normal_purple rounded-lg relative">
+                    <img src={person.srcImg} className="h-[150px] w-[150px] rounded-lg absolute top-8 right-1/2  translate-x-1/2 sm:translate-x-0 sm:-right-8"></img>
                   </div>
                 </div>
               </div>
