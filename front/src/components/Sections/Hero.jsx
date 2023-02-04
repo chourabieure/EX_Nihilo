@@ -62,7 +62,7 @@ const Hero = () => {
         viewport={{ once: true }}
         className="px-8 z-10"
       >
-        <div className="text-4xl transition-all sm:text-5xl md:text-6xl lg:text-7xl text-center text-ex_dark_purple dark:text-ex_light_purple font-medium  pb-8">
+        <div className="text-4xl transition-all sm:text-5xl md:text-6xl lg:text-6xl text-center text-ex_dark_purple dark:text-ex_light_purple font-medium  pb-8">
           Parce que vos collaborateurs
           <br />
           sont <Magicword word={"précieux"} />

@@ -1,12 +1,28 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+/* 
 @font-face {
   font-family: 'Miju';
   src: url('/static/fonts/Miju.otf');
+} */
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Black.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Bold.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-ExtraBold.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-ExtraLight.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Light.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Medium.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-SemiBold.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Thin.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Regular.ttf');
+  }
+@font-face {
+  font-family: 'Miju';
+  src : url('../assets/fonts/Miju/Miju.otf')
 }
 
 html,
@@ -20,10 +36,4 @@ body {
 
 .dark body {
   @apply bg-slate-900 transition-all duration-300
-}
-
-
-/* In your css file where you want to use the font */
-h3 {
-  font-family: 'Miju';
 }

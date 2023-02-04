@@ -1,7 +1,6 @@
 import "@/styles/globals.css";
 import "@/styles/animation.css";
 import "@/styles/additionalCSS.css";
-import { AppProps } from "next/app";
 import { ThemeProvider } from "next-themes";
 
 import Navbar from "@/components/Navbar";
