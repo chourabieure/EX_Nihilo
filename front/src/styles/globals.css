@@ -1,11 +1,39 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap'); */
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-html {
-  scroll-behavior: smooth;
-  width : 100%;
+/* 
+@font-face {
+  font-family: 'Miju';
+  src: url('/static/fonts/Miju.otf');
+} */
+@font-face {
+  font-family: 'Poppins';
+  src: url('../assets/fonts/Poppins/Poppins-Black.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Bold.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-ExtraBold.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-ExtraLight.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Light.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Medium.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-SemiBold.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Thin.ttf');
+  src: url('../assets/fonts/Poppins/Poppins-Regular.ttf');
+  }
+@font-face {
+  font-family: 'Miju';
+  src : url('../assets/fonts/Miju/Miju.otf')
 }
-body{
-  @apply font-medium bg-slate-900 text-slate-50;
+
+html,
+body {
+  scroll-behavior: smooth;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Poppins';
+  @apply bg-slate-100 transition-all duration-300
+}
+
+.dark body {
+  @apply bg-slate-900 transition-all duration-300
 }

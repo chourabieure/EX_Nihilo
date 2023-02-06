@@ -1,0 +1,30 @@
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@font-face {
+  font-family: 'Miju';
+  src: url('/fonts/Miju.otf');
+ }
+
+html,body,#__next{
+    height: 100vh;
+}
+* {
+    box-sizing: border-box;
+  }
+
+  html{
+    background: linear-gradient(111.69deg, #0F1014 -2.75%, #3A1772 100%);
+
+  }
+
+  
+  /* In your css file where you want to use the font */
+h3 { 
+  font-family: 'Miju';
+}
