@@ -11,7 +11,7 @@ const Button = ({
     <a
       href={link}
       target="_blank"
-      className={`${text_color} ${bg_color}  ${font_size} flex items-center justify-center gap-2 px-4 py-2 md:px-8 md:py-4 rounded-full font-semibold whitespace-nowrap hover:scale-105 scale-100 transition-all cursor-pointer`}
+      className={`${text_color} ${bg_color} ${font_size} flex items-center justify-center gap-2 px-4 py-2 md:px-8 md:py-4 rounded-full font-semibold whitespace-nowrap hover:scale-105 scale-100 transition-all cursor-pointer`}
     >
       {title}
       {
