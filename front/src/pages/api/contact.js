@@ -18,11 +18,11 @@ export default function (req, res) {
         text: "Demande de contact de la part de " + req.body.name,
         html: `<div>${req.body.email}</div><p>${req.body.phone}</p><p> ${req.body.name}</p>`
     }
-    transporter.sendMail(mailData, function (err, info) {
-        if (err)
-            console.log(err)
-        else
-            console.log(info)
-    })
+    // transporter.sendMail(mailData, function (err, info) {
+    //     if (err)
+    //         console.log(err)
+    //     else
+    //         console.log(info)
+    // })
     res.status(200)
 }

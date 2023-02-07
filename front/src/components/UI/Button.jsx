@@ -9,6 +9,7 @@ const Button = ({
   icon = false,
   link = "#",
   target = "_blank",
+  extra = "",
 }) => {
   const scrollIntoView = (route) => {
     let e = document.querySelector(route);
@@ -23,7 +24,7 @@ const Button = ({
       <a
         target={target}
         rel="noopener noreferrer"
-        className={`${text_color} ${bg_color} ${font_size} flex items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
+        className={`${text_color} ${bg_color} ${font_size} ${extra} flex  items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
       >
         {title}
         {

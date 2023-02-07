@@ -131,7 +131,7 @@ const Section4 = () => {
           );
         })}
       </div>
-      <div className="relative flex flex-col md:hidden justify-center items-center snap-y snap-mandatory ">
+      <div className="relative flex flex-col md:hidden justify-center items-center">
         {info.map((elem, index) => {
           return (
             <motion.div
@@ -148,7 +148,7 @@ const Section4 = () => {
                 duration: 1,
                 ease: "linear",
               }}
-              className="flex h-screen flex-col justify-center items-center gap-8 snap-center"
+              className="flex h-screen flex-col justify-center items-center gap-8"
             >
               <motion.img
                 initial={{

@@ -2,11 +2,9 @@ import { motion } from "framer-motion";
 import Title from "@/components/UI/Title";
 
 const Section2 = () => {
-  const sectionStyle =
-    "min-h-screen snap-center text-slate-800 flex text-slate-200";
   return (
-    <section id="qui_sommes_nous" className={` ${sectionStyle}  w-full `}>
-      <div className="relative px-8 max-w-5xl mx-auto min-h-screen flex flex-col gap-8 items-center sm:items-start justify-start  ">
+    <section id="qui_sommes_nous" className={` w-full `}>
+      <div className=" relative px-8 max-w-5xl mx-auto  flex flex-col gap-8 items-center sm:items-start justify-start  ">
         {/* Title */}
         <Title title={"Qui sommes <br class='block sm:hidden'/> nous ?"} />
         <div className="h-[0.2rem] rounded-lg bg-ex_normal_purple dark:bg-ex_light_purple opacity-50 w-32 sm:block hidden" />
@@ -47,7 +45,7 @@ const Section2 = () => {
           d’une réponse sur mesure aux exigences particulières de vos projets.
         </motion.p>
         {/* Image */}
-        <div className="z-10 w-full h-28 flex-grow hidden min-[479px]:block">
+        <div className="z-10 w-full  flex-grow hidden min-[479px]:block">
           <motion.img
             initial={{
               opacity: 0,
@@ -62,7 +60,7 @@ const Section2 = () => {
               ease: "linear",
             }}
             viewport={{ once: true }}
-            className=" h-full w-full object-cover object-top rounded-t-xl  "
+            className=" h-[300px] w-full object-cover object-top rounded-t-xl  "
             src="/static/images/Image1.jpg"
             alt=""
           />
