@@ -5,6 +5,7 @@ import Button from "@/components/UI/Button";
 import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/router";
+import Divider from "@/components/UI/Divider";
 
 const Contact = () => {
   const router = useRouter();
@@ -40,13 +41,15 @@ const Contact = () => {
     e.preventDefault();
     setModal(true);
   };
+
   const inputStyle =
     "ml-0 lg:ml-8 font-Poppins bg-transparent text-lg sm:text-2xl font-bold border-b-[0.2rem] border-ex_dark_purple dark:border-ex_light_purple outline-none focus:ring-0 text-ex_normal_purple flex-1 focus:bg-none";
 
   const labelStyle =
     "text-3xl md:text-4xl font-Miju text-ex_dark_purple dark:text-ex_light_purple";
+
   return (
-    <section className="relative">
+    <section className="relative h-screen overflow-hidden pt-[84px]">
       {" "}
       <section
         className={`${
@@ -73,6 +76,7 @@ const Contact = () => {
         </div>
       </section>
       {/* <Menu /> */}
+      <div className="pt-20" />
       <div className="w-full relative h-screen flex flex-col px-8 max-w-5xl m-auto items-start justify-start gap-8">
         <Title title="Contactez-nous" />
 

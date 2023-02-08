@@ -1,10 +1,9 @@
-import { calcLength, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { useEffect } from "react";
 import Title from "@/components/UI/Title";
 import { off } from "process";
 
 const Team = () => {
-  const sectionStyle = "snap-start text-slate-800 flex text-slate-200";
   const teamMembers = [
     {
       id: 1,
@@ -83,43 +82,54 @@ const Team = () => {
     // });
     // main.addEventListener("mouseleave", scroll);
 
-    // const scroll = (direction) => {
-    //   console.log(main);
-    //   // direction == "left" ? main.scrollBy(1, 0) : main.scrollBy(1, 0);
-    // };
-
     // scroll();
 
     // function scroll() {
     //   clearInterval(scrollInterval);
     //   scrollInterval = setInterval(() => {
-    //     // offset++;
-    //     // if (offset < teamLength) {
-    //     //   main.scrollBy(1, 0);
-    //     // } else {
-    //     //   offset = 0;
-    //     //   main.scrollLeft = "0px";
-    //     // }
-    //     // main.scrollLeft = main.scrollLeft + 20 + "px";
+    //     console.log("test");
+    //     offset++;
+    //     if (offset < teamLength) {
+    //       main.scrollBy(1, 0);
+    //     } else {
+    //       offset = 0;
+    //       main.scrollLeft = "0px";
+    //     }
+    //     main.scrollLeft = main.scrollLeft + 20 + "px";
     //   }, 2000);
     // }
   }, []);
 
   return (
     <section
+      // viewport={{ once: true }}
       id="equipe"
-      className={` ${sectionStyle} min-h-screen relative flex-col gap-4 sm:gap-8 items-center justify-start w-full`}
+      className={` relative flex flex-col gap-4 sm:gap-8 items-center justify-start w-full px-8 overflow-x-hidden overflow-y-auto`}
     >
       {/* Title */}
       <div className="max-w-5xl px-8 m-auto my-0 flex w-full justify-center">
         <Title title={"Nous sommes une <br class='block sm:hidden'/>équipe"} />
       </div>{" "}
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
-      <p className="text-ex_dark_purple dark:text-ex_light_purple text-xl font-semibold max-w-5xl text-center py-4 px-8">
+      <motion.p
+        initial={{
+          opacity: 0,
+          visibility: "hidden",
+        }}
+        whileInView={{
+          opacity: 1,
+          visibility: "visible",
+        }}
+        transition={{
+          duration: 0.5,
+          ease: "linear",
+        }}
+        className="text-ex_dark_purple dark:text-ex_light_purple text-xl font-semibold max-w-5xl text-center py-4 px-8"
+      >
         Ex Nihilo, c’est une équipe pluridisciplinaire qui s’est forgée une
         solide réputation à travers des projets exigeants et diversifiés.{" "}
-      </p>
-      <div className="relative flex flex-col sm:flex-col-reverse gap-4">
+      </motion.p>
+      <div className="relative flex flex-col sm:flex-col-reverse gap-4  ">
         <div className=" w-full max-w-5xl m-auto px-8  pb-8">
           <div className="scrollbar relative bg-ex_light_purple h-[0.1rem] rounded-lg">
             <div className="scrollElem absolute h-2  bg-ex_medium_purple left-0 top-1/2 -translate-y-1/2 rounded-lg"></div>
@@ -141,7 +151,24 @@ const Team = () => {
         >
           <path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z" />
         </svg>
-        <div className="team py-0 sm:pb-8 sm:pt-8 flex m-auto my-0 w-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth">
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.95,
+            visibility: "hidden",
+          }}
+          whileInView={{
+            opacity: 1,
+            scale: 1,
+            visibility: "visible",
+          }}
+          transition={{
+            duration: 0.3,
+            ease: "linear",
+          }}
+          // viewport={{ once: true }}
+          className="team py-0 sm:pb-8 sm:pt-8 flex m-auto my-0 w-screen overflow-x-scroll snap-x snap-mandatory scroll-smooth"
+        >
           {/* Section */}
 
           {teamMembers.map((person) => {
@@ -186,7 +213,7 @@ const Team = () => {
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

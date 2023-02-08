@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 const Accordion = () => {
   const accordionContent = [
@@ -51,7 +52,20 @@ const Accordion = () => {
 
   return (
     <div className="flex-1 flex justify-end w-full">
-      <div className=" w-full sm:w-3/4 ">
+      <motion.div
+        initial={{
+          opacity: 0,
+          scale: 0.95,
+        }}
+        whileInView={{
+          opacity: 1,
+          scale: 1,
+        }}
+        transition={{
+          duration: 0.3,
+        }}
+        className=" w-full sm:w-3/4 "
+      >
         {accordionContent.map((item) => {
           return (
             <div
@@ -88,7 +102,7 @@ const Accordion = () => {
         })}
 
         <div className="w-full  h-[0.1rem] bg-ex_normal_purple opacity-20" />
-      </div>
+      </motion.div>
     </div>
   );
 };
