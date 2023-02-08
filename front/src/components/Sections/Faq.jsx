@@ -13,7 +13,6 @@ const Faq = () => {
 
         <Accordion />
       </div>
-      <Footer />
     </section>
   );
 };

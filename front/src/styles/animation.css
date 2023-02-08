@@ -210,10 +210,10 @@ animation: scrollAnim 1.1s infinite;
   animation: background-pan 3s linear infinite;
     background: linear-gradient(
       to right,
-      var(--ex_light_purple),
-      var(--ex_light_purple),
+      var(--ex_dark_purple),
       var(--ex_normal_purple),
-      var(--ex_light_purple)
+      var(--ex_normal_purple),
+      var(--ex_dark_purple)
     );
     background-size: 200%;
     -webkit-background-clip: text;
@@ -225,10 +225,10 @@ animation: scrollAnim 1.1s infinite;
   background: linear-gradient(
     to right,
     var(--ex_light_purple),
-      var(--ex_light_purple),
+    var(--ex_normal_purple),
       var(--ex_normal_purple),
       var(--ex_light_purple)
-  );
+      );
   background-size: 200%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
