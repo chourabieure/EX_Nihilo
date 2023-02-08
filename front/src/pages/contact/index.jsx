@@ -11,40 +11,34 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
   const [modal, setModal] = useState(false);
 
-  const openModal = (e) => {
-    e.preventDefault();
-    setModal(true);
-  };
-
-  const handleSubmit = (e) => {
-    console.log("Sending");
+  const pushInfo = async () => {
     let data = {
       name,
       email,
       phone,
     };
-    fetch("/api/contact", {
+    const response = await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => {
-      console.log("Response received");
-      if (res.status === 200) {
-        console.log("Response succeeded!");
-        setSubmitted(true);
-        setName("");
-        setEmail("");
-        setBody("");
-      }
     });
-    // router.push("/");
+
+    if (response.status === 200) {
+      setName("");
+      setEmail("");
+      router.push("/");
+    }
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setModal(true);
   };
   const inputStyle =
     "ml-0 lg:ml-8 font-Poppins bg-transparent text-lg sm:text-2xl font-bold border-b-[0.2rem] border-ex_dark_purple dark:border-ex_light_purple outline-none focus:ring-0 text-ex_normal_purple flex-1 focus:bg-none";
@@ -70,7 +64,7 @@ const Contact = () => {
               Annuler
             </a>
             <a
-              onClick={() => handleSubmit()}
+              onClick={() => pushInfo()}
               className={` bg-ex_light_purple flex flex-grow items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
             >
               Envoyer
@@ -83,7 +77,7 @@ const Contact = () => {
         <Title title="Contactez-nous" />
 
         <form
-          onSubmit={openModal}
+          onSubmit={handleSubmit}
           className="flex flex-col items-start  w-full  gap-4"
         >
           <p className={`${labelStyle}`}>Bonjour,</p>
@@ -99,7 +93,7 @@ const Contact = () => {
               required
             />
           </div>
-          {/* <div className="flex  flex-col lg:flex-row w-full">
+          <div className="flex  flex-col lg:flex-row w-full">
             <label className={`${labelStyle}`}>Merci de m'appeler au </label>
             <input
               id="phone"
@@ -110,7 +104,7 @@ const Contact = () => {
               type="tel"
               required
             />
-          </div> */}
+          </div>
           <div className="flex lg:flex-row w-full flex-col ">
             <label className={`${labelStyle}`}>Ou de menvoyer un mail à </label>
             <input

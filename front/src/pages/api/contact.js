@@ -20,9 +20,13 @@ export default function (req, res) {
     }
     // transporter.sendMail(mailData, function (err, info) {
     //     if (err)
-    //         console.log(err)
+    //         // console.log(err)
+    //         pass
+
     //     else
-    //         console.log(info)
+    //         // console.log(info)
+    //         pass
     // })
-    res.status(200)
+    transporter.sendMail(mailData)
+    res.status(200).send("sent")
 }
