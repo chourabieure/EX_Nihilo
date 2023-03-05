@@ -4,48 +4,80 @@ import Title from "@/components/UI/Title";
 import Button from "@/components/UI/Button";
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/router";
+import Divider from "@/components/UI/Divider";
 
 const Contact = () => {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("Sending");
+  const [modal, setModal] = useState(false);
+
+  const pushInfo = async () => {
     let data = {
       name,
       email,
       phone,
     };
-    fetch("/api/contact", {
+    const response = await fetch("/api/contact", {
       method: "POST",
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
       body: JSON.stringify(data),
-    }).then((res) => {
-      console.log("Response received");
-      if (res.status === 200) {
-        console.log("Response succeeded!");
-        setSubmitted(true);
-        setName("");
-        setEmail("");
-        setBody("");
-      }
     });
+
+    if (response.status === 200) {
+      setName("");
+      setEmail("");
+      router.push("/");
+    }
   };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setModal(true);
+  };
+
   const inputStyle =
-    "ml-8 font-Poppins bg-transparent text-lg sm:text-2xl font-bold border-b-[0.2rem] border-ex_dark_purple dark:border-ex_light_purple outline-none focus:ring-0 text-ex_normal_purple flex-1 focus:bg-none";
+    "ml-0 lg:ml-8 font-Poppins bg-transparent text-lg sm:text-2xl font-bold border-b-[0.2rem] border-ex_dark_purple dark:border-ex_light_purple outline-none focus:ring-0 text-ex_normal_purple flex-1 focus:bg-none";
 
   const labelStyle =
-    "text-3xl md:text-4xl font-Miju text-ex_dark_purple dark:text-ex_light_purple ";
+    "text-3xl md:text-4xl font-Miju text-ex_dark_purple dark:text-ex_light_purple";
+
   return (
-    <>
+    <section className="relative h-screen overflow-hidden pt-[84px]">
+      {" "}
+      <section
+        className={`${
+          modal ? "" : "hidden"
+        } absolute bg-slate-900/60 backdrop-blur-md flex justify-center items-center  h-screen w-screen z-10 top-0 left-0 transition-all`}
+      >
+        <div className="bg-slate-100 p-10 text-ex_dark_purple flex gap-8 flex-col rounded-lg">
+          <h1 className=" font-bold text-3xl">Confirmer l'envoi ?</h1>
+          <p>Nous vous recontacterons dans les plus brefs delais.</p>
+          <div className="flex gap-4 w-full">
+            <a
+              onClick={() => setModal(false)}
+              className={`flex text-ex_red flex-grow items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
+            >
+              Annuler
+            </a>
+            <a
+              onClick={() => pushInfo()}
+              className={` bg-ex_light_purple flex flex-grow items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
+            >
+              Envoyer
+            </a>
+          </div>
+        </div>
+      </section>
       {/* <Menu /> */}
-      <div className="w-full  h-screen flex flex-col px-8 max-w-5xl m-auto items-start justify-start gap-8">
+      <div className="pt-20" />
+      <div className="w-full relative h-screen flex flex-col px-8 max-w-5xl m-auto items-start justify-start gap-8">
         <Title title="Contactez-nous" />
 
         <form
@@ -77,7 +109,6 @@ const Contact = () => {
               required
             />
           </div>
-
           <div className="flex lg:flex-row w-full flex-col ">
             <label className={`${labelStyle}`}>Ou de menvoyer un mail à </label>
             <input
@@ -109,7 +140,7 @@ const Contact = () => {
           </div>
         </form>
       </div>
-    </>
+    </section>
   );
 };
 

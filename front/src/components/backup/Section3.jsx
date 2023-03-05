@@ -1,10 +1,8 @@
 import { motion } from "framer-motion";
 import Title from "@/components/UI/Title";
 const Section3 = () => {
-  const sectionStyle =
-    "h-screen snap-center text-slate-800 flex text-slate-200";
   return (
-    <section id="que_faisons_nous" className={` ${sectionStyle} relative`}>
+    <section id="que_faisons_nous" className={`  relative`}>
       <div className="relative px-8 max-w-5xl mx-auto min-h-screen flex flex-col gap-8 items-center sm:items-start justify-start  ">
         <Title title={`Que faisons-<br class='block sm:hidden'/>nous ?`} />
         <div className="h-[0.2rem] rounded-lg bg-ex_normal_purple dark:bg-ex_light_purple opacity-50 w-32 sm:block hidden" />
@@ -23,7 +21,7 @@ const Section3 = () => {
             ease: "linear",
           }}
           viewport={{ once: true }}
-          className="text-justify text-lg sm:text-xl leading-[1.4rem] md:leading-6 text-ex_dark_purple dark:text-ex_light_purple"
+          className="text-left text-base leading-[1.4rem] text-ex_dark_purple dark:text-ex_light_purple"
         >
           Ouvrons ensemble une page blanche de notre carnet.
           <br />
@@ -32,18 +30,19 @@ const Section3 = () => {
           <span className="italic text-ex_red">ex nihilo</span>, locution latine
           signifie «en partant de rien».
           <br />
-          <br />
           Adeptes du design thinking, c’est avec vos équipes que nous
           travaillons le mieux.
           <br />
           <br /> Nous privilégions un travail en co-création pour définir vos
           vêtements d'image et EPI.
           <br />
-          <br /> Voici nos 3 domaines d'interventions : le conseil, le design,
-          l'expertise.
+          <br /> Voici nos 3 domaines d'interventions :{" "}
+          <span className=" text-ex_red">le conseil</span>,{" "}
+          <span className=" text-ex_red">le design</span>,{" "}
+          <span className=" text-ex_red">l'expertise</span>.
         </motion.p>
 
-        <div className="w-full flex justify-center">
+        <div className="w-full flex justify-center z-[1] pt-20">
           <motion.div
             initial={{
               opacity: 0,
@@ -58,7 +57,7 @@ const Section3 = () => {
               ease: "linear",
             }}
             viewport={{ once: true }}
-            className="mouse-icon absolute bottom-16 sm:block hidden"
+            className="mouse-icon  sm:block hidden"
           >
             <div className="mouse bg-ex_medium_purple after:bg-ex_light_purple"></div>
             <span className="arrow arrow-01 border-b-2 border-r-2 border-ex_light_purple"></span>
@@ -80,7 +79,7 @@ const Section3 = () => {
               ease: "linear",
             }}
             viewport={{ once: true }}
-            className="hand-icon  absolute bottom-8 sm:hidden block"
+            className="hand-icon   sm:hidden block"
           >
             <div className="hand bg-ex_normal_purple after:bg-ex_normal_purple before:bg-ex_normal_purple">
               <div className="circle bg-ex_normal_purple"></div>

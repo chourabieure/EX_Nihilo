@@ -8,11 +8,12 @@ const Section5 = () => {
 
   return (
     <section
-      className={` ${sectionStyle} relative flex-col gap-8 items-center justify-start  w-full max-w-5xl m-auto px-8  `}
+      className={` ${sectionStyle} relative flex-col gap-8 items-center justify-center  w-full max-w-5xl m-auto px-8  `}
     >
       <Title
         title={'Ils nous ont <br class="block sm:hidden" />fait confiance'}
         center={true}
+        padding={"pt-20"}
       />
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
 
@@ -47,28 +48,6 @@ const Section5 = () => {
           );
         })}
       </motion.ul>
-
-      {/* {[...Array(3)].map((elem_container, index_container) => {
-        return (
-          <div key={index_container} className="marquee">
-            <ul className={`marquee-content marquee${index_container + 1}`}>
-              {[...Array(16)].map((elem, index) => {
-                return (
-                  <li
-                    className="mx-4 h-24 p-2 bg-ex_normal_purple rounded-lg"
-                    key={index}
-                  >
-                    <img
-                      className="h-full"
-                      src={`/static/images/companies/company_${index + 1}.png`}
-                    />
-                  </li>
-                );
-              })}
-            </ul>
-          </div>
-        );
-      })} */}
     </section>
   );
 };

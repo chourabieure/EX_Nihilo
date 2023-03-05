@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "./UI/Button";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const navbarItems = [
@@ -15,13 +16,14 @@ const Navbar = () => {
     {
       id: 2,
       name: "Offre",
-      route: "#que_faisons_nous",
+      route: "#nos_valeurs",
+      offset: 0,
     },
-    // {
-    //   id: 3,
-    //   name: "Références",
-    //   route: "#nos_valeurs",
-    // },
+    {
+      id: 3,
+      name: "Références",
+      route: "#companies",
+    },
     {
       id: 4,
       name: "Équipe",
@@ -40,13 +42,15 @@ const Navbar = () => {
     console.log(theme);
   }, []);
 
-  const scrollIntoView = (route) => {
+  const scrollIntoView = (route, yOffset = -150) => {
     let e = document.querySelector(route);
-    e.scrollIntoView({
-      block: "start",
-      behavior: "smooth",
-      inline: "start",
-    });
+    const y = e.getBoundingClientRect().top + window.pageYOffset + yOffset;
+    window.scrollTo({ top: y, behavior: "smooth" });
+    // e.scrollIntoView({
+    //   block: "start",
+    //   behavior: "smooth",
+    //   inline: "start",
+    // });
   };
   return (
     <>
@@ -92,7 +96,9 @@ const Navbar = () => {
                 return (
                   <li
                     key={elem.id}
-                    onClick={() => scrollIntoView(elem.route)}
+                    onClick={() =>
+                      scrollIntoView(elem.route, elem.offset ? "" : elem.offset)
+                    }
                     className=" cursor-pointer hidden min-[1000px]:block p-4  text-ex_dark_purple dark:text-ex_light_purple  font-medium text-sm hover:text-ex_dark_yellow transition-all"
                   >
                     {elem.name}
@@ -107,7 +113,7 @@ const Navbar = () => {
               <Button title="Contactez-nous" link="/contact" target="_self" />
             </li>
             <li
-              className="bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg"
+              className="bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg cursor-pointer"
               onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
             >
               {theme === "dark" ? (
@@ -146,7 +152,7 @@ const Navbar = () => {
             <circle cx="31.1538" cy="31.1538" r="3.34615" />
           </svg>
           <div
-            className="block  min-[1000px]:hidden bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg"
+            className="block  min-[1000px]:hidden bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg cursor-pointer"
             onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
           >
             {theme === "dark" ? (
@@ -194,7 +200,7 @@ const Navbar = () => {
                   <li
                     onClick={() => {
                       setIsActive(!isActive);
-                      scrollIntoView(elem.route);
+                      scrollIntoView(elem.route, elem.offset);
                     }}
                     key={elem.id}
                     className=" cursor-pointer p-4  text-ex_dark_purple dark:text-ex_light_purple font-medium text-2xl hover:text-ex_dark_yellow transition-all"

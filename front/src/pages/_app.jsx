@@ -11,7 +11,7 @@ const App = ({ Component, pageProps }) => {
   return (
     <>
       {/* <Layout> */}
-      {/* <Header /> */}
+      <Header />
       <ThemeProvider attribute="class">
         <Navbar />
         <Component {...pageProps} />

@@ -28,8 +28,6 @@
 html,
 body {
   scroll-behavior: smooth;
-  height: 100vh;
-  overflow: hidden;
   font-family: 'Poppins';
   @apply bg-slate-100 transition-all duration-300
 }
