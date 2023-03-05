@@ -22,7 +22,7 @@ export default function Header({ title = titleDefault }) {
       <meta name="description" content={description} />
       <meta
         name="keywords"
-        content="Professionnal clothing, techwear, clothing"
+        content="Professionnal clothing, workwear, clothing"
       />
       <meta name="robots" content="index,follow" />
       <meta name="distribution" content="web" />

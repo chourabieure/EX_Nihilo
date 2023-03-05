@@ -4,6 +4,7 @@ import { useState } from "react";
 import Button from "./UI/Button";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
+
 const Navbar = () => {
   const { theme, setTheme } = useTheme();
   const navbarItems = [
