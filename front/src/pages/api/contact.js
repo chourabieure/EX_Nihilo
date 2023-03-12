@@ -13,7 +13,7 @@ export default function (req, res) {
     })
     const mailData = {
         from: 'choura.dont.repply@gmail.com',
-        to: 'contact@exnihilo.fr',
+        to: 'matsim@orange.fr',
         subject: `[Demande de contact EXNIHILO]`,
         text: "Demande de contact de la part de " + req.body.name,
         html: `<div>${req.body.email}</div><p>${req.body.phone}</p><p> ${req.body.name}</p>`
@@ -27,4 +27,5 @@ export default function (req, res) {
     })
     transporter.sendMail(mailData)
     res.status(200).send("sent")
+    // Test
 }
