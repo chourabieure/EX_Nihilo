@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 
-const Title = ({ title, center = false, padding = "pt-0" }) => {
+const Title = ({ title, center = false }) => {
   return (
     <motion.div
       initial={{
@@ -23,10 +23,17 @@ const Title = ({ title, center = false, padding = "pt-0" }) => {
           dangerouslySetInnerHTML={{ __html: title }}
           className="font-Miju text-4xl pl-0 sm:pl-8 lg:pl-0"
         ></h2>
-        <h3
-          dangerouslySetInnerHTML={{ __html: title }}
-          className="font-Miju text-5xl absolute bottom-0 left-1/2  sm:left-0 lg:-left-8 -translate-x-1/2 sm:translate-x-0 whitespace-nowrap opacity-10"
-        ></h3>
+        {center ? (
+          <h3
+            dangerouslySetInnerHTML={{ __html: title }}
+            className="font-Miju  text-5xl absolute bottom-0 left-1/2 -translate-x-1/2 whitespace-nowrap opacity-10"
+          ></h3>
+        ) : (
+          <h3
+            dangerouslySetInnerHTML={{ __html: title }}
+            className="font-Miju text-5xl absolute bottom-0 left-1/2  sm:left-0 lg:-left-8 -translate-x-1/2 sm:translate-x-0 whitespace-nowrap opacity-10"
+          ></h3>
+        )}
       </div>
     </motion.div>
   );

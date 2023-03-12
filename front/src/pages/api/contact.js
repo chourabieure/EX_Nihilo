@@ -7,7 +7,8 @@ export default function (req, res) {
         host: "smtp.gmail.com",
         auth: {
             user: 'choura.dont.repply@gmail.com',
-            pass: process.env.password,
+            // pass: process.env.password,
+            pass: 'ypbkuglmieruehlh'
         },
         secure: true,
     })
@@ -25,7 +26,7 @@ export default function (req, res) {
         else
             console.log(info)
     })
-    transporter.sendMail(mailData)
+    // transporter.sendMail(mailData)
     res.status(200).send("sent")
     // Test
 }

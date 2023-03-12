@@ -104,11 +104,16 @@ const Team = () => {
     <section
       // viewport={{ once: true }}
       id="equipe"
-      className={` relative flex flex-col gap-4 sm:gap-8 items-center justify-start w-full px-8 overflow-x-hidden overflow-y-auto`}
+      className={` relative flex flex-col gap-4 sm:gap-8 items-center justify-start w-full px-8 overflow-x-hidden overflow-y-auto pt-8`}
     >
       {/* Title */}
       <div className="max-w-5xl px-8 m-auto my-0 flex w-full justify-center">
-        <Title title={"Nous sommes une <br class='block sm:hidden'/>équipe"} />
+        <Title
+          title={
+            "Nous<br class='block sm:hidden'/> sommes une <br class='block sm:hidden'/>équipe"
+          }
+          center={true}
+        />
       </div>{" "}
       <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
       <motion.p
@@ -213,6 +218,20 @@ const Team = () => {
               </p>
             </div>
           </div>
+          {/* <div className="member w-screen shrink-0 snap-center">
+            <div className="w-full gap-8 flex flex-col-reverse sm:flex-row max-w-5xl m-auto justify-between items-center px-8 sm:px-20">
+              <div className="flex flex-col-reverse md:flex-col  text-ex_dark_purple dark:text-ex_light_purple">
+                <p className="max-w-lg">" Et tout les autres "</p>
+                <div className="pt-0 pb-8 sm:pb-0 sm:pt-8">
+                  <h4 className="font-bold">Name</h4>
+                  <h5 className="text-ex_normal_purple font-normal">Job</h5>
+                </div>
+              </div>
+              <div className="w-[300px] max-w-[300px] h-[200px] sm:h-[300px] bg-ex_normal_purple rounded-lg relative">
+                <img className="h-[150px] w-[150px] rounded-lg absolute top-8 right-1/2  translate-x-1/2 sm:translate-x-0 sm:-right-8"></img>
+              </div>
+            </div>
+          </div> */}
         </motion.div>
       </div>
     </section>

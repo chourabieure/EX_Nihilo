@@ -188,9 +188,9 @@ const Home = () => {
       <Divider />
 
       <Section
-        title="Ils nous ont fait confiance"
+        title="Ils nous ont fait<br class='block sm:hidden'/> confiance"
         section_id="companies"
-        extra_class="items-center"
+        center={true}
       >
         <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
 

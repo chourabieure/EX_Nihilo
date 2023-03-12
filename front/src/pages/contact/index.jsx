@@ -127,7 +127,7 @@ const Contact = () => {
               href="/"
               className="text-white w-full bg-ex_dark_purple rounded-md px-7 py-2"
             >
-              <button className="text-white w-full bg-ex_red rounded-md px-7 py-2">
+              <button className="text-ex_red border-2 border-ex_red w-full  rounded-md px-7 py-2">
                 Retourner sur le site
               </button>
             </Link>
