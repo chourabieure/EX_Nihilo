@@ -45,7 +45,7 @@ const Footer = () => {
   };
 
   return (
-    <footer className="max-w-7xl m-auto w-full p-8">
+    <footer id="footer" className="max-w-7xl m-auto w-full p-8">
       <hr className="border-slate-300  dark:border-slate-700 my-8" />
       <div className="flex flex-col md:flex-row justify-between">
         <div className="max-w-5xl m-0 md:m-auto grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8 ">
