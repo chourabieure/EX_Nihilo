@@ -63,16 +63,14 @@ const Hero = () => {
           <Magicword word={"extraordinaires"} />
         </div>
 
-        <div className="flex flex-col sm:flex-row gap-8 sm:gap-4 justify-center m-auto sm:m-0 w-[80%] sm:w-full">
-          <Button
-            link="/contact"
-            target="_self"
-            title="Entrons en contact"
-            bg_color="bg-ex_light_yellow"
-            text_color="text-ex_dark_purple"
-            font_size="text-lg"
-          />
-        </div>
+        {/* <div className="flex flex-col sm:flex-row gap-8 sm:gap-4 justify-center m-auto sm:m-0 w-[80%] sm:w-full">
+          <a
+            className="flex bg-ex_light_yellow  text-ex_dark_purple text-lg items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500"
+            onClick={() => scrollIntoView("#footer", "")}
+          >
+            Entrons en contact
+          </a>
+        </div> */}
       </motion.section>
 
       {/* Scroll icon */}

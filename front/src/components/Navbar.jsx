@@ -117,7 +117,12 @@ const Navbar = () => {
 
           <ul className="hidden min-[1000px]:flex gap-4 items-center ">
             <li className={`${router.pathname == "/contact" ? "hidden" : ""}`}>
-              <Button title="Contactez-nous" link="/contact" target="_self" />
+              <a
+                className="flex  bg-ex_light_purple text-ex_dark_purple text-sm items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500"
+                onClick={() => scrollIntoView("#footer", "")}
+              >
+                Contactez-nous
+              </a>
             </li>
             <li
               className="bg-ex_dark_purple dark:bg-ex_dark_yellow rounded-lg cursor-pointer"
@@ -221,7 +226,12 @@ const Navbar = () => {
               })}
 
               <li className="w-full pt-4" onClick={() => setIsActive(false)}>
-                <Button title="Contactez-nous" link="/contact" target="_self" />
+                <a
+                  className="flex  bg-ex_light_purple text-ex_dark_purple text-sm items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500"
+                  onClick={() => scrollIntoView("#footer", "")}
+                >
+                  Contactez-nous
+                </a>
               </li>
             </ul>
           )}
