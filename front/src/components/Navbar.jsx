@@ -1,6 +1,5 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import Button from "./UI/Button";
 import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 

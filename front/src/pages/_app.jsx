@@ -1,6 +1,8 @@
 import "@/styles/globals.css";
 import "@/styles/animation.css";
 import "@/styles/additionalCSS.css";
+import "public/static/fonts/style.css";
+
 import { ThemeProvider } from "next-themes";
 
 import Navbar from "@/components/Navbar";
