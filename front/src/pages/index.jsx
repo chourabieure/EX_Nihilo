@@ -18,7 +18,8 @@ const Home = () => {
       {/* Lines */}
 
       {/* Component card - dev Mel */}
-      <Card />
+      {/* <Card /> */}
+
       {/* Hero Section */}
       {/* <Hero /> */}
       {/* 
@@ -215,7 +216,7 @@ const Home = () => {
         </motion.ul>
       </Section> */}
 
-      {/* <Divider />
+      /* <Divider />
 
       <Team />
 
@@ -223,7 +224,7 @@ const Home = () => {
 
       <Faq />
 
-      <Footer /> */}
+      <Footer />
     </div>
   );
 };
