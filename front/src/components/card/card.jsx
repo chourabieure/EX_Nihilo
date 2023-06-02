@@ -41,13 +41,7 @@ const Card = () => {
             bgColor: 'bg-ex_red',
             imgVerso: "/static/images/fond-carte/colas.png",
             alt: 'Colas',
-            tags: [
-                {
-                    premierTag: 'Design',
-                    deuxiemeTag: 'Test au porter',
-                    troisiemeTag: 'A.M.O.'
-                }
-            ]
+            tags: ['Design', 'Test au porter', 'A.M.O.']
         }
     ]
 
@@ -109,12 +103,9 @@ const Card = () => {
                                     <div className="absolute bottom-4 left-4 z-10 inline-flex">
                                         {content.tags.map((tag) => {
                                             return(
-                                                <span className="bg-ex_red font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3">{tag.premierTag}</span>
+                                                <span key={tag} className="bg-ex_red font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3">{tag}</span>
                                             )
                                         })}
-                                        {/* <span className="bg-ex_red font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3">Design</span>
-                                        <span className="bg-ex_red font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3">Test au porter</span>
-                                        <span className="bg-ex_red font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3">A.M.O.</span> */}
                                     </div>
                                 </div>
                             </div>
