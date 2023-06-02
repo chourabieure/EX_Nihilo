@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 // Import Sections
+import Card from "@/components/card/card"
 import Hero from "@/components/Sections/Hero";
 import Section from "@/components/Sections/Section";
 import Divider from "@/components/UI/Divider";
@@ -13,11 +14,13 @@ import Team from "@/components/Sections/Team";
 
 const Home = () => {
   return (
-    <div id="main_container" className="relative pt-[84px]">
+    <div id="main_container" className="relative pt-[84px] flex justify-center">
       {/* Lines */}
 
+      {/* Component card - dev Mel */}
+      <Card />
       {/* Hero Section */}
-      <Hero />
+      {/* <Hero /> */}
       {/* 
       <Divider />
 
