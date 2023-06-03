@@ -234,3 +234,40 @@ animation: scrollAnim 1.1s infinite;
   -webkit-text-fill-color: transparent;
   white-space: nowrap;
 }
+
+@keyframes littleSpine {
+  from, to {
+    transform: rotate(0deg);
+    transform: scale(1);
+  }
+  
+  50% {
+    transform: rotate(20deg);
+    transform: scale(1.05);
+  }
+}
+.imgBg{
+  animation : littleSpine 10s linear infinite;
+}
+
+.imgBg1{
+  animation-delay: 1s;
+}
+.imgBg4{
+  animation-delay: 1s;
+}
+.imgBg5{
+  animation-delay: 1s;
+}
+.imgBg2{
+  animation-delay: 1s;
+}
+.imgBg7{
+  animation-delay: 1s;
+}
+.imgBg3{
+  animation-delay: 1s;
+}
+.imgBg6{
+  animation-delay: 1s;
+}
