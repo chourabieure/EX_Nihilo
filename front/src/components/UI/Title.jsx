@@ -18,7 +18,7 @@ const Title = ({ title, center = false }) => {
 
       // className={`${!padding ? padding : "pt-28 md:pt-40"}`}
     >
-      <div className="relative text-ex_dark_purple dark:text-ex_light_purple text-center sm:text-left ">
+      <div className="relative text-ex_light_purple text-center sm:text-left ">
         <h2
           dangerouslySetInnerHTML={{ __html: title }}
           className="font-Miju text-4xl pl-0 sm:pl-8 lg:pl-0"
