@@ -156,7 +156,7 @@ const Cards = () => {
                 <Title title={"Ils nous ont fait confiance"} center={true} />
             </div>
             <div className="flex  flex-wrap gap-4 justify-center">
-                {Array(18)
+                {Array(16)
                     .fill()
                     .map((_, i) => {
                         return (
