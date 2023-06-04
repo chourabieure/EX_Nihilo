@@ -65,7 +65,7 @@ const Team = () => {
     main.addEventListener("scroll", (event) => {
       scrollElem.style.left =
         (scrollbar.offsetWidth * main.scrollLeft) /
-          (main.offsetWidth * teamLength) +
+        (main.offsetWidth * teamLength) +
         "px";
     });
 
@@ -194,12 +194,21 @@ const Team = () => {
                     </div>
                   </div>
                   {/* Right */}
-                  <div className="w-[300px] max-w-[300px] h-[200px] sm:h-[300px] bg-ex_normal_purple rounded-lg relative">
+                  <div>
+                    <img
+                      src={person.srcImg}
+                      className="w-[300px] max-w-[300px] h-[363.6px]"
+                    ></img>
+                  </div>
+
+                  {/* Back up */}
+                  {/* <div className="w-[300px] max-w-[300px] h-[200px] sm:h-[300px] bg-ex_normal_purple rounded-lg relative">
                     <img
                       src={person.srcImg}
                       className="h-[150px] w-[150px] rounded-lg absolute top-8 right-1/2  translate-x-1/2 sm:translate-x-0 sm:-right-8"
                     ></img>
-                  </div>
+                  </div> */}
+
                 </div>
               </div>
             );
@@ -233,8 +242,8 @@ const Team = () => {
             </div>
           </div> */}
         </motion.div>
-      </div>
-    </section>
+      </div >
+    </section >
   );
 };
 
