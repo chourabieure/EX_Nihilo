@@ -8,9 +8,9 @@ const Card = ({ logo, bgColor, imgVerso, alt, tags }) => {
 
     const handleClick = () => {
         setFlipped(!isFlipped);
-        setTimeout(() => {
-            setFlipped(false);
-        }, 5000);
+        // setTimeout(() => {
+        //     setFlipped(false);
+        // }, 5000);
     };
 
     const styleSize =
@@ -153,15 +153,17 @@ const Card = ({ logo, bgColor, imgVerso, alt, tags }) => {
                     >
                         <div className=" w-full rounded-3xl relative">
                             <img src={imgVerso} alt={alt} />
-                            <div className="absolute bottom-4 left-4 z-10 inline-flex">
+                            <div className="absolute bottom-0 z-10 flex flex-col items-end gap-2 lg:gap-4 w-full p-2 sm:p-4">
                                 {tags.map((tag) => {
                                     return (
-                                        <span
-                                            key={tag}
-                                            className={`${bgColor} font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3`}
-                                        >
-                                            {tag}
-                                        </span>
+                                        <div className={`max-w-full`}>
+                                            <h1
+                                                key={tag}
+                                                className={`${bgColor} truncate font-Miju text-xs md:text-md lg:text-xl text-white px-2 py-1 rounded-lg `}
+                                            >
+                                                {tag}
+                                            </h1>
+                                        </div>
                                     );
                                 })}
                             </div>

@@ -146,8 +146,7 @@ const cardContent = [
         id: 2,
         logoClients: (
             <svg
-                width="196"
-                height="103"
+                className="w-1/2"
                 viewBox="0 0 196 103"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
