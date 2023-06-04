@@ -117,7 +117,7 @@ const Valeurs = () => {
                     </Transition.Child>
 
                     <div className="fixed inset-0 z-10 overflow-y-auto">
-                        <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                        <div className="flex h-full items-center justify-center p-8 text-center sm:items-center">
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -127,26 +127,25 @@ const Valeurs = () => {
                                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             >
-                                <Dialog.Panel className="relative transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-5xl">
-                                    <div className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
-                                        <motion.p
-                                            initial={{
-                                                opacity: 0,
-                                                scale: 0.95,
-                                            }}
-                                            whileInView={{
-                                                opacity: 1,
-                                                scale: 1,
-                                            }}
-                                            transition={{
-                                                duration: duration_text,
-                                            }}
-                                            animate={controls}
-                                            className="text-justify leading-6 md:leading-7 font-semibold text-ex_dark_purple origin-top"
-                                        >
-                                            {info[position].more}
-                                        </motion.p>
-                                    </div>
+                                <Dialog.Panel className="relative flex flex-col h-full sm:h-auto max-h-none sm:max-h-full transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8 w-full max-w-5xl">
+                                    <motion.p
+                                        initial={{
+                                            opacity: 0,
+                                            scale: 0.95,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            scale: 1,
+                                        }}
+                                        transition={{
+                                            duration: duration_text,
+                                        }}
+                                        animate={controls}
+                                        className="text-justify bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
+                                        dangerouslySetInnerHTML={{
+                                            __html: info[position].more,
+                                        }}
+                                    ></motion.p>
                                     <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                                         <button
                                             type="button"
@@ -309,6 +308,10 @@ const Valeurs = () => {
                             <p className="text-justify leading-6 md:leading-7 text-ex_light_purple">
                                 {elem.description}
                             </p>
+                            <Button
+                                text={info[index].button.text}
+                                color={info[index].button.color}
+                            />
                         </motion.div>
                     );
                 })}

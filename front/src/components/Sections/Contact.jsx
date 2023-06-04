@@ -104,7 +104,10 @@ const Contact = () => {
         "text-3xl md:text-4xl font-Miju text-ex_dark_purple dark:text-ex_light_purple";
 
     return (
-        <section className="h-screen w-full flex justify-center items-center px-4 sm:px-8 md:px-16">
+        <section
+            id="contact"
+            className="h-screen w-full flex justify-center items-center px-4 sm:px-8 md:px-16"
+        >
             <div className="relative w-full bg-ex_dark_purple p-8 sm:p-16 rounded-3xl overflow-hidden">
                 <motion.div
                     initial={{
