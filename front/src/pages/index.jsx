@@ -31,6 +31,7 @@ const Home = () => {
                         type="video/mp4"
                         autoPlay
                         muted
+                        playsinline
                         loop
                     >
                         Your browser can't play this kind of video, sorry.
@@ -60,6 +61,7 @@ const Home = () => {
                         type="video/mp4"
                         autoPlay
                         muted
+                        playsinline
                         loop
                     >
                         Your browser can't play this kind of video, sorry.
@@ -83,7 +85,6 @@ const Home = () => {
             <Team />
             <Contact />
             <Faq />
-            <Divider />
             <Footer />
         </div>
     );

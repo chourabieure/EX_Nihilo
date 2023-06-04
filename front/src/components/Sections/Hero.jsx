@@ -77,15 +77,15 @@ const Hero = () => {
                 <div className="font-medium leading-[42px] sm:leading-[50px] md:leading-[64px] text-3xl  sm:text-4xl md:text-5xl text-center text-white transition-all pb-8">
                     Parce que vos collaborateurs
                     <br />
-                    sont <span className="font-bold ">PRÉCIEUX</span>
+                    sont <Magicword word={"précieux"} />
                     , vous cherchez
                     <br />
                     des vêtements pros
                     <br />
-                    <span className="font-bold">EXTRAORDINAIRES</span>
+                    <Magicword word={"extraordinaires"} />
                 </div>
                 <a
-                    href="#"
+                    href="#contact"
                     className="bg-ex_dark_yellow text-white px-8 py-4 rounded-full font-semibold text-lg scale-100 hover:scale-105 transition-all duration-300 cursor-pointer"
                 >
                     Entrons en contact
