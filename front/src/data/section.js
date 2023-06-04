@@ -4,7 +4,7 @@ const qui_sommes_nous = {
     subtitle:
         "Nous sommes ex nihilo ! Nous sommes le partenaire de votre ambition. ",
     description:
-        "Une agence de Conseil, Design et d’Expertise spécialiste des vêtements professionnels. Nous intervenons à tout moment dans votre projet. Bien sûr, si c'est au début, c'est encore mieux ! Nous appréhendons ainsi toutes vos valeurs, votre organisation et vos enjeux. Nous vous apportons une expertise textile et design afin de faire de vos vêtements pros un outil de valorisation et de cohésion. Notre approche systémique des vêtements d’image et EPI vous assure d’une réponse sur mesure aux exigences particulières de vos projets. Nous garantissons que vos vêtements professionnels seront conformes à l’idée, née de nos échanges.",
+        "Une agence de Conseil, Design et d’Expertise spécialiste des vêtements professionnels.<br/> Nous intervenons à tout moment dans votre projet. Bien sûr, si c'est au début, c'est encore mieux ! Nous appréhendons ainsi toutes vos valeurs, votre organisation et vos enjeux. Nous vous apportons une expertise textile et design afin de faire de vos vêtements pros un outil de valorisation et de cohésion. Notre approche systémique des vêtements d’image et EPI vous assure d’une réponse sur mesure aux exigences particulières de vos projets. Nous garantissons que vos vêtements professionnels seront conformes à l’idée, née de nos échanges.",
 };
 
 const que_faisons_nous = {

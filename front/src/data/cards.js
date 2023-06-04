@@ -3,8 +3,7 @@ const cardContent = [
         id: 1,
         logoClients: (
             <svg
-                width="242"
-                height="101"
+                className="w-1/2"
                 viewBox="0 0 242 101"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -146,8 +145,7 @@ const cardContent = [
         id: 2,
         logoClients: (
             <svg
-                width="196"
-                height="103"
+                className="w-1/2"
                 viewBox="0 0 196 103"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -167,8 +165,7 @@ const cardContent = [
         id: 3,
         logoClients: (
             <svg
-                width="195"
-                height="94"
+                className="w-1/2"
                 viewBox="0 0 195 94"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -764,8 +761,7 @@ const cardContent = [
         id: 4,
         logoClients: (
             <svg
-                width="157"
-                height="129"
+                className="w-1/2"
                 viewBox="0 0 157 129"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -805,8 +801,7 @@ const cardContent = [
         id: 5,
         logoClients: (
             <svg
-                width="195"
-                height="109"
+                className="w-1/2"
                 viewBox="0 0 195 109"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -926,8 +921,7 @@ const cardContent = [
         id: 6,
         logoClients: (
             <svg
-                width="191"
-                height="119"
+                className="w-1/2"
                 viewBox="0 0 191 119"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1025,8 +1019,7 @@ const cardContent = [
         id: 7,
         logoClients: (
             <svg
-                width="98"
-                height="129"
+                className="w-1/2"
                 viewBox="0 0 98 129"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1046,8 +1039,7 @@ const cardContent = [
         id: 8,
         logoClients: (
             <svg
-                width="132"
-                height="133"
+                className="w-1/2"
                 viewBox="0 0 132 133"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1111,8 +1103,7 @@ const cardContent = [
         id: 9,
         logoClients: (
             <svg
-                width="119"
-                height="123"
+                className="w-1/2"
                 viewBox="0 0 119 123"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1216,8 +1207,7 @@ const cardContent = [
         id: 10,
         logoClients: (
             <svg
-                width="157"
-                height="51"
+                className="w-1/2"
                 viewBox="0 0 157 51"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1237,8 +1227,7 @@ const cardContent = [
         id: 11,
         logoClients: (
             <svg
-                width="195"
-                height="54"
+                className="w-1/2"
                 viewBox="0 0 195 54"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1342,8 +1331,7 @@ const cardContent = [
         id: 12,
         logoClients: (
             <svg
-                width="130"
-                height="139"
+                className="w-1/2"
                 viewBox="0 0 130 139"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1643,8 +1631,7 @@ const cardContent = [
         id: 13,
         logoClients: (
             <svg
-                width="124"
-                height="151"
+                className="w-1/2"
                 viewBox="0 0 124 151"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1688,8 +1675,7 @@ const cardContent = [
         id: 14,
         logoClients: (
             <svg
-                width="114"
-                height="125"
+                className="w-1/2"
                 viewBox="0 0 114 125"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1741,8 +1727,7 @@ const cardContent = [
         id: 15,
         logoClients: (
             <svg
-                width="196"
-                height="62"
+                className="w-1/2"
                 viewBox="0 0 196 62"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -1822,8 +1807,7 @@ const cardContent = [
         id: 16,
         logoClients: (
             <svg
-                width="157"
-                height="40"
+                className="w-1/2"
                 viewBox="0 0 157 40"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"

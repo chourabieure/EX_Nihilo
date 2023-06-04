@@ -42,8 +42,9 @@ const Home = () => {
                         <h2 className="font-extrabold text-3xl text-ex_light_purple">
                             {qui_sommes_nous.subtitle}
                         </h2>
-                        <p className="font-medium text-lg text-ex_light_purple">
-                            {qui_sommes_nous.description}
+                        <p
+                            dangerouslySetInnerHTML={{ __html: qui_sommes_nous.description }}
+                            className="font-medium text-lg text-ex_light_purple">
                         </p>
                     </section>
                 </section>
