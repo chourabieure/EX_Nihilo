@@ -12,16 +12,15 @@ export default function (req, res) {
         port: 465,
         host: "smtp.gmail.com",
         auth: {
-            user: "choura.dont.repply@gmail.com",
+            user: process.env.email,
             pass: process.env.password,
-            // pass: 'ypbkuglmieruehlh'
         },
         secure: true,
     });
 
     const mailData = {
         from: "choura.dont.repply@gmail.com",
-        to: "matsim972@gmail.com",
+        to: process.env.toEmail,
         subject: `[Demande de contact EXNIHILO]`,
         text: "Demande de contact de la part de " + name,
         html: emailHtml,

@@ -117,7 +117,7 @@ const Valeurs = () => {
                     </Transition.Child>
 
                     <div className="fixed inset-0 z-10 overflow-y-auto">
-                        <div className="flex h-full items-center justify-center p-8 text-center sm:items-center">
+                        <div className="flex h-full items-center justify-center p-8 sm:items-center">
                             <Transition.Child
                                 as={Fragment}
                                 enter="ease-out duration-300"
@@ -141,7 +141,7 @@ const Valeurs = () => {
                                             duration: duration_text,
                                         }}
                                         animate={controls}
-                                        className="text-justify bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
+                                        className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
                                         dangerouslySetInnerHTML={{
                                             __html: info[position].more,
                                         }}
@@ -211,9 +211,9 @@ const Valeurs = () => {
                                 duration: duration_text,
                             }}
                             animate={controls}
-                            className="text-justify leading-6 md:leading-7 text-ex_light_purple origin-top-left"
+                            className="leading-6 md:leading-7 text-ex_light_purple origin-top-left"
+                            dangerouslySetInnerHTML={{ __html: info[position].description }}
                         >
-                            {info[position].description}
                         </motion.p>
                         <Button
                             text={info[position].button.text}
@@ -305,8 +305,9 @@ const Valeurs = () => {
 
                             <Title title={elem.title} center={true} />
                             <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
-                            <p className="text-justify leading-6 md:leading-7 text-ex_light_purple">
-                                {elem.description}
+                            <p
+                                dangerouslySetInnerHTML={{ __html: elem.description }}
+                                className="leading-6 md:leading-7 text-ex_light_purple">
                             </p>
                             <Button
                                 text={info[index].button.text}

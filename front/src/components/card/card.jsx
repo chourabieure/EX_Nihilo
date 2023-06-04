@@ -8,9 +8,9 @@ const Card = ({ logo, bgColor, imgVerso, alt, tags }) => {
 
     const handleClick = () => {
         setFlipped(!isFlipped);
-        // setTimeout(() => {
-        //     setFlipped(false);
-        // }, 5000);
+        setTimeout(() => {
+            setFlipped(false);
+        }, 5000);
     };
 
     const styleSize =

@@ -40,8 +40,9 @@ const Home = () => {
                         <h1 className="font-Miju text-3xl text-ex_light_yellow">
                             {qui_sommes_nous.title}
                         </h1>
-                        <h2 className="font-extrabold text-3xl text-ex_light_purple">
-                            {qui_sommes_nous.subtitle}
+                        <h2
+                            dangerouslySetInnerHTML={{ __html: qui_sommes_nous.subtitle }}
+                            className="font-extrabold text-3xl text-ex_light_purple">
                         </h2>
                         <p
                             dangerouslySetInnerHTML={{ __html: qui_sommes_nous.description }}
@@ -74,8 +75,9 @@ const Home = () => {
                         <h2 className="font-extrabold text-3xl text-ex_light_purple">
                             {que_faisons_nous.subtitle}
                         </h2>
-                        <p className="font-medium text-lg text-ex_light_purple">
-                            {que_faisons_nous.description}
+                        <p
+                            dangerouslySetInnerHTML={{ __html: que_faisons_nous.description }}
+                            className="font-medium text-lg text-ex_light_purple">
                         </p>
                     </section>
                 </section>

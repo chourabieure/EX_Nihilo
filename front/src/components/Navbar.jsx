@@ -93,7 +93,7 @@ const Navbar = () => {
                     <li>
                         <a
                             className="flex  bg-ex_light_purple text-ex_dark_purple text-sm items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500"
-                            onClick={() => scrollIntoView("#footer", "")}
+                            onClick={() => scrollIntoView("#contact", "")}
                         >
                             Contactez-nous
                         </a>
@@ -146,7 +146,7 @@ const Navbar = () => {
                     >
                         <a
                             className="flex  bg-ex_light_purple text-ex_dark_purple text-sm items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500"
-                            onClick={() => scrollIntoView("#footer", "")}
+                            onClick={() => scrollIntoView("#contact", "")}
                         >
                             Contactez-nous
                         </a>
