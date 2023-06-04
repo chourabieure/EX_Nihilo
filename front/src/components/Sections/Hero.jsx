@@ -23,6 +23,7 @@ const Hero = () => {
                         (elem, i) => {
                             return (
                                 <img
+                                    key={i}
                                     className={`h-60 imgBg ${"imgBg" + i}`}
                                     src={`/static/shapes/${elem}`}
                                 />
@@ -34,6 +35,7 @@ const Hero = () => {
                     {["shape_4.svg", "shape_5.svg"].map((elem, i) => {
                         return (
                             <img
+                                key={i}
                                 className={`h-60 imgBg  ${"imgBg" + (3 + i)}`}
                                 src={`/static/shapes/${elem}`}
                             />
@@ -45,6 +47,7 @@ const Hero = () => {
                         (elem, i) => {
                             return (
                                 <img
+                                    key={i}
                                     className={`h-60 imgBg  ${
                                         "imgBg" + (5 + i)
                                     }`}

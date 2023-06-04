@@ -1,24 +1,16 @@
-// @ts-nocheck
-import { Fragment, useRef, useState } from "react";
-
-import { motion } from "framer-motion";
-
 //import data
 import { qui_sommes_nous, que_faisons_nous } from "@/data/section";
 
 // Import Sections
-import Card from "@/components/card/card";
 import Hero from "@/components/Sections/Hero";
-import Section from "@/components/Sections/Section";
 import Divider from "@/components/UI/Divider";
 import Valeurs from "@/components/Sections/Valeurs";
 import Footer from "@/components/Sections/Footer";
 import Faq from "@/components/Sections/Faq";
 import Team from "@/components/Sections/Team";
 
-import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 import Cards from "@/components/Sections/Cards";
+import Contact from "@/components/Sections/Contact";
 
 const Home = () => {
     return (
@@ -27,7 +19,6 @@ const Home = () => {
             className="relative pt-[84px] flex flex-col justify-center"
         >
             <Hero />
-
             {/* QUI SOMMES NOUS */}
             <section
                 id="qui_sommes_nous"
@@ -57,7 +48,6 @@ const Home = () => {
                     </section>
                 </section>
             </section>
-
             {/* QUE FAISONS NOUS */}
             <section
                 id="que_faisons_nous"
@@ -89,14 +79,11 @@ const Home = () => {
             </section>
             <Valeurs />
             <Divider />
-
             <Cards />
-
             <Team />
-            <Divider />
+            <Contact />
             <Faq />
             <Divider />
-
             <Footer />
         </div>
     );
