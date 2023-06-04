@@ -6,22 +6,32 @@ const Card = ({ logo, bgColor, imgVerso, alt, tags }) => {
 
     const handleClick = () => {
         setFlipped(!isFlipped);
+        setTimeout(() => {
+            setFlipped(false);
+        }, 5000);
     };
+
+    const styleSize =
+        "w-[146.81px] h-[192.38px] sm:w-[195.75px] sm:h-[256.5px] md:w-[261px] md:h-[342px] lg:w-[348px] lg:h-[456px]";
+    const stylePadding = "p-[8.5px] sm:p-[11.5px] md:p-[15px] lg:p-[20px]";
+
+    const stylePaddingImg = "p-[3.8px] sm:p-[5px] md:p-[6.75px] lg:p-[9px]  ";
 
     return (
         <ReactCardFlip isFlipped={isFlipped} flipDirection="horizontal">
             <div
-                className="flex justify-center w-[348px] h-[456px] bg-ex_red rounded-2xl relative perspective-1000"
+                className={`flex justify-center ${styleSize} ${bgColor} rounded-2xl relative perspective-1000`}
                 onClick={handleClick}
             >
                 <div className="card w-full h-full absolute transition-transform duration-500 transform-style-preserve-3d">
                     {/* Contenu du côté avant de la carte */}
-                    <div className="flex flex-col w-full h-full justify-between items-center">
+                    <div
+                        className={`flex flex-col w-full h-full justify-between items-center ${stylePadding}`}
+                    >
                         {/* Logo Ex Nihilo */}
-                        <div className="w-full flex justify-end mt-[20px] mr-[20px]">
+                        <div className="w-full flex justify-end ">
                             <svg
-                                width="28"
-                                height="61"
+                                className="w-[10%]"
                                 viewBox="0 0 28 61"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -67,10 +77,9 @@ const Card = ({ logo, bgColor, imgVerso, alt, tags }) => {
                         {/* Logo client */}
                         <div className="w-full flex justify-center">{logo}</div>
                         {/* Logo Ex Nihilo */}
-                        <div className="w-full flex justify-start mb-[20px] ml-[20px] content-end">
+                        <div className="w-full flex justify-start content-end">
                             <svg
-                                width="28"
-                                height="61"
+                                className="w-[10%]"
                                 viewBox="0 0 28 61"
                                 fill="none"
                                 xmlns="http://www.w3.org/2000/svg"
@@ -118,18 +127,20 @@ const Card = ({ logo, bgColor, imgVerso, alt, tags }) => {
             </div>
             {/* Contenu du côté arrière de la carte */}
             <div
-                className="flex justify-center w-[348px] h-[456px] bg-ex_red rounded-2xl relative perspective-1000"
+                className={`flex justify-center ${styleSize} ${bgColor} rounded-2xl relative perspective-1000`}
                 onClick={handleClick}
             >
-                <div className="flex justify-center items-center card w-full h-full absolute transition-transform duration-500 transform-style-preserve-3d">
-                    <div className="w-[327px] h-[438px] rounded-3xl relative">
+                <div
+                    className={`${stylePaddingImg} flex justify-center items-center card w-full h-full absolute transition-transform duration-500 transform-style-preserve-3d`}
+                >
+                    <div className=" w-full rounded-3xl relative">
                         <img src={imgVerso} alt={alt} />
                         <div className="absolute bottom-4 left-4 z-10 inline-flex">
                             {tags.map((tag) => {
                                 return (
                                     <span
                                         key={tag}
-                                        className="bg-ex_red font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3"
+                                        className={`${bgColor} font-Miju text-xl text-white px-2 py-1 rounded-lg mr-3`}
                                     >
                                         {tag}
                                     </span>
