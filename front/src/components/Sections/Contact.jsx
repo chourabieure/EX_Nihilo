@@ -106,7 +106,18 @@ const Contact = () => {
     return (
         <section className="h-screen w-full flex justify-center items-center px-4 sm:px-8 md:px-16">
             <div className="relative w-full bg-ex_dark_purple p-8 sm:p-16 rounded-3xl overflow-hidden">
-                <div className="relative z-10">
+                <motion.div
+                    initial={{
+                        scale: 0.9,
+                    }}
+                    whileInView={{
+                        scale: 1,
+                    }}
+                    transition={{
+                        duration: 1,
+                    }}
+                    className="relative z-10"
+                >
                     <Title title="Contactez-nous" />
 
                     <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden " />
@@ -227,7 +238,7 @@ const Contact = () => {
                             />
                         </button>
                     </form>
-                </div>
+                </motion.div>
 
                 <img
                     className="absolute w-48 h-48 -top-16 left-10 z-0"

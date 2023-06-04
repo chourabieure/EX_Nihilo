@@ -11,10 +11,10 @@ const Cards = () => {
             id="companies"
             className="min-h-screen flex flex-col gap-4 sm:gap-8 items-center justify-start"
         >
-            <div className="max-w-5xl px-8 m-auto my-0 flex w-full justify-center">
+            <div className="max-w-5xl px-8 pb-8 sm:pb-0 m-auto my-0 flex w-full justify-center">
                 <Title
                     title={
-                        "Nous<br class='block sm:hidden'/> sommes une <br class='block sm:hidden'/>équipe"
+                        "Ils nous ont<br class='block sm:hidden'/> fait <br class='block sm:hidden'/>confiance"
                     }
                     center={true}
                 />
