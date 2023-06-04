@@ -7,3 +7,7 @@ body {
   scroll-behavior: smooth;
   @apply bg-slate-900 transition-all duration-300
 }
+
+*:focus {
+  outline: none;
+}

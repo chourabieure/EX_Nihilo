@@ -17,12 +17,13 @@ const Hero = () => {
             id="1"
             className={`h-[calc(100vh_-_84px)] flex flex-col relative justify-center items-center py-8  text-white`}
         >
-            <div className="absolute top-0 left-0 right-0 bottom-0 px-8 flex flex-col justify-between opacity-25">
-                <div className="flex flex-row justify-between w-full">
+            <div className="absolute w-screen px-8 flex flex-col justify-between opacity-25 overflow-hidden">
+                <div className="flex flex-row justify-around w-full">
                     {["shape_1.svg", "shape_2.svg", "shape_3.svg"].map(
                         (elem, i) => {
                             return (
                                 <img
+                                    key={i}
                                     className={`h-60 imgBg ${"imgBg" + i}`}
                                     src={`/static/shapes/${elem}`}
                                 />
@@ -34,6 +35,7 @@ const Hero = () => {
                     {["shape_4.svg", "shape_5.svg"].map((elem, i) => {
                         return (
                             <img
+                                key={i}
                                 className={`h-60 imgBg  ${"imgBg" + (3 + i)}`}
                                 src={`/static/shapes/${elem}`}
                             />
@@ -45,6 +47,7 @@ const Hero = () => {
                         (elem, i) => {
                             return (
                                 <img
+                                    key={i}
                                     className={`h-60 imgBg  ${
                                         "imgBg" + (5 + i)
                                     }`}
