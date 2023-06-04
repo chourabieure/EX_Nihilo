@@ -142,9 +142,10 @@ const Valeurs = () => {
                                         }}
                                         animate={controls}
                                         className="text-justify bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
-                                    >
-                                        {info[position].more}
-                                    </motion.p>
+                                        dangerouslySetInnerHTML={{
+                                            __html: info[position].more,
+                                        }}
+                                    ></motion.p>
                                     <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                                         <button
                                             type="button"
