@@ -1,7 +1,6 @@
-import { Parallax } from "react-scroll-parallax";
-import Card from "../Card/Card";
-import Title from "../UI/Title";
-import Divider from "../UI/Divider";
+import Card from "@/components/Card/Card";
+import Title from "@/components/UI/Title";
+import Divider from "@/components/UI/Divider";
 
 import { cardContent } from "@/data/cards";
 
