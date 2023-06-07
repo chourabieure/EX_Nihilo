@@ -14,10 +14,10 @@ import {
     Section,
     Tailwind,
     Text,
-} from '@react-email/components';
+} from "@react-email/components";
 import * as React from "react";
 
-const baseUrl = `https://exnihilo.fr`
+const baseUrl = `https://exnihilo.fr`;
 
 export function Email({
     name,
@@ -43,12 +43,13 @@ export function Email({
                             },
                         },
                     },
-                }}>
+                }}
+            >
                 <Body Body className="bg-white my-auto mx-auto font-sans">
                     <Container className="border border-solid border-[#eaeaea] rounded my-[40px] mx-auto p-[20px] w-[465px]">
                         <Section className="mt-[32px]">
                             <Img
-                                src={`${baseUrl}/static/portrait/logo.png`}
+                                src={`${baseUrl}/static/logo.png`}
                                 width="40"
                                 height="37"
                                 alt="Logo Ex Nihilo"
@@ -62,30 +63,29 @@ export function Email({
                             Bonjour je suis {name},
                         </Text>
                         <Text className="text-black text-[14px] leading-[24px]">
-                            J'aimerais être recontacter par mail au 
+                            J'aimerais être recontacter par mail au
                             <Link
                                 href={`mailto:${email}`}
                                 className="text-ex_normal_purple no-underline"
                             >
                                 {email}
                             </Link>
-                             ou bien par téléphone au 
+                            ou bien par téléphone au
                             <Link
                                 href={`tel:${phone}`}
                                 className="text-ex_normal_purple no-underline"
                             >
                                 {phone}
-                            </Link>.
+                            </Link>
+                            .
                         </Text>
                         <Text className="text-black text-[14px] leading-[24px]">
                             En vous remerciant par avance.
                         </Text>
-
                     </Container>
                 </Body>
             </Tailwind>
-        </Html >
-
+        </Html>
 
         // <Tailwind
         //     config={{
