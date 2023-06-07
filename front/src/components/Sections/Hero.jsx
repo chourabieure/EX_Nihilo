@@ -15,9 +15,9 @@ const Hero = () => {
     return (
         <section
             id="1"
-            className={`h-[calc(100vh_-_84px)] flex flex-col relative justify-center items-center py-8  text-white`}
+            className={`h-[calc(100vh_-_84px)] flex flex-col relative justify-center items-center py-8  text-white overflow-hidden`}
         >
-            <div className="absolute w-screen px-8 flex flex-col justify-between opacity-25 overflow-hidden">
+            <div className="absolute w-screen px-8 flex flex-col justify-between opacity-25 ">
                 <div className="flex flex-row justify-around w-full">
                     {["shape_1.svg", "shape_2.svg", "shape_3.svg"].map(
                         (elem, i) => {
