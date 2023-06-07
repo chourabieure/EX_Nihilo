@@ -50,8 +50,8 @@ export function Email({
                         <Section className="mt-[32px]">
                             <Img
                                 src={`${baseUrl}/static/logo.png`}
-                                width="40"
-                                height="37"
+                                width="25"
+                                height="54.99"
                                 alt="Logo Ex Nihilo"
                                 className="my-0 mx-auto"
                             />

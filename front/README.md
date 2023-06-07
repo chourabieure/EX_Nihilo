@@ -1,5 +1,10 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+
+https://medium.com/@ranjandsingh/how-to-deploy-nextjs-app-on-a-custom-vps-56269748870f
+
+https://dev.to/j3rry320/deploy-your-nextjs-app-like-a-pro-a-step-by-step-guide-using-nginx-pm2-certbot-and-git-on-your-linux-server-3286 
+
 ## Getting Started
 
 First, run the development server:

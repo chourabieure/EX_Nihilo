@@ -21,7 +21,7 @@ const Cards = () => {
             </div>{" "}
             <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
 
-            <div className="grid grid-cols-3 gap-4 justify-center">
+            <div className="grid md:grid-cols-3 grid-cols-2 gap-4 justify-center">
                 {cardContent.map((card, i) => {
                     return (
                         <Card
