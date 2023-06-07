@@ -1,6 +1,7 @@
-import Card from "@/components/Card/Card";
-import Title from "@/components/UI/Title";
-import Divider from "@/components/UI/Divider";
+import { ParallaxProvider, Parallax } from "react-scroll-parallax";
+import Card from "../card/Card";
+import Title from "../UI/Title";
+import Divider from "../UI/Divider";
 
 import { cardContent } from "@/data/cards";
 
@@ -19,7 +20,8 @@ const Cards = () => {
                 />
             </div>{" "}
             <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
-            <div className="flex  flex-wrap gap-4 justify-center">
+
+            <div className="grid grid-cols-3 gap-4 justify-center">
                 {cardContent.map((card, i) => {
                     return (
                         <Card
@@ -33,6 +35,7 @@ const Cards = () => {
                     );
                 })}
             </div>
+
             <Divider />
         </section>
     );

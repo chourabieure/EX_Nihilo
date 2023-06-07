@@ -81,7 +81,7 @@ const Footer = () => {
           </article>
           <article className="text-right sm:text-left">
             <h2 className="pb-6 text-sm font-extrabold text-ex_normal_purple  uppercase dark:text-ex_normal_purple">
-              Suviez-nous
+              Suivez-nous
             </h2>
             <ul className="text-ex_dark_purple dark:text-ex_light_purple">
               <li className="pb-4">
