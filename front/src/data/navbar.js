@@ -34,4 +34,38 @@ const navbarItems = [
     },
 ];
 
-export { navbarItems };
+const footerItems = [
+    {
+        id: 1,
+        name: "Accueil",
+        route: "#main_container",
+    },
+    {
+        id: 2,
+        name: "Présentation",
+        route: "#qui_sommes_nous",
+    },
+    {
+        id: 3,
+        name: "Offre",
+        route: "#nos_valeurs",
+        offset: 0,
+    },
+    {
+        id: 4,
+        name: "Références",
+        route: "#companies",
+    },
+    {
+        id: 5,
+        name: "Équipe",
+        route: "#equipe",
+    },
+    {
+        id: 6,
+        name: "FAQ",
+        route: "#faq",
+    },
+];
+
+export { navbarItems, footerItems };

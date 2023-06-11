@@ -12,13 +12,11 @@ const Contact = () => {
     const {
         register,
         handleSubmit,
-        watch,
         reset,
         formState: { errors },
     } = useForm();
 
     const [loading, setLoading] = useState(false);
-    const [missing, setMissing] = useState(false);
 
     const onSubmit = async (data) => {
         if (data.email || data.phone) {

@@ -1,38 +1,85 @@
 import Link from "next/link";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
+import { useEffect, useRef, useState } from "react";
 import { navbarItems } from "@/data/navbar";
+
+import gsap from "gsap";
+import { set } from "react-hook-form";
 
 const Navbar = () => {
     const [isActive, setIsActive] = useState(false);
+    const bandeauActiveRef = useRef(true);
+
+    const scrollPositionRef = useRef(0);
 
     const scrollIntoView = (href, yOffset = 0) => {
         console.log(yOffset);
         let e = document.querySelector(href);
         const y = e.getBoundingClientRect().top + window.pageYOffset + yOffset;
         window.scrollTo({ top: y, behavior: "smooth" });
-        // e.scrollIntoView({
-        //   block: "start",
-        //   behavior: "smooth",
-        //   inline: "start",
-        // });
     };
 
+    const resizeListener = () => {
+        window.innerWidth > 900 && setIsActive(false);
+    };
+    const scrollListener = () => {
+        const scrollPosition = window.scrollY;
+        if (scrollPosition > scrollPositionRef.current) {
+            if (bandeauActiveRef.current) {
+                hideBandeau();
+            }
+        } else {
+            if (!bandeauActiveRef.current) {
+                showBandeau();
+            }
+        }
+        scrollPositionRef.current = scrollPosition;
+    };
     // Close menu when re-opening (responsive)
     useEffect(() => {
-        window.addEventListener("resize", () => {
-            window.innerWidth > 900 && setIsActive(false);
-        });
+        window.addEventListener("resize", resizeListener);
+        window.addEventListener("scroll", scrollListener);
     }, []);
+
+    const hideBandeau = () => {
+        const tl = gsap.timeline({
+            onComplete: () => {
+                bandeauActiveRef.current = false;
+            },
+        });
+        tl.to(".bandeau", {
+            duration: 0.5,
+            opacity: 0,
+            visibility: "hidden",
+        }).to(".bandeau", {
+            duration: 0.3,
+            height: 0,
+        });
+    };
+
+    const showBandeau = () => {
+        const tl = gsap.timeline({
+            onComplete: () => {
+                bandeauActiveRef.current = true;
+            },
+        });
+        tl.to(".bandeau", {
+            duration: 0.3,
+            height: "auto",
+        }).to(".bandeau", {
+            duration: 0.5,
+            visibility: "visible",
+            opacity: 1,
+        });
+    };
 
     return (
         <nav className="fixed navbar z-20 top-0 w-full py-4 bg-slate-900/60 backdrop-blur-md">
-            <div className="hidden py-4 px-8 justify-center">
+            <div className=" flex justify-center bandeau">
                 <a
                     href="#"
-                    className=" py-2 bg-ex_light_purple w-full flex justify-center items-center gap-4 rounded-full"
+                    className="my-4 mx-8 py-1 px-8 bg-ex_light_purple w-full flex justify-center items-center gap-4 rounded-full scale-100 hover:scale-[1.02] transition-all duration-300"
                 >
-                    <span className="text-ex_dark_purple font-bold">
+                    <span className="text-ex_dark_purple font-bold text-sm lg:text-md">
                         Découvrez notre nouvelle charte graphique en animation
                     </span>
 

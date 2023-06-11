@@ -1,10 +1,9 @@
-import { use, useCallback, useEffect, useState, Fragment, useRef } from "react";
+import { useCallback, useEffect, useState, Fragment, useRef } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import Title from "@/components/UI/Title";
 
 import { conseil, design, expertise } from "@/data/valeur";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 const Valeurs = () => {
     const info = [conseil, design, expertise];
@@ -13,7 +12,15 @@ const Valeurs = () => {
     const duration_text = 0.5;
     const shapes = ["ShapeConseil", "ShapeDesign", "ShapeExpertise"];
 
-    const [position, setPosition] = useState(0);
+    const positionRef = useRef(0);
+
+    const [position, __setPosition] = useState(0);
+
+    const setPosition = (data) => {
+        console.log("set with : ", data);
+        positionRef.current = data;
+        __setPosition(data);
+    };
 
     const [open, setOpen] = useState(false);
     const cancelButtonRef = useRef(null);
@@ -66,22 +73,31 @@ const Valeurs = () => {
         [position]
     );
 
-    useEffect(() => {
+    const listener = (event) => {
         const shapes_container =
             window.document.querySelector("#shapes_container");
 
-        window.addEventListener("scroll", (event) => {
-            if (shapes_container.children[0].getBoundingClientRect().top <= 0) {
-                position_shape1 =
-                    shapes_container.children[0].getBoundingClientRect().top;
+        if (shapes_container.children[0].getBoundingClientRect().top <= 0) {
+            position_shape1 =
+                shapes_container.children[0].getBoundingClientRect().top;
 
-                var sections = shapes_container.clientHeight / 3;
-                let position = Math.abs(Math.round(position_shape1 / sections));
-                if (position <= 2) {
-                    setPosition(position);
+            var sections = shapes_container.clientHeight / 3;
+            let newPosition = Math.abs(Math.round(position_shape1 / sections));
+            if (newPosition <= 2) {
+                if (positionRef.current !== newPosition) {
+                    console.log(shapes_container.offsetTop);
+                    // window.scrollTo({
+                    //     top: position_shape1 + sections * newPosition,
+                    //     behavior: "smooth",
+                    // });
+                    setPosition(newPosition);
                 }
             }
-        });
+        }
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", listener);
     }, []);
 
     useEffect(() => {
@@ -143,7 +159,8 @@ const Valeurs = () => {
                                         animate={controls}
                                         className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
                                         dangerouslySetInnerHTML={{
-                                            __html: info[position].more,
+                                            __html: info[positionRef.current]
+                                                ?.more,
                                         }}
                                     ></motion.p>
                                     <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
@@ -181,7 +198,7 @@ const Valeurs = () => {
             >
                 <div className="sticky top-0 ">
                     <div className="flex h-screen flex-col justify-center gap-8 ">
-                        <Title title={info[position].title} />
+                        <Title title={info[positionRef.current]?.title} />
 
                         <motion.div
                             initial={{
@@ -213,12 +230,12 @@ const Valeurs = () => {
                             animate={controls}
                             className="leading-6 md:leading-7 text-ex_light_purple origin-top-left"
                             dangerouslySetInnerHTML={{
-                                __html: info[position].description,
+                                __html: info[positionRef.current]?.description,
                             }}
                         ></motion.p>
                         <Button
-                            text={info[position].button.text}
-                            color={info[position].button.color}
+                            text={info[positionRef.current]?.button.text}
+                            color={info[positionRef.current]?.button.color}
                         />
                     </div>
                 </div>

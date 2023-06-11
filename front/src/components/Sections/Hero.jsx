@@ -1,4 +1,3 @@
-import Button from "@/components/UI/Button";
 import { motion } from "framer-motion";
 import Magicword from "../UI/Magicword";
 
