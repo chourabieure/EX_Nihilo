@@ -5,12 +5,19 @@ import Title from "@/components/UI/Title";
 import { conseil, design, expertise } from "@/data/valeur";
 import { Dialog, Transition } from "@headlessui/react";
 
+import Lottie from "lottie-react";
+import triangle from "/public/static/lotties/Triangle.json";
+import circle from "/public/static/lotties/Circle.json";
+import square from "/public/static/lotties/Square.json";
+
 const Valeurs = () => {
     const info = [conseil, design, expertise];
 
     const duration_shape = 0.5;
     const duration_text = 0.5;
     const shapes = ["ShapeConseil", "ShapeDesign", "ShapeExpertise"];
+
+    const lotties = [triangle, circle, square];
 
     const positionRef = useRef(0);
 
@@ -255,7 +262,11 @@ const Valeurs = () => {
                             key={index}
                             className="snap-center h-screen w-full flex justify-center items-center "
                         >
-                            <motion.img
+                            <Lottie
+                                animationData={lotties[index]}
+                                loop={true}
+                            />
+                            {/* <motion.img
                                 initial={{
                                     opacity: 0,
                                     scale: 0.7,
@@ -275,7 +286,7 @@ const Valeurs = () => {
                                 className="w-full"
                                 src={`/static/svg/${item}.svg`}
                                 alt=""
-                            />
+                            /> */}
                         </div>
                     );
                 })}
