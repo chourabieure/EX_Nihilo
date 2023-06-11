@@ -3,11 +3,18 @@ import { useEffect, useRef, useState } from "react";
 import { navbarItems } from "@/data/navbar";
 
 import gsap from "gsap";
-import { set } from "react-hook-form";
 
 const Navbar = () => {
-    const [isActive, setIsActive] = useState(false);
+    const [isActive, __setIsActive] = useState(false);
+    const setIsActive = (value) => {
+        __setIsActive(value);
+        isActiveRef.current = value;
+    };
+
+    const isActiveRef = useRef(isActive);
     const bandeauActiveRef = useRef(true);
+
+    const isLoadingRef = useRef(false);
 
     const scrollPositionRef = useRef(0);
 
@@ -22,7 +29,8 @@ const Navbar = () => {
         window.innerWidth > 900 && setIsActive(false);
     };
     const scrollListener = () => {
-        console.log("test");
+        console.log("isLoading", isLoadingRef.current);
+        if (isActiveRef.current || isLoadingRef.current) return;
         const scrollPosition = window.scrollY;
         if (scrollPosition > scrollPositionRef.current) {
             if (bandeauActiveRef.current) {
@@ -42,9 +50,11 @@ const Navbar = () => {
     }, []);
 
     const hideBandeau = () => {
+        isLoadingRef.current = true;
         const tl = gsap.timeline({
             onComplete: () => {
                 bandeauActiveRef.current = false;
+                isLoadingRef.current = false;
             },
         });
         tl.to(".bandeau", {
@@ -58,9 +68,11 @@ const Navbar = () => {
     };
 
     const showBandeau = () => {
+        isLoadingRef.current = true;
         const tl = gsap.timeline({
             onComplete: () => {
                 bandeauActiveRef.current = true;
+                isLoadingRef.current = false;
             },
         });
         tl.to(".bandeau", {
@@ -72,6 +84,20 @@ const Navbar = () => {
             opacity: 1,
         });
     };
+
+    const instantHide = () => {
+        const tl = gsap.timeline();
+        tl.to(".bandeau", {
+            duration: 0,
+            height: 0,
+            visibility: "hidden",
+            opacity: 0,
+        });
+    };
+
+    useEffect(() => {
+        if (isActive) instantHide();
+    }, [isActive]);
 
     return (
         <nav className="fixed navbar z-20 top-0 w-full py-4 bg-slate-900/60 backdrop-blur-md">
