@@ -22,6 +22,7 @@ const Navbar = () => {
         window.innerWidth > 900 && setIsActive(false);
     };
     const scrollListener = () => {
+        console.log("test");
         const scrollPosition = window.scrollY;
         if (scrollPosition > scrollPositionRef.current) {
             if (bandeauActiveRef.current) {
