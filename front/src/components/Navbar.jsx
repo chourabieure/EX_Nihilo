@@ -36,7 +36,10 @@ const Navbar = () => {
 
         const scrollPosition = window.scrollY;
 
-        if (heroContainerRef.current.clientHeight < scrollPosition) return;
+        if (heroContainerRef.current.clientHeight < scrollPosition) {
+            if (bandeauActiveRef.current) instantHide();
+            return;
+        }
 
         if (scrollPosition > scrollPositionRef.current) {
             if (bandeauActiveRef.current) {

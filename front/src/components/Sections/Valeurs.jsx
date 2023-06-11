@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, Fragment, useRef } from "react";
+import { useCallback, useEffect, useState, Fragment, useRef, use } from "react";
 import { motion, useAnimationControls, useInView } from "framer-motion";
 import Title from "@/components/UI/Title";
 
@@ -53,6 +53,8 @@ const Valeurs = () => {
             squareLottieRef.current.play();
         }
     }, [triangleIsInView, circleIsInView, squareIsInView]);
+
+    useEffect(() => {}, [triangleLottieRef.current]);
 
     //
     const positionRef = useRef(0);
@@ -298,11 +300,19 @@ const Valeurs = () => {
                             key={index}
                             className="snap-center h-screen w-full flex justify-center items-center "
                         >
-                            <div ref={shapesRefs[index]}>
+                            <div
+                                ref={shapesRefs[index]}
+                                onMouseEnter={() =>
+                                    shapesLottiesRefs[
+                                        index
+                                    ].current.goToAndPlay(0)
+                                }
+                            >
                                 <Lottie
                                     lottieRef={shapesLottiesRefs[index]}
                                     animationData={lotties[index]}
                                     loop={false}
+                                    on
                                 />
                             </div>
 
