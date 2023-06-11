@@ -18,6 +18,8 @@ const Navbar = () => {
 
     const scrollPositionRef = useRef(0);
 
+    const heroContainerRef = useRef(null);
+
     const scrollIntoView = (href, yOffset = 0) => {
         console.log(yOffset);
         let e = document.querySelector(href);
@@ -29,9 +31,13 @@ const Navbar = () => {
         window.innerWidth > 900 && setIsActive(false);
     };
     const scrollListener = () => {
-        console.log("isLoading", isLoadingRef.current);
+        // console.log(heroContainerRef.current.clientHeight);
         if (isActiveRef.current || isLoadingRef.current) return;
+
         const scrollPosition = window.scrollY;
+
+        if (heroContainerRef.current.clientHeight < scrollPosition) return;
+
         if (scrollPosition > scrollPositionRef.current) {
             if (bandeauActiveRef.current) {
                 hideBandeau();
@@ -45,6 +51,7 @@ const Navbar = () => {
     };
     // Close menu when re-opening (responsive)
     useEffect(() => {
+        heroContainerRef.current = document.querySelector("#hero_section");
         window.addEventListener("resize", resizeListener);
         window.addEventListener("scroll", scrollListener);
     }, []);

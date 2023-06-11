@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState, Fragment, useRef } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { motion, useAnimationControls, useInView } from "framer-motion";
 import Title from "@/components/UI/Title";
 
 import { conseil, design, expertise } from "@/data/valeur";
@@ -17,14 +17,47 @@ const Valeurs = () => {
     const duration_text = 0.5;
     const shapes = ["ShapeConseil", "ShapeDesign", "ShapeExpertise"];
 
+    // Lotties
     const lotties = [triangle, circle, square];
 
+    const triangleRef = useRef(null);
+    const triangleLottieRef = useRef(null);
+    const triangleIsInView = useInView(triangleRef);
+
+    const circleRef = useRef(null);
+    const circleLottieRef = useRef(null);
+    const circleIsInView = useInView(circleRef);
+
+    const squareRef = useRef(null);
+    const squareLottieRef = useRef(null);
+    const squareIsInView = useInView(squareRef);
+
+    const shapesRefs = [triangleRef, circleRef, squareRef];
+    const shapesLottiesRefs = [
+        triangleLottieRef,
+        circleLottieRef,
+        squareLottieRef,
+    ];
+
+    useEffect(() => {
+        if (triangleIsInView) {
+            console.log("play triangle");
+            triangleLottieRef.current.play();
+        }
+        if (circleIsInView) {
+            console.log("play circle");
+            circleLottieRef.current.play();
+        }
+        if (squareIsInView) {
+            console.log("play square");
+            squareLottieRef.current.play();
+        }
+    }, [triangleIsInView, circleIsInView, squareIsInView]);
+
+    //
     const positionRef = useRef(0);
-
     const [position, __setPosition] = useState(0);
-
     const setPosition = (data) => {
-        console.log("set with : ", data);
         positionRef.current = data;
         __setPosition(data);
     };
@@ -92,7 +125,6 @@ const Valeurs = () => {
             let newPosition = Math.abs(Math.round(position_shape1 / sections));
             if (newPosition <= 2) {
                 if (positionRef.current !== newPosition) {
-                    console.log(shapes_container.offsetTop);
                     // window.scrollTo({
                     //     top: position_shape1 + sections * newPosition,
                     //     behavior: "smooth",
@@ -104,6 +136,10 @@ const Valeurs = () => {
     };
 
     useEffect(() => {
+        triangleLottieRef.current.stop();
+        circleLottieRef.current.stop();
+        squareLottieRef.current.stop();
+
         window.addEventListener("scroll", listener);
     }, []);
 
@@ -262,10 +298,14 @@ const Valeurs = () => {
                             key={index}
                             className="snap-center h-screen w-full flex justify-center items-center "
                         >
-                            <Lottie
-                                animationData={lotties[index]}
-                                loop={true}
-                            />
+                            <div ref={shapesRefs[index]}>
+                                <Lottie
+                                    lottieRef={shapesLottiesRefs[index]}
+                                    animationData={lotties[index]}
+                                    loop={false}
+                                />
+                            </div>
+
                             {/* <motion.img
                                 initial={{
                                     opacity: 0,
@@ -309,9 +349,9 @@ const Valeurs = () => {
                                 duration: duration_text,
                                 ease: "linear",
                             }}
-                            className="flex h-screen flex-col justify-center items-center gap-8"
+                            className="flex min-h-screen flex-col justify-center items-center gap-8 pt-16"
                         >
-                            <motion.img
+                            {/* <motion.img
                                 initial={{
                                     opacity: 0,
                                     scale: 1,
@@ -330,7 +370,14 @@ const Valeurs = () => {
                                 className="w-1/2 "
                                 src={`/static/svg/${shapes[index]}.svg`}
                                 alt=""
-                            />
+                            /> */}
+                            <div className="w-1/2">
+                                <Lottie
+                                    animationData={lotties[index]}
+
+                                    // loop={true}
+                                />
+                            </div>
 
                             <Title title={elem.title} center={true} />
                             <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />

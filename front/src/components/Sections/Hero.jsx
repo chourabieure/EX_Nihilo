@@ -2,18 +2,9 @@ import { motion } from "framer-motion";
 import Magicword from "../UI/Magicword";
 
 const Hero = () => {
-    const shapes = [
-        "shape_1.svg",
-        "shape_2.svg",
-        "shape_3.svg",
-        "shape_4.svg",
-        "shape_5.svg",
-        "shape_6.svg",
-        "shape_7.svg",
-    ];
     return (
         <section
-            id="1"
+            id="hero_section"
             className={`h-[calc(100vh_-_84px)] flex flex-col relative justify-center items-center py-8  text-white overflow-hidden`}
         >
             <div className="absolute w-screen px-8 flex flex-col justify-between opacity-25 ">
