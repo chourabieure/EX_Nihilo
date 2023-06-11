@@ -118,7 +118,7 @@ const Contact = () => {
                             scale: 1,
                         }}
                         transition={{
-                            duration: 1,
+                            duration: 0.5,
                         }}
                         className="relative z-10"
                     >
@@ -127,12 +127,13 @@ const Contact = () => {
                         <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden " />
 
                         <h1 className="missingText  text-red-400 opacity-0 text-[0px]">
-                            Veuillez au moins renseigner votre numéro de téléphone
-                            ou votre email pour que nous puissions vous recontacter.
+                            Veuillez au moins renseigner votre numéro de
+                            téléphone ou votre email pour que nous puissions
+                            vous recontacter.
                         </h1>
                         <h1 className="successText  text-green-400 opacity-0 text-[0px]">
-                            Merci pour votre message ! Nous vous recontacterons sous
-                            peu.
+                            Merci pour votre message ! Nous vous recontacterons
+                            sous peu.
                         </h1>
                         <form
                             className="flex flex-col lg:flex-row justify-between items-center sm:items-end gap-8 z-1"
@@ -150,10 +151,11 @@ const Contact = () => {
                                     <div className="relative flex-1 w-full">
                                         <input
                                             id="name"
-                                            className={`peer relative bg-transparent border-0 border-b-2  placeholder-red-400 ${errors.name?.type === "required"
-                                                ? "border-red-400 focus:border-red-400"
-                                                : "border-white focus:border-white "
-                                                }  focus:ring-0 w-full text-xl pb-0`}
+                                            className={`peer relative bg-transparent border-0 border-b-2  placeholder-red-400 ${
+                                                errors.name?.type === "required"
+                                                    ? "border-red-400 focus:border-red-400"
+                                                    : "border-white focus:border-white "
+                                            }  focus:ring-0 w-full text-xl pb-0`}
                                             type="text"
                                             placeholder={
                                                 errors.name?.type === "required"
@@ -185,10 +187,11 @@ const Contact = () => {
                                         <input
                                             id="phone"
                                             type="tel"
-                                            className={`peer relative bg-transparent border-0 border-b-2  placeholder-red-400 ${errors.phone
-                                                ? "border-red-400 focus:border-red-400"
-                                                : "border-white focus:border-white "
-                                                }  focus:ring-0 w-full text-xl pb-0`}
+                                            className={`peer relative bg-transparent border-0 border-b-2  placeholder-red-400 ${
+                                                errors.phone
+                                                    ? "border-red-400 focus:border-red-400"
+                                                    : "border-white focus:border-white "
+                                            }  focus:ring-0 w-full text-xl pb-0`}
                                             placeholder={" "}
                                             {...register("phone", {
                                                 pattern:
@@ -213,10 +216,11 @@ const Contact = () => {
                                         <input
                                             id="name"
                                             type="email"
-                                            className={`peer relative bg-transparent border-0 border-b-2  placeholder-red-400 ${errors.email
-                                                ? "border-red-400 focus:border-red-400"
-                                                : "border-white focus:border-white "
-                                                }  focus:ring-0 w-full text-xl pb-0`}
+                                            className={`peer relative bg-transparent border-0 border-b-2  placeholder-red-400 ${
+                                                errors.email
+                                                    ? "border-red-400 focus:border-red-400"
+                                                    : "border-white focus:border-white "
+                                            }  focus:ring-0 w-full text-xl pb-0`}
                                             placeholder=" "
                                             {...register("email", {
                                                 pattern:
@@ -251,8 +255,6 @@ const Contact = () => {
                     />
                 </div>
             </section>
-
-
         </div>
     );
 };

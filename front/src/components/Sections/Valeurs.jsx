@@ -212,9 +212,10 @@ const Valeurs = () => {
                             }}
                             animate={controls}
                             className="leading-6 md:leading-7 text-ex_light_purple origin-top-left"
-                            dangerouslySetInnerHTML={{ __html: info[position].description }}
-                        >
-                        </motion.p>
+                            dangerouslySetInnerHTML={{
+                                __html: info[position].description,
+                            }}
+                        ></motion.p>
                         <Button
                             text={info[position].button.text}
                             color={info[position].button.color}
@@ -306,9 +307,11 @@ const Valeurs = () => {
                             <Title title={elem.title} center={true} />
                             <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
                             <p
-                                dangerouslySetInnerHTML={{ __html: elem.description }}
-                                className="leading-6 md:leading-7 text-ex_light_purple">
-                            </p>
+                                dangerouslySetInnerHTML={{
+                                    __html: elem.description,
+                                }}
+                                className="leading-6 md:leading-7 text-ex_light_purple"
+                            ></p>
                             <Button
                                 text={info[index].button.text}
                                 color={info[index].button.color}

@@ -1,9 +1,10 @@
-import Button from "@/components/UI/Button";
-import { useEffect, useState } from "react";
+import { use, useCallback, useEffect, useState, Fragment, useRef } from "react";
 import { motion, useAnimationControls } from "framer-motion";
 import Title from "@/components/UI/Title";
 
 import { conseil, design, expertise } from "@/data/valeur";
+import { Dialog, Transition } from "@headlessui/react";
+import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
 
 const Valeurs = () => {
     const info = [conseil, design, expertise];
@@ -14,8 +15,56 @@ const Valeurs = () => {
 
     const [position, setPosition] = useState(0);
 
+    const [open, setOpen] = useState(false);
+    const cancelButtonRef = useRef(null);
+
     var position_shape1 = 0;
     const controls = useAnimationControls();
+
+    const Button = useCallback(
+        ({ text, color }) => {
+            var bg_color = "bg-ex_light_purple";
+            var font_color = "text-ex_dark_purple";
+            var fill_color = "fill-ex_dark_purple";
+
+            switch (color) {
+                case "purple":
+                    bg_color = "bg-ex_normal_purple";
+                    font_color = "text-white";
+                    fill_color = "fill-white";
+                    break;
+                case "yellow":
+                    bg_color = "bg-ex_light_yellow";
+                    font_color = "text-ex_dark_purple";
+                    fill_color = "fill-ex_dark_purple";
+                    break;
+                case "red":
+                    bg_color = "bg-ex_red";
+                    font_color = "text-white";
+                    fill_color = "fill-white";
+                    break;
+                default:
+                    break;
+            }
+
+            return (
+                <a
+                    className={`flex ${bg_color} ${font_color} text-ex_ items-center justify-center gap-2 px-4 py-4 sm:py-2  rounded-lg font-semibold whitespace-nowrap scale-100 hover:scale-105 cursor-pointer transition-all duration-500`}
+                    onClick={() => setOpen(true)}
+                >
+                    {text}
+                    <svg
+                        className={`h-6 ${fill_color}`}
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                    >
+                        <path d="M17.92,11.62a1,1,0,0,0-.21-.33l-5-5a1,1,0,0,0-1.42,1.42L14.59,11H7a1,1,0,0,0,0,2h7.59l-3.3,3.29a1,1,0,0,0,0,1.42,1,1,0,0,0,1.42,0l5-5a1,1,0,0,0,.21-.33A1,1,0,0,0,17.92,11.62Z" />
+                    </svg>
+                </a>
+            );
+        },
+        [position]
+    );
 
     useEffect(() => {
         const shapes_container =
@@ -48,6 +97,71 @@ const Valeurs = () => {
             id="nos_valeurs"
             className={`relative flex gap-16 flex-row w-full max-w-5xl m-auto px-8`}
         >
+            <Transition.Root show={open} as={Fragment}>
+                <Dialog
+                    as="div"
+                    className="relative z-50"
+                    initialFocus={cancelButtonRef}
+                    onClose={setOpen}
+                >
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div className="fixed inset-0 bg-slate-900 bg-opacity-75 transition-opacity" />
+                    </Transition.Child>
+
+                    <div className="fixed inset-0 z-10 overflow-y-auto">
+                        <div className="flex h-full items-center justify-center p-8 sm:items-center">
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            >
+                                <Dialog.Panel className="relative flex flex-col h-full sm:h-auto max-h-none sm:max-h-full transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8 w-full max-w-5xl">
+                                    <motion.p
+                                        initial={{
+                                            opacity: 0,
+                                            scale: 0.95,
+                                        }}
+                                        whileInView={{
+                                            opacity: 1,
+                                            scale: 1,
+                                        }}
+                                        transition={{
+                                            duration: duration_text,
+                                        }}
+                                        animate={controls}
+                                        className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
+                                        dangerouslySetInnerHTML={{
+                                            __html: info[position].more,
+                                        }}
+                                    ></motion.p>
+                                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                        <button
+                                            type="button"
+                                            className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                            onClick={() => setOpen(false)}
+                                            ref={cancelButtonRef}
+                                        >
+                                            Fermer
+                                        </button>
+                                    </div>
+                                </Dialog.Panel>
+                            </Transition.Child>
+                        </div>
+                    </div>
+                </Dialog>
+            </Transition.Root>
             {/*--------------------- LEFT ---------------------*/}
             <motion.div
                 initial={{
@@ -97,10 +211,14 @@ const Valeurs = () => {
                                 duration: duration_text,
                             }}
                             animate={controls}
-                            className="text-justify leading-6 md:leading-7 text-ex_light_purple origin-top-left"
+                            className="leading-6 md:leading-7 text-ex_light_purple origin-top-left"
+                            dangerouslySetInnerHTML={{ __html: info[position].description }}
                         >
-                            {info[position].description}
                         </motion.p>
+                        <Button
+                            text={info[position].button.text}
+                            color={info[position].button.color}
+                        />
                     </div>
                 </div>
             </motion.div>
@@ -144,7 +262,6 @@ const Valeurs = () => {
                     );
                 })}
             </div>
-
             {/* Mobile */}
             <div className="relative flex flex-col md:hidden justify-center items-center">
                 {info.map((elem, index) => {
@@ -188,20 +305,18 @@ const Valeurs = () => {
 
                             <Title title={elem.title} center={true} />
                             <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
-                            <p className="text-justify leading-6 md:leading-7 text-ex_light_purple">
-                                {elem.description}
+                            <p
+                                dangerouslySetInnerHTML={{ __html: elem.description }}
+                                className="leading-6 md:leading-7 text-ex_light_purple">
                             </p>
+                            <Button
+                                text={info[index].button.text}
+                                color={info[index].button.color}
+                            />
                         </motion.div>
                     );
                 })}
             </div>
-            {/* <svg
-        className="w-[600px] sm:w-[900px] z-[0] absolute fill-ex_normal_purple left-0 -translate-x-1/2 bottom-0 translate-y-1/2 opacity-20 shape1Animate"
-        viewBox="0 0 501 480"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path d="M501 240C501 265.819 475.501 287.292 467.929 310.585C460.069 334.736 467.806 367.001 453.198 387.122C438.411 407.415 405.182 409.989 384.865 424.755C364.753 439.384 352.117 470.249 327.951 478.089C304.637 485.64 276.37 468.348 250.527 468.348C224.685 468.348 196.418 485.647 173.104 478.089C148.938 470.249 136.302 439.384 116.19 424.755C95.8726 409.989 62.6439 407.415 47.8573 387.122C33.1943 367.001 40.9312 334.736 33.0706 310.585C25.5124 287.292 0 265.819 0 240C0 214.181 25.4987 192.708 33.0706 169.415C40.9312 145.264 33.1943 112.999 47.8023 92.8781C62.5889 72.5854 95.8176 70.0111 116.135 55.2447C136.247 40.6155 148.883 9.7509 173.049 1.91117C196.363 -5.64023 224.63 11.6525 250.473 11.6525C276.315 11.6525 304.583 -5.6471 327.896 1.91117C352.062 9.7509 364.698 40.6155 384.81 55.2447C405.127 70.0111 438.356 72.5854 453.143 92.8781C467.806 112.999 460.069 145.264 467.929 169.415C475.501 192.708 501 214.181 501 240Z" />
-      </svg> */}
         </section>
     );
 };
