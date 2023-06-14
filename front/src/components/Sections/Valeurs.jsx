@@ -1,10 +1,14 @@
-import { use, useCallback, useEffect, useState, Fragment, useRef } from "react";
-import { motion, useAnimationControls } from "framer-motion";
+import { useCallback, useEffect, useState, Fragment, useRef, use } from "react";
+import { motion, useAnimationControls, useInView } from "framer-motion";
 import Title from "@/components/UI/Title";
 
 import { conseil, design, expertise } from "@/data/valeur";
 import { Dialog, Transition } from "@headlessui/react";
-import { ExclamationTriangleIcon } from "@heroicons/react/24/outline";
+
+import Lottie from "lottie-react";
+import triangle from "/public/static/lotties/Triangle.json";
+import circle from "/public/static/lotties/Circle.json";
+import square from "/public/static/lotties/Square.json";
 
 const Valeurs = () => {
     const info = [conseil, design, expertise];
@@ -13,7 +17,52 @@ const Valeurs = () => {
     const duration_text = 0.5;
     const shapes = ["ShapeConseil", "ShapeDesign", "ShapeExpertise"];
 
-    const [position, setPosition] = useState(0);
+    // Lotties
+    const lotties = [triangle, circle, square];
+
+    const triangleRef = useRef(null);
+    const triangleLottieRef = useRef(null);
+    const triangleIsInView = useInView(triangleRef);
+
+    const circleRef = useRef(null);
+    const circleLottieRef = useRef(null);
+    const circleIsInView = useInView(circleRef);
+
+    const squareRef = useRef(null);
+    const squareLottieRef = useRef(null);
+    const squareIsInView = useInView(squareRef);
+
+    const shapesRefs = [triangleRef, circleRef, squareRef];
+    const shapesLottiesRefs = [
+        triangleLottieRef,
+        circleLottieRef,
+        squareLottieRef,
+    ];
+
+    useEffect(() => {
+        if (triangleIsInView) {
+            console.log("play triangle");
+            triangleLottieRef.current.play();
+        }
+        if (circleIsInView) {
+            console.log("play circle");
+            circleLottieRef.current.play();
+        }
+        if (squareIsInView) {
+            console.log("play square");
+            squareLottieRef.current.play();
+        }
+    }, [triangleIsInView, circleIsInView, squareIsInView]);
+
+    useEffect(() => {}, [triangleLottieRef.current]);
+
+    //
+    const positionRef = useRef(0);
+    const [position, __setPosition] = useState(0);
+    const setPosition = (data) => {
+        positionRef.current = data;
+        __setPosition(data);
+    };
 
     const [open, setOpen] = useState(false);
     const cancelButtonRef = useRef(null);
@@ -66,22 +115,34 @@ const Valeurs = () => {
         [position]
     );
 
-    useEffect(() => {
+    const listener = (event) => {
         const shapes_container =
             window.document.querySelector("#shapes_container");
 
-        window.addEventListener("scroll", (event) => {
-            if (shapes_container.children[0].getBoundingClientRect().top <= 0) {
-                position_shape1 =
-                    shapes_container.children[0].getBoundingClientRect().top;
+        if (shapes_container.children[0].getBoundingClientRect().top <= 0) {
+            position_shape1 =
+                shapes_container.children[0].getBoundingClientRect().top;
 
-                var sections = shapes_container.clientHeight / 3;
-                let position = Math.abs(Math.round(position_shape1 / sections));
-                if (position <= 2) {
-                    setPosition(position);
+            var sections = shapes_container.clientHeight / 3;
+            let newPosition = Math.abs(Math.round(position_shape1 / sections));
+            if (newPosition <= 2) {
+                if (positionRef.current !== newPosition) {
+                    // window.scrollTo({
+                    //     top: position_shape1 + sections * newPosition,
+                    //     behavior: "smooth",
+                    // });
+                    setPosition(newPosition);
                 }
             }
-        });
+        }
+    };
+
+    useEffect(() => {
+        triangleLottieRef.current.stop();
+        circleLottieRef.current.stop();
+        squareLottieRef.current.stop();
+
+        window.addEventListener("scroll", listener);
     }, []);
 
     useEffect(() => {
@@ -143,7 +204,8 @@ const Valeurs = () => {
                                         animate={controls}
                                         className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
                                         dangerouslySetInnerHTML={{
-                                            __html: info[position].more,
+                                            __html: info[positionRef.current]
+                                                ?.more,
                                         }}
                                     ></motion.p>
                                     <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
@@ -181,7 +243,7 @@ const Valeurs = () => {
             >
                 <div className="sticky top-0 ">
                     <div className="flex h-screen flex-col justify-center gap-8 ">
-                        <Title title={info[position].title} />
+                        <Title title={info[positionRef.current]?.title} />
 
                         <motion.div
                             initial={{
@@ -212,12 +274,13 @@ const Valeurs = () => {
                             }}
                             animate={controls}
                             className="leading-6 md:leading-7 text-ex_light_purple origin-top-left"
-                            dangerouslySetInnerHTML={{ __html: info[position].description }}
-                        >
-                        </motion.p>
+                            dangerouslySetInnerHTML={{
+                                __html: info[positionRef.current]?.description,
+                            }}
+                        ></motion.p>
                         <Button
-                            text={info[position].button.text}
-                            color={info[position].button.color}
+                            text={info[positionRef.current]?.button.text}
+                            color={info[positionRef.current]?.button.color}
                         />
                     </div>
                 </div>
@@ -237,7 +300,23 @@ const Valeurs = () => {
                             key={index}
                             className="snap-center h-screen w-full flex justify-center items-center "
                         >
-                            <motion.img
+                            <div
+                                ref={shapesRefs[index]}
+                                onMouseEnter={() =>
+                                    shapesLottiesRefs[
+                                        index
+                                    ].current.goToAndPlay(0)
+                                }
+                            >
+                                <Lottie
+                                    lottieRef={shapesLottiesRefs[index]}
+                                    animationData={lotties[index]}
+                                    loop={false}
+                                    on
+                                />
+                            </div>
+
+                            {/* <motion.img
                                 initial={{
                                     opacity: 0,
                                     scale: 0.7,
@@ -257,7 +336,7 @@ const Valeurs = () => {
                                 className="w-full"
                                 src={`/static/svg/${item}.svg`}
                                 alt=""
-                            />
+                            /> */}
                         </div>
                     );
                 })}
@@ -280,9 +359,9 @@ const Valeurs = () => {
                                 duration: duration_text,
                                 ease: "linear",
                             }}
-                            className="flex h-screen flex-col justify-center items-center gap-8"
+                            className="flex min-h-screen flex-col justify-center items-center gap-8 pt-16"
                         >
-                            <motion.img
+                            {/* <motion.img
                                 initial={{
                                     opacity: 0,
                                     scale: 1,
@@ -301,14 +380,23 @@ const Valeurs = () => {
                                 className="w-1/2 "
                                 src={`/static/svg/${shapes[index]}.svg`}
                                 alt=""
-                            />
+                            /> */}
+                            <div className="w-1/2">
+                                <Lottie
+                                    animationData={lotties[index]}
+
+                                    // loop={true}
+                                />
+                            </div>
 
                             <Title title={elem.title} center={true} />
                             <div className="h-[0.1rem] bg-ex_normal_purple w-32 sm:block hidden" />
                             <p
-                                dangerouslySetInnerHTML={{ __html: elem.description }}
-                                className="leading-6 md:leading-7 text-ex_light_purple">
-                            </p>
+                                dangerouslySetInnerHTML={{
+                                    __html: elem.description,
+                                }}
+                                className="leading-6 md:leading-7 text-ex_light_purple"
+                            ></p>
                             <Button
                                 text={info[index].button.text}
                                 color={info[index].button.color}

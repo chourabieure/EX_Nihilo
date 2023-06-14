@@ -154,11 +154,13 @@ const Card = ({ logo, bgColor, imgVerso, alt, tags }) => {
                         <div className=" w-full rounded-3xl relative">
                             <img src={imgVerso} alt={alt} />
                             <div className="absolute bottom-0 z-10 flex flex-col items-end gap-2 lg:gap-4 w-full p-2 sm:p-4">
-                                {tags.map((tag) => {
+                                {tags.map((tag, index) => {
                                     return (
-                                        <div className={`max-w-full`}>
+                                        <div
+                                            key={index}
+                                            className={`max-w-full`}
+                                        >
                                             <h1
-                                                key={tag}
                                                 className={`${bgColor} truncate font-Miju text-xs md:text-md lg:text-xl text-white px-2 py-1 rounded-lg `}
                                             >
                                                 {tag}
