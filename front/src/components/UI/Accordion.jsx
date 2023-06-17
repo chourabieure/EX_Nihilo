@@ -30,7 +30,7 @@ const Accordion = () => {
                         >
                             <div className="w-full h-[0.1rem] bg-ex_normal_purple opacity-20" />
                             <div className="flex justify-between items-center">
-                                <h3 className="text-md text-ex_normal_purple font-bold py-4">
+                                <h3 className="text-md text-ex_normal_purple font-bold py-4 flex-1">
                                     {item.title}
                                 </h3>
 

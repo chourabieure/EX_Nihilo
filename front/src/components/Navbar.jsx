@@ -35,12 +35,9 @@ const Navbar = () => {
         window.innerWidth > 900 && setIsActive(false);
     };
     const scrollListener = () => {
-        console.log(window.scrollY < window.visualViewport.height);
         if (isActiveRef.current || isLoadingRef.current) return;
 
-        const scrollPosition = window.scrollY;
-
-        if (window.scrollY < window.visualViewport.height) {
+        if (window.scrollY < window.visualViewport.height - 200) {
             showBandeau();
         } else {
             hideBandeau();
