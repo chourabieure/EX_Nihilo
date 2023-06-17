@@ -63,7 +63,7 @@ export function Email({
                             Bonjour je suis {name},
                         </Text>
                         <Text className="text-black text-[14px] leading-[24px]">
-                            J'aimerais être recontacter par mail au
+                            J'aimerais être recontacté par mail au
                             <Link
                                 href={`mailto:${email}`}
                                 className="text-ex_normal_purple no-underline"
