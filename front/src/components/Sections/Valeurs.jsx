@@ -188,7 +188,7 @@ const Valeurs = () => {
                                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             >
-                                <Dialog.Panel className="relative flex flex-col h-full sm:h-auto max-h-none sm:max-h-full transform overflow-hidden rounded-lg bg-white shadow-xl transition-all sm:my-8 w-full max-w-5xl">
+                                <Dialog.Panel className="relative flex flex-col h-full sm:h-auto max-h-none sm:max-h-full transform overflow-hidden rounded-lg bg-ex_normal_purple/30 backdrop-blur-md shadow-xl transition-all sm:my-8 w-full max-w-5xl">
                                     <motion.p
                                         initial={{
                                             opacity: 0,
@@ -202,16 +202,16 @@ const Valeurs = () => {
                                             duration: duration_text,
                                         }}
                                         animate={controls}
-                                        className="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-ex_dark_purple origin-top overflow-y-scroll flex-1"
+                                        className="px-4 pb-4 pt-5 sm:p-6 sm:pb-4 text-md font-semibold text-white origin-top overflow-y-scroll flex-1"
                                         dangerouslySetInnerHTML={{
                                             __html: info[positionRef.current]
                                                 ?.more,
                                         }}
                                     ></motion.p>
-                                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                    <div className="bg-slate-900/30 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
                                         <button
                                             type="button"
-                                            className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                            className="mt-3 inline-flex w-full justify-center rounded-md bg-ex_light_purple/80 px-3 py-2 text-sm font-semibold text-white shadow-sm ring-1 ring-inset ring-ex_light_purple hover:bg-ex_light_purple sm:mt-0 sm:w-auto"
                                             onClick={() => setOpen(false)}
                                             ref={cancelButtonRef}
                                         >

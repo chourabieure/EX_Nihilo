@@ -172,12 +172,16 @@ const Navbar = () => {
                 onClick={() => setOpen(true)}
             >
                 <div className="my-4 mx-8 py-1 px-8 bg-ex_light_purple shadow-[0px_2px_40px_rgba(255,255,255,0.25)] w-full flex justify-center items-center gap-4 rounded-full scale-100 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                    <span className="text-ex_dark_purple font-bold text-sm lg:text-md">
+                   
+                    <span className="text-ex_dark_purple font-bold text-sm lg:text-md hidden sm:block">
                         Découvrez notre nouvelle charte graphique en animation
+                    </span>
+                    <span className="text-ex_dark_purple font-bold text-sm lg:text-md block sm:hidden">
+                        Nouvelle charte graphique
                     </span>
 
                     <svg
-                        className="h-8 w-8 fill-ex_dark_purple"
+                        className="sm:h-8 sm:w-8 h-6 w-6 fill-ex_dark_purple"
                         xmlns="http://www.w3.org/2000/svg"
                         viewBox="0 0 24 24"
                     >
