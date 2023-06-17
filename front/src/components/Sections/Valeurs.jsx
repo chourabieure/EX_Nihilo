@@ -312,7 +312,6 @@ const Valeurs = () => {
                                     lottieRef={shapesLottiesRefs[index]}
                                     animationData={lotties[index]}
                                     loop={false}
-                                    on
                                 />
                             </div>
 

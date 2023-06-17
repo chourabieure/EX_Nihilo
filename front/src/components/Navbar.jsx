@@ -6,7 +6,7 @@ import { Dialog, Transition } from "@headlessui/react";
 import gsap from "gsap";
 
 const Navbar = () => {
-    const [open, setOpen] = useState(true);
+    const [open, setOpen] = useState(false);
     const cancelButtonRef = useRef(null);
 
     const [isActive, __setIsActive] = useState(false);
@@ -135,32 +135,18 @@ const Navbar = () => {
                                 leaveFrom="opacity-100 translate-y-0 sm:scale-100"
                                 leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
                             >
-                                <Dialog.Panel className="relative flex flex-col h-full sm:h-auto max-h-none sm:max-h-full transform overflow-hidden rounded-lg bg-ex_dark_purple/80  shadow-xl transition-all sm:my-8 w-full max-w-5xl">
-                                    <div className="w-full flex justify-center">
-                                        <video
-                                            className="bg-gray-200 rounded-2xl md:max-w-[400px] flex-grow object-cover"
-                                            src={`/static/video/Motion.mp4`}
-                                            type="video/mp4"
-                                            autoPlay
-                                            playsInline
-                                            controls
-                                            muted
-                                        >
-                                            Your browser can't play this kind of
-                                            video, sorry.
-                                        </video>
-                                    </div>
-
-                                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
-                                        <button
-                                            type="button"
-                                            className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
-                                            onClick={() => setOpen(false)}
-                                            ref={cancelButtonRef}
-                                        >
-                                            Fermer
-                                        </button>
-                                    </div>
+                                <Dialog.Panel>
+                                    <video
+                                        className="bg-gray-200 rounded-2xl md:max-w-[600px] flex-grow object-cover"
+                                        src={`/static/video/Motion.mp4`}
+                                        type="video/mp4"
+                                        autoPlay
+                                        playsInline
+                                        controls
+                                    >
+                                        Your browser can't play this kind of
+                                        video, sorry.
+                                    </video>
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>
@@ -172,7 +158,6 @@ const Navbar = () => {
                 onClick={() => setOpen(true)}
             >
                 <div className="my-4 mx-8 py-1 px-8 bg-ex_light_purple shadow-[0px_2px_40px_rgba(255,255,255,0.25)] w-full flex justify-center items-center gap-4 rounded-full scale-100 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
-                   
                     <span className="text-ex_dark_purple font-bold text-sm lg:text-md hidden sm:block">
                         Découvrez notre nouvelle charte graphique en animation
                     </span>
