@@ -1,10 +1,14 @@
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, Fragment } from "react";
 import { navbarItems } from "@/data/navbar";
+import { Dialog, Transition } from "@headlessui/react";
 
 import gsap from "gsap";
 
 const Navbar = () => {
+    const [open, setOpen] = useState(true);
+    const cancelButtonRef = useRef(null);
+
     const [isActive, __setIsActive] = useState(false);
     const setIsActive = (value) => {
         __setIsActive(value);
@@ -31,26 +35,16 @@ const Navbar = () => {
         window.innerWidth > 900 && setIsActive(false);
     };
     const scrollListener = () => {
-        // console.log(heroContainerRef.current.clientHeight);
+        console.log(window.scrollY < window.visualViewport.height);
         if (isActiveRef.current || isLoadingRef.current) return;
 
         const scrollPosition = window.scrollY;
 
-        if (heroContainerRef.current.clientHeight < scrollPosition) {
-            if (bandeauActiveRef.current) instantHide();
-            return;
-        }
-
-        if (scrollPosition > scrollPositionRef.current) {
-            if (bandeauActiveRef.current) {
-                hideBandeau();
-            }
+        if (window.scrollY < window.visualViewport.height) {
+            showBandeau();
         } else {
-            if (!bandeauActiveRef.current) {
-                showBandeau();
-            }
+            hideBandeau();
         }
-        scrollPositionRef.current = scrollPosition;
     };
     // Close menu when re-opening (responsive)
     useEffect(() => {
@@ -68,11 +62,11 @@ const Navbar = () => {
             },
         });
         tl.to(".bandeau", {
-            duration: 0.5,
+            duration: 0.3,
             opacity: 0,
             visibility: "hidden",
         }).to(".bandeau", {
-            duration: 0.3,
+            duration: 0.1,
             height: 0,
         });
     };
@@ -86,10 +80,10 @@ const Navbar = () => {
             },
         });
         tl.to(".bandeau", {
-            duration: 0.3,
+            duration: 0.1,
             height: "auto",
         }).to(".bandeau", {
-            duration: 0.5,
+            duration: 0.3,
             visibility: "visible",
             opacity: 1,
         });
@@ -111,11 +105,73 @@ const Navbar = () => {
 
     return (
         <nav className="fixed navbar z-20 top-0 w-full py-4 bg-slate-900/60 backdrop-blur-md">
-            <div className=" flex justify-center bandeau">
-                <a
-                    href="#"
-                    className="my-4 mx-8 py-1 px-8 bg-ex_light_purple w-full flex justify-center items-center gap-4 rounded-full scale-100 hover:scale-[1.02] transition-all duration-300"
+            <Transition.Root show={open} as={Fragment}>
+                <Dialog
+                    as="div"
+                    className="relative z-50"
+                    initialFocus={cancelButtonRef}
+                    onClose={setOpen}
                 >
+                    <Transition.Child
+                        as={Fragment}
+                        enter="ease-out duration-300"
+                        enterFrom="opacity-0"
+                        enterTo="opacity-100"
+                        leave="ease-in duration-200"
+                        leaveFrom="opacity-100"
+                        leaveTo="opacity-0"
+                    >
+                        <div className="fixed inset-0 bg-slate-900 bg-opacity-75 transition-opacity" />
+                    </Transition.Child>
+
+                    <div className="fixed inset-0 z-10 overflow-y-auto">
+                        <div className="flex h-full items-center justify-center p-8 sm:items-center">
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                                enterTo="opacity-100 translate-y-0 sm:scale-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100 translate-y-0 sm:scale-100"
+                                leaveTo="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                            >
+                                <Dialog.Panel className="relative flex flex-col h-full sm:h-auto max-h-none sm:max-h-full transform overflow-hidden rounded-lg bg-ex_dark_purple/80  shadow-xl transition-all sm:my-8 w-full max-w-5xl">
+                                    <div className="w-full flex justify-center">
+                                        <video
+                                            className="bg-gray-200 rounded-2xl md:max-w-[400px] flex-grow object-cover"
+                                            src={`/static/video/Motion.mp4`}
+                                            type="video/mp4"
+                                            autoPlay
+                                            playsInline
+                                            controls
+                                            muted
+                                        >
+                                            Your browser can't play this kind of
+                                            video, sorry.
+                                        </video>
+                                    </div>
+
+                                    <div className="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                                        <button
+                                            type="button"
+                                            className="mt-3 inline-flex w-full justify-center rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 sm:mt-0 sm:w-auto"
+                                            onClick={() => setOpen(false)}
+                                            ref={cancelButtonRef}
+                                        >
+                                            Fermer
+                                        </button>
+                                    </div>
+                                </Dialog.Panel>
+                            </Transition.Child>
+                        </div>
+                    </div>
+                </Dialog>
+            </Transition.Root>
+            <div
+                className=" flex justify-center bandeau"
+                onClick={() => setOpen(true)}
+            >
+                <div className="my-4 mx-8 py-1 px-8 bg-ex_light_purple shadow-[0px_2px_40px_rgba(255,255,255,0.25)] w-full flex justify-center items-center gap-4 rounded-full scale-100 hover:scale-[1.02] transition-all duration-300 cursor-pointer">
                     <span className="text-ex_dark_purple font-bold text-sm lg:text-md">
                         Découvrez notre nouvelle charte graphique en animation
                     </span>
@@ -127,7 +183,7 @@ const Navbar = () => {
                     >
                         <path d="M14.83,11.29,10.59,7.05a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41L12.71,12,9.17,15.54a1,1,0,0,0,0,1.41,1,1,0,0,0,.71.29,1,1,0,0,0,.71-.29l4.24-4.24A1,1,0,0,0,14.83,11.29Z" />
                     </svg>
-                </a>
+                </div>
             </div>
             {/* Logo */}
             <div className="m-auto max-w-7xl h-16 justify-between items-center flex px-8 gap-4">
