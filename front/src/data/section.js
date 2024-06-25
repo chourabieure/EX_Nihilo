@@ -33,30 +33,6 @@ const teamMembers = [
             "J’accompagne, conseille et chouchoute les clients d’Ex Nihilo dans leur dossiers vêtements. En étroite collaboration avec le design, j’assure le développement et le suivi des différents projets jusqu’à leur industrialisation et leur suivi qualité. Je coordonne le bureau d’étude et reste, toujours en veille de nouvelles solutions et de nouveautés technologiques.",
         srcImg: "/static/images/portrait/Carine.png",
     },
-    {
-        id: 3,
-        name: "Anaïs",
-        job: "Modéliste Industrielle",
-        description:
-            "Riche d’un parcours de modélisme dans le secteur du prêt-à-porter, j’ai suivi toutes les évolutions technologiques de mon métier avec enthousiasme et curiosité. Je suis l’interlocutrice privilégiée lors du développement des modèles et du suivi de l’industrialisation. En étroite collaboration avec le design je mets mon savoir-faire au service de la création des solutions d’habillement professionnel.",
-        srcImg: "/static/images/portrait/Anais.png",
-    },
-    {
-        id: 4,
-        name: "Julien",
-        job: "Chargée de développement commercial",
-        description:
-            "Tourné vers la satisfaction client, j’explore les différentes facettes du développement commercial. Je participe à la communication et à la stratégie commerciale afin d’accroitre le portefeuille clients et la visibilité d’Ex Nihilo. Enthousiaste et plein d’énergie, je vous accompagne dans  vos recherches de solutions d’habillement professionnel. ",
-        srcImg: "/static/images/portrait/Julien.png",
-    },
-    {
-        id: 5,
-        name: "Daisy",
-        job: "Prototypiste Industrielle",
-        description:
-            "De formation technique et riche d’une pratique protéiforme, je réalise la mise au point des modèles afin de donner corps aux créations de notre studio créa. J’assure les ajustements et les choix techniques avec le reste de l’équipe afin de garantir la bonne industrialisation de vos modèles et leur bien aller. Curieuse et créative, j’aime la diversité des projets que vous nous confiez.",
-        srcImg: "/static/images/portrait/Daisy.png",
-    },
 ];
 
 export { qui_sommes_nous, que_faisons_nous, teamMembers };
